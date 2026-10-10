@@ -1,0 +1,53 @@
+{
+  "name": "citrix-solutions-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.37.0",
+    "@emotion/react": "^11.14.0",
+    "@fontsource/clear-sans": "^5.3.0",
+    "@portabletext/react": "^8.0.1",
+    "@react-email/components": "^1.0.12",
+    "@sanity/icons": "^5.2.3",
+    "@sanity/vision": "^6.18.0",
+    "@tanstack/react-form": "^1.33.5",
+    "@tanstack/react-query": "^5.104.1",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "embla-carousel-react": "^8.6.0",
+    "lucide-react": "^1.55.0",
+    "motion": "^14.1.0",
+    "next": "16.4.0",
+    "next-sanity": "^13.3.4",
+    "nuqs": "^2.10.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-icons": "^5.7.0",
+    "resend": "^6.32.1",
+    "sanity": "^6.18.0",
+    "server-only": "^0.0.1",
+    "styled-components": "^6.5.3",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.0",
+    "prettier": "^3.9.10",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9"
+  }
+}

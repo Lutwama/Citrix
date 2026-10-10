@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160">
+  <defs>
+    <mask id="g">
+      <rect width="100" height="100" fill="white"/>
+      <path d="M50 2 A24 24 0 0 1 50 50 A24 24 0 0 0 50 98" fill="none" stroke="black" stroke-width="7"/>
+      <path d="M80 8 L92 20" stroke="black" stroke-width="9"/>
+      <path d="M20 92 L8 80" stroke="black" stroke-width="9"/>
+    </mask>
+    <g id="m" mask="url(#g)">
+      <path d="M50 4 A46 46 0 0 0 50 96 A23 23 0 0 1 50 50 A23 23 0 0 0 50 4 Z" fill="#004E9B" fill-opacity="0.12"/>
+      <path d="M50 96 A46 46 0 0 0 50 4 A23 23 0 0 1 50 50 A23 23 0 0 0 50 96 Z" fill="#0091B9" fill-opacity="0.12"/>
+    </g>
+  </defs>
+  <use href="#m" transform="translate(10 10) scale(0.6)"/>
+  <use href="#m" transform="translate(90 90) scale(0.6)"/>
+</svg>
