@@ -2,10 +2,24 @@ import { createElement } from "react";
 import type { Metadata } from "next";
 import type { Seo, SiteSettings } from "./types";
 
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")
-).replace(/\/$/, "");
+// Tolerates blank values and a missing protocol ("citrix.vercel.app"), since
+// env vars are easy to save empty or half-typed in the Vercel dashboard.
+function resolveSiteUrl() {
+  const candidates = [process.env.NEXT_PUBLIC_SITE_URL, process.env.VERCEL_PROJECT_PRODUCTION_URL, process.env.VERCEL_URL];
+  for (const raw of candidates) {
+    const value = raw?.trim();
+    if (!value) continue;
+    const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+    try {
+      return new URL(withProtocol).origin;
+    } catch {
+      // try the next candidate
+    }
+  }
+  return "http://localhost:3000";
+}
+
+export const siteUrl = resolveSiteUrl();
 
 export function pageMetadata({
   title,
