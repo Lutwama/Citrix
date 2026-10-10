@@ -18,7 +18,7 @@ import {
 import { useForm, type AnyFieldApi } from "@tanstack/react-form";
 import { useMutation } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight, Check, CircleCheckBig, Send } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { parseAsString, useQueryState } from "nuqs";
 import { useState } from "react";
 import type { z } from "zod";
@@ -81,10 +81,13 @@ export function QuoteForm({ services, whatsapp }: { services: ServiceSummary[]; 
 
   async function next() {
     const fields = QUOTE_STEPS[step].fields;
-    await Promise.all(fields.map((f) => form.validateField(f, "submit")));
+    // Decide from the schema itself, not field meta: field validators only
+    // exist while their inputs are mounted (e.g. mid step-transition).
+    const ok = fields.every((f) => quoteFields[f].safeParse(form.getFieldValue(f)).success);
+    if (ok) return setStep((s) => s + 1);
+    // Surface the messages on the visible inputs.
     fields.forEach((f) => form.setFieldMeta(f, (m) => ({ ...m, isTouched: true })));
-    const ok = fields.every((f) => (form.getFieldMeta(f)?.errors.length ?? 0) === 0);
-    if (ok) setStep((s) => s + 1);
+    await Promise.all(fields.map((f) => form.validateField(f, "submit")));
   }
 
   if (mutation.isSuccess) {
@@ -150,8 +153,8 @@ export function QuoteForm({ services, whatsapp }: { services: ServiceSummary[]; 
         )}
       </form.Field>
 
-      <AnimatePresence mode="wait">
-        <motion.div key={step} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }} transition={{ duration: 0.25 }}>
+      {/* Keyed enter-only animation: the new step mounts immediately, so the form never waits on an exit animation. */}
+        <motion.div key={step} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.25 }}>
           {step === 0 && (
             <form.Field name="services" validators={{ onChange: quoteFields.services, onSubmit: quoteFields.services }}>
               {(field) => (
@@ -300,7 +303,6 @@ export function QuoteForm({ services, whatsapp }: { services: ServiceSummary[]; 
             </SimpleGrid>
           )}
         </motion.div>
-      </AnimatePresence>
 
       {mutation.isError && (
         <Box mt={6} p={4} rounded="lg" bg="red.50" color="red.700" role="alert">

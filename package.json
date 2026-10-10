@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^3.37.0",
+    "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@fontsource/clear-sans": "^5.3.0",
     "@portabletext/react": "^8.0.1",

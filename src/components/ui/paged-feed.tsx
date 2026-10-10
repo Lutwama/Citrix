@@ -2,7 +2,7 @@
 
 import { Box, Button, Flex, HStack, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { parseAsString, useQueryState } from "nuqs";
 import type { ReactNode } from "react";
 import type { Paged } from "@/lib/types";
@@ -82,13 +82,11 @@ export function PagedFeed<T extends { _id: string }>({
         </Text>
       ) : (
         <SimpleGrid columns={columns} gap={{ base: 8, md: 10 }}>
-          <AnimatePresence mode="popLayout">
             {items.map((item) => (
-              <motion.div key={item._id} layout initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.35 }}>
+              <motion.div key={item._id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
                 {renderItem(item)}
               </motion.div>
             ))}
-          </AnimatePresence>
         </SimpleGrid>
       )}
 
