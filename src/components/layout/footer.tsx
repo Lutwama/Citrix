@@ -25,7 +25,7 @@ export function Footer({ settings, services }: { settings: SiteSettings; service
       <Container maxW="7xl" position="relative">
         <Grid templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1.4fr 1fr 1fr 1.3fr" }} gap={{ base: 10, lg: 12 }}>
           <Stack gap={5}>
-            <Logo tone="white" size={48} withTagline />
+            <Logo tone="white" height={{ base: "64px", md: "76px" }} />
             <Text color="whiteAlpha.800" maxW="sm">
               {settings.description}
             </Text>

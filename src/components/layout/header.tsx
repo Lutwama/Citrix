@@ -56,7 +56,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
         <Flex h={{ base: 16, md: 20 }} align="center" justify="space-between" gap={6}>
           <Link asChild _hover={{ textDecoration: "none" }} aria-label="Citrix Solutions — home">
             <NextLink href="/">
-              <Logo size={40} />
+              <Logo height={{ base: "48px", md: "60px" }} />
             </NextLink>
           </Link>
 
@@ -104,7 +104,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
                 <Drawer.Positioner>
                   <Drawer.Content>
                     <Drawer.Header>
-                      <Logo size={36} />
+                      <Logo height="48px" />
                     </Drawer.Header>
                     <Drawer.Body>
                       <Stack as="nav" aria-label="Mobile" gap={1}>

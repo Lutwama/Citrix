@@ -1,4 +1,4 @@
-import { Box, Flex, Text, type BoxProps } from "@chakra-ui/react";
+import { Box, Image, type BoxProps } from "@chakra-ui/react";
 
 type Tone = "color" | "white";
 
@@ -37,33 +37,31 @@ export function LogoMark({ tone = "color", size = 44, ...rest }: { tone?: Tone; 
   );
 }
 
-/** Horizontal lockup: mark + "CITRIX / SOLUTIONS LTD" (+ optional tagline). */
+/**
+ * Horizontal lockup from the official artwork (public/brand/citrix-logo.png,
+ * 620×196, cropped tight, tagline included). `height` takes a responsive
+ * value; width follows the aspect ratio. The white tone recolours it with a
+ * CSS filter.
+ */
 export function Logo({
   tone = "color",
-  size = 44,
-  withTagline = false,
+  height = "56px",
 }: {
   tone?: Tone;
-  size?: number;
-  withTagline?: boolean;
+  height?: BoxProps["h"];
 }) {
-  const c = COLORS[tone];
   return (
-    <Flex align="center" gap={`${size * 0.22}px`} lineHeight="1">
-      <LogoMark tone={tone} size={size} />
-      <Box fontFamily="heading" fontWeight="600" letterSpacing="0.01em">
-        <Text as="span" display="block" color={c.name} fontSize={`${size * 0.42}px`}>
-          CITRIX
-        </Text>
-        <Text as="span" display="block" color={c.sub} fontSize={`${size * 0.34}px`} mt="0.1em">
-          SOLUTIONS LTD
-        </Text>
-        {withTagline && (
-          <Text as="span" display="block" color={c.tag} fontFamily="body" fontStyle="italic" fontWeight="400" fontSize={`${size * 0.2}px`} mt="0.45em">
-            Integrated Solutions for Modern Brand Growth
-          </Text>
-        )}
-      </Box>
-    </Flex>
+    <Image
+      src="/brand/citrix-logo.png"
+      alt="Citrix Solutions Ltd"
+      h={height}
+      w="auto"
+      aspectRatio="620 / 196"
+      objectFit="contain"
+      alignSelf="flex-start"
+      flexShrink={0}
+      display="block"
+      filter={tone === "white" ? "brightness(0) invert(1)" : undefined}
+    />
   );
 }
