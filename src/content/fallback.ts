@@ -15,13 +15,13 @@ export const settings: SiteSettings = {
   tagline: "Integrated Solutions for Modern Brand Growth",
   description:
     "Citrix Solutions is a Kampala-based creative partner for print, graphic design, branding, web design and event management.",
-  phone: "+256 700 000 000",
-  whatsapp: "256700000000",
-  email: "hello@citrixsolutions.co.ug",
-  address: "Plot 00, Kampala Road",
+  phone: "+256 708 985 056",
+  whatsapp: "256785615450",
+  email: "citrixsolutionsltd2025@gmail.com",
+  address: "Blue Heights Building, Level 6, Room J506, Nkrumah Road",
   city: "Kampala, Uganda",
   mapEmbedUrl:
-    "https://www.google.com/maps?q=Kampala%20Road%2C%20Kampala&output=embed",
+    "https://www.google.com/maps?q=Blue%20Heights%20Building%2C%20Nkrumah%20Road%2C%20Kampala&output=embed",
   hours: "Mon – Sat, 8:00am – 6:00pm",
   socials: [
     { platform: "facebook", url: "https://facebook.com/" },
