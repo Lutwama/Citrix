@@ -41,7 +41,7 @@ const summarizeProject = ({ _id, title, slug, client, year, industry, cover, art
   _id, title, slug, client, year, industry, cover, art, sample, services,
 });
 
-const summarizePost = ({ body: _b, paragraphs: _p, seo: _s, ...rest }: Post): PostSummary => rest;
+const summarizePost = ({ body: _b, paragraphs: _p, content: _c, products: _pr, seo: _s, ...rest }: Post): PostSummary => rest;
 
 export const getSettings = cache(async (): Promise<SiteSettings> => {
   if (!isSanityConfigured) return fallback.settings;

@@ -10,7 +10,7 @@ export function formatDate(iso: string) {
 export function PostCard({ post }: { post: PostSummary }) {
   return (
     <LinkBox as="article" role="group" h="full" display="flex" flexDirection="column" rounded="card" overflow="hidden" bg="white" borderWidth="1px" borderColor="blackAlpha.100" transition="all 0.25s" _hover={{ boxShadow: "0 20px 40px -24px rgba(0,78,155,0.4)" }}>
-      <Media image={post.cover} alt={post.title} seed={post.slug} aspectRatio={16 / 9} />
+      <Media image={post.cover} alt={post.title} seed={post.slug} art={post.art} artLabel={post.category?.title ?? "Citrix Insights"} aspectRatio={16 / 9} />
       <Box p={6} display="flex" flexDirection="column" flex="1">
         <HStack gap={2} fontSize="sm" color="fg.muted" mb={3}>
           {post.category && (

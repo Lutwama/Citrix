@@ -109,14 +109,26 @@ export type PostSummary = {
   excerpt: string;
   publishedAt: string;
   cover: SanityImage;
+  art?: ProjectArtKind; // illustration shown when there's no cover photo
   category?: { title: string; slug: string } | null;
   author?: { name: string } | null;
   readingMinutes?: number;
 };
 
+// Structured article content for the local fallback (Sanity posts use `body`).
+export type ArticleBlock =
+  | { type: "h2"; text: string }
+  | { type: "p"; text: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "checklist"; title?: string; items: string[] }
+  | { type: "tip"; title?: string; text: string }
+  | { type: "figure"; art: ProjectArtKind; caption: string };
+
 export type Post = PostSummary & {
   body?: PortableText;
   paragraphs?: string[]; // fallback content only
+  content?: ArticleBlock[]; // fallback content only
+  products?: string[]; // product slugs promoted at the end of the article
   seo: Seo;
 };
 

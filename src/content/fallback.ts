@@ -1,8 +1,6 @@
 // Placeholder content used when Sanity isn't configured (no
 // NEXT_PUBLIC_SANITY_PROJECT_ID). Replace by publishing real content in /studio.
 import type {
-  Category,
-  Post,
   Project,
   Service,
   SiteSettings,
@@ -400,83 +398,8 @@ export const projects: Project[] = sampleProjects.map(({ services: svcs, ...p },
   seo: null,
 }));
 
-export const categories: Category[] = [
-  { title: "Branding", slug: "branding" },
-  { title: "Print", slug: "print" },
-  { title: "Web", slug: "web" },
-  { title: "Events", slug: "events" },
-];
-
-export const posts: Post[] = [
-  {
-    _id: "post-1",
-    title: "5 signs your brand needs a refresh",
-    slug: "signs-your-brand-needs-a-refresh",
-    excerpt: "Outdated logos and inconsistent colours quietly cost you customers. Here's how to tell it's time.",
-    publishedAt: "2026-09-12",
-    cover: null,
-    category: categories[0],
-    author: { name: "Citrix Team" },
-    readingMinutes: 4,
-    paragraphs: [
-      "Your brand is often the first impression customers have of your business. Over time, markets shift and what once felt fresh can start to feel dated.",
-      "If your logo looks different on your signage, social media and business cards, customers notice — even subconsciously. Consistency builds trust.",
-      "A refresh doesn't have to mean starting over. Often, refining typography, colour and layout is enough to bring a brand back to life.",
-    ],
-    seo: null,
-  },
-  {
-    _id: "post-2",
-    title: "Preparing print-ready files: a quick checklist",
-    slug: "print-ready-files-checklist",
-    excerpt: "Bleed, resolution, colour mode — get these right and your print job will come out exactly as planned.",
-    publishedAt: "2026-08-28",
-    cover: null,
-    category: categories[1],
-    author: { name: "Citrix Team" },
-    readingMinutes: 3,
-    paragraphs: [
-      "Set up your document at the final trim size with 3mm bleed on all sides, and keep important text at least 5mm inside the trim.",
-      "Use CMYK colour mode and images at 300dpi at their placed size. Low-resolution images that look fine on screen will look blurry in print.",
-      "Export as a PDF/X with fonts embedded. When in doubt, send us the file — we check every job before it goes to press.",
-    ],
-    seo: null,
-  },
-  {
-    _id: "post-3",
-    title: "Why mobile speed matters for Ugandan websites",
-    slug: "mobile-speed-ugandan-websites",
-    excerpt: "Most of your visitors are on mobile data. A slow website is a lost customer.",
-    publishedAt: "2026-08-03",
-    cover: null,
-    category: categories[2],
-    author: { name: "Citrix Team" },
-    readingMinutes: 5,
-    paragraphs: [
-      "The majority of web traffic in Uganda comes from mobile devices, often on 3G or 4G connections with data costs top of mind.",
-      "Heavy images, unoptimised code and too many scripts all add up. Every extra second of load time increases the chance a visitor leaves.",
-      "Modern frameworks, optimised images and good hosting make a dramatic difference — and help your SEO too.",
-    ],
-    seo: null,
-  },
-  {
-    _id: "post-4",
-    title: "Planning a product launch event that people remember",
-    slug: "product-launch-event-planning",
-    excerpt: "From venue to stage design to follow-up — the essentials of a launch that gets talked about.",
-    publishedAt: "2026-07-15",
-    cover: null,
-    category: categories[3],
-    author: { name: "Citrix Team" },
-    readingMinutes: 6,
-    paragraphs: [
-      "Start with the story you want guests to leave with, then design every element — invitations, stage, signage — around it.",
-      "Book the venue and key vendors early, and build a run-of-show that accounts for every minute of the day.",
-      "Finally, plan the follow-up: photos, social content and thank-you messages keep the momentum going after the lights go down.",
-    ],
-    seo: null,
-  },
-];
+// Insights articles live in ./posts.ts.
+export { categories, posts } from "./posts";
 
 // Real client quotes only. Testimonial sections stay hidden while this is empty.
 // Ask the client's permission first, e.g.:
