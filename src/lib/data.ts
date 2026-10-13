@@ -37,8 +37,8 @@ function toPaged<T>(
   return { ...res, nextOffset: next < res.total ? next : null };
 }
 
-const summarizeProject = ({ _id, title, slug, client, year, cover, services }: Project): ProjectSummary => ({
-  _id, title, slug, client, year, cover, services,
+const summarizeProject = ({ _id, title, slug, client, year, industry, cover, art, sample, services }: Project): ProjectSummary => ({
+  _id, title, slug, client, year, industry, cover, art, sample, services,
 });
 
 const summarizePost = ({ body: _b, paragraphs: _p, seo: _s, ...rest }: Post): PostSummary => rest;

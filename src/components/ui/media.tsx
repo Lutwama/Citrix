@@ -1,6 +1,7 @@
 import { Box, type BoxProps } from "@chakra-ui/react";
 import Image from "next/image";
-import type { SanityImage } from "@/lib/types";
+import { ProjectArt } from "@/components/portfolio/project-art";
+import type { ProjectArtKind, SanityImage } from "@/lib/types";
 import { LogoMark } from "./logo";
 
 const GRADIENTS = [
@@ -17,8 +18,9 @@ function hash(s: string) {
 }
 
 /**
- * Renders a Sanity image when present, otherwise a branded gradient
- * placeholder so layouts look intentional before real photos are uploaded.
+ * Renders a Sanity image when present, otherwise a branded illustration
+ * (when `art` is given) or gradient placeholder, so layouts look intentional
+ * before real photos are uploaded.
  */
 export function Media({
   image,
@@ -26,6 +28,8 @@ export function Media({
   seed = "",
   sizes = "(max-width: 768px) 100vw, 33vw",
   priority = false,
+  art,
+  artLabel,
   ...rest
 }: {
   image: SanityImage | undefined;
@@ -33,6 +37,8 @@ export function Media({
   seed?: string;
   sizes?: string;
   priority?: boolean;
+  art?: ProjectArtKind;
+  artLabel?: string;
 } & BoxProps) {
   return (
     <Box position="relative" overflow="hidden" bg="brand.ice" {...rest}>
@@ -47,6 +53,10 @@ export function Media({
           blurDataURL={image.lqip}
           style={{ objectFit: "cover" }}
         />
+      ) : art ? (
+        <Box position="absolute" inset="0">
+          <ProjectArt kind={art} label={artLabel ?? alt} seed={seed} />
+        </Box>
       ) : (
         <Box position="absolute" inset="0" style={{ background: GRADIENTS[hash(seed) % GRADIENTS.length] }} display="grid" placeItems="center" role="img" aria-label={alt}>
           <Box position="absolute" inset="0" backgroundImage="url(/brand/swirl-pattern.svg)" backgroundSize="120px" opacity={0.12} />

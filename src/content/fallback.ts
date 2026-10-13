@@ -183,31 +183,219 @@ const svc = (slug: string) => {
   return { title: s.title, slug: s.slug };
 };
 
-export const projects: Project[] = [
-  ["Nile Coffee Co. identity", "nile-coffee-identity", "Nile Coffee Co.", "2025", ["branding", "print"]],
-  ["Kampala Fintech Summit", "kampala-fintech-summit", "KFS", "2025", ["event-management", "graphic-design"]],
-  ["Pearl Realty website", "pearl-realty-website", "Pearl Realty", "2025", ["web-design"]],
-  ["Ssese Water packaging", "ssese-water-packaging", "Ssese Water", "2024", ["print", "branding"]],
-  ["Unity Bank campaign", "unity-bank-campaign", "Unity Bank", "2024", ["graphic-design", "print"]],
-  ["Mbarara Agri Expo stand", "mbarara-agri-expo", "AgriLink UG", "2024", ["event-management", "print"]],
-  ["Savanna Lodges rebrand", "savanna-lodges-rebrand", "Savanna Lodges", "2024", ["branding", "web-design"]],
-  ["HealthPlus clinic signage", "healthplus-signage", "HealthPlus", "2023", ["print", "branding"]],
-  ["Tech Hub UG social kit", "tech-hub-social-kit", "Tech Hub UG", "2023", ["graphic-design"]],
-].map(([title, slug, client, year, svcs], i) => ({
+// SAMPLE PROJECTS — they show how the portfolio looks and are labelled
+// "Sample" on the site. Replace each with a real project (real client, story
+// and photos) and delete the `sample: true` line, or publish real projects in
+// /studio, which replaces this list entirely.
+type SampleProject = Omit<Project, "_id" | "services" | "cover" | "gallery" | "seo" | "sample"> & { services: string[] };
+
+const sampleProjects: SampleProject[] = [
+  {
+    title: "Coffee roaster brand identity",
+    slug: "coffee-roaster-identity",
+    client: "Specialty coffee roaster",
+    industry: "Food & beverage",
+    location: "Kampala",
+    year: "2025",
+    duration: "5 weeks",
+    art: "cards",
+    galleryArt: ["cards", "packaging", "signage"],
+    services: ["branding", "print"],
+    excerpt: "A full identity for a Ugandan coffee roaster preparing to sell in supermarkets and cafés.",
+    challenge:
+      "The roaster had great coffee but a home-made logo that looked out of place next to imported brands on supermarket shelves.",
+    solution:
+      "We ran a discovery session, built an identity around the coffee's origin, and rolled it out across bags, business cards, stationery and the café sign.",
+    result:
+      "A premium, consistent look across packaging, print and signage that gave the client the confidence to pitch to retail buyers.",
+    deliverables: ["Logo and identity system", "Brand guidelines", "Coffee bag labels", "Business cards and stationery", "Café signage"],
+    products: ["logo-design", "brand-guidelines", "stickers-labels", "business-cards", "signage"],
+    testimonial: null,
+  },
+  {
+    title: "Fintech conference",
+    slug: "fintech-conference",
+    client: "Fintech industry association",
+    industry: "Banking & finance",
+    location: "Kampala",
+    year: "2025",
+    duration: "8 weeks",
+    art: "event",
+    galleryArt: ["event", "stand", "social"],
+    services: ["event-management", "graphic-design"],
+    excerpt: "Planning, branding and on-the-day management for a two-day conference with exhibitors and speakers.",
+    challenge:
+      "A first-time conference needed to look established, run smoothly for hundreds of delegates, and give sponsors visible returns.",
+    solution:
+      "We managed venue and vendors, designed the event identity, produced the stage, backdrops and exhibitor booths, and ran registration on the day.",
+    result:
+      "A professionally run event with consistent branding from the invitations to the stage, and sponsors placed where delegates could see them.",
+    deliverables: ["Event identity", "Stage and backdrop", "Exhibition booths", "Delegate kits and badges", "Social media campaign"],
+    products: ["corporate-events-conferences", "event-branding-backdrops", "exhibition-stands", "conference-kits", "social-media-design"],
+    testimonial: null,
+  },
+  {
+    title: "Real-estate agency website",
+    slug: "real-estate-website",
+    client: "Real-estate agency",
+    industry: "Real estate",
+    location: "Kampala",
+    year: "2025",
+    duration: "4 weeks",
+    art: "web",
+    galleryArt: ["web", "social", "campaign"],
+    services: ["web-design"],
+    excerpt: "A fast, mobile-first property website where buyers can browse listings and enquire on WhatsApp.",
+    challenge:
+      "Listings were only shared in WhatsApp groups, so the agency had no searchable place to send buyers and no way to look established online.",
+    solution:
+      "We designed and built a listings website the team can update themselves, with WhatsApp enquiry buttons on every property and a light design that loads fast on mobile data.",
+    result:
+      "A professional online home for the agency's listings that the team updates without a developer.",
+    deliverables: ["Website design and build", "Property listings editor", "WhatsApp enquiry buttons", "Domain, hosting and email"],
+    products: ["business-website", "hosting-domain-email", "website-maintenance"],
+    testimonial: null,
+  },
+  {
+    title: "Bottled-water packaging",
+    slug: "bottled-water-packaging",
+    client: "Bottled-water brand",
+    industry: "FMCG",
+    location: "Wakiso",
+    year: "2024",
+    duration: "3 weeks",
+    art: "packaging",
+    galleryArt: ["packaging", "campaign", "cards"],
+    services: ["print", "branding"],
+    excerpt: "New labels and cartons for a water brand expanding into supermarkets.",
+    challenge:
+      "The old labels peeled when wet and looked inconsistent across bottle sizes, which made the product look cheaper than it was.",
+    solution:
+      "We redesigned the label system for every bottle size and printed it on waterproof vinyl, with matching cartons and point-of-sale posters.",
+    result:
+      "Labels that stay sharp in the cold chain and a consistent family look across the whole range.",
+    deliverables: ["Label design for 4 bottle sizes", "Waterproof label printing", "Printed cartons", "Point-of-sale posters"],
+    products: ["stickers-labels", "packaging-boxes", "poster-flyer-design"],
+    testimonial: null,
+  },
+  {
+    title: "Savings account campaign",
+    slug: "savings-campaign",
+    client: "Commercial bank",
+    industry: "Banking & finance",
+    location: "Countrywide",
+    year: "2024",
+    duration: "6 weeks",
+    art: "campaign",
+    galleryArt: ["campaign", "social", "cards"],
+    services: ["graphic-design", "print"],
+    excerpt: "Campaign artwork and print for a savings product, from billboards to branch flyers.",
+    challenge:
+      "The bank needed one campaign look that worked on billboards, in branches and on social media, delivered to branches across the country at the same time.",
+    solution:
+      "We created the campaign artwork, adapted it to every format, and printed and delivered branch kits with flyers, pull-ups and posters.",
+    result:
+      "One consistent campaign across billboards, branches and social media, launched on the same day nationwide.",
+    deliverables: ["Campaign concept and artwork", "Billboard skins", "Branch pull-ups and posters", "Flyers", "Social media adverts"],
+    products: ["poster-flyer-design", "banners-billboards", "pull-up-banners", "flyers-brochures", "social-media-design"],
+    testimonial: null,
+  },
+  {
+    title: "Agricultural expo stand",
+    slug: "agri-expo-stand",
+    client: "Agricultural supplier",
+    industry: "Agriculture",
+    location: "Mbarara",
+    year: "2024",
+    duration: "2 weeks",
+    art: "stand",
+    galleryArt: ["stand", "event", "campaign"],
+    services: ["event-management", "print"],
+    excerpt: "A custom exhibition stand and giveaways for a regional agricultural show.",
+    challenge:
+      "The client was exhibiting upcountry for the first time and needed a stand that drew farmers in and could be reused at future shows.",
+    solution:
+      "We designed a modular stand with a branded counter and product displays, printed the graphics, and transported, built and dismantled it on site.",
+    result:
+      "A reusable stand the client can rebrand for future shows, plus branded giveaways for visitors.",
+    deliverables: ["3D stand design", "Modular stand build", "Printed graphics", "Branded giveaways", "Set-up and dismantling"],
+    products: ["exhibition-stands", "promotional-items", "pull-up-banners"],
+    testimonial: null,
+  },
+  {
+    title: "Safari lodge rebrand",
+    slug: "safari-lodge-rebrand",
+    client: "Safari lodge group",
+    industry: "Hospitality & tourism",
+    location: "Western Uganda",
+    year: "2024",
+    duration: "7 weeks",
+    art: "signage",
+    galleryArt: ["signage", "web", "cards"],
+    services: ["branding", "web-design"],
+    excerpt: "A refreshed identity and booking-ready website for a group of lodges.",
+    challenge:
+      "Each lodge had grown its own look, so international visitors couldn't tell they belonged to one group, and the old website didn't work on phones.",
+    solution:
+      "We brought the lodges under one refreshed identity, updated the signage and printed materials, and built a mobile-friendly website with enquiry forms.",
+    result:
+      "A single, recognisable brand across all lodges and a website that works for travellers on any device.",
+    deliverables: ["Brand refresh", "Lodge signage", "Menus and printed materials", "Website redesign"],
+    products: ["rebranding", "signage", "menu-invitation-certificate-design", "website-redesign"],
+    testimonial: null,
+  },
+  {
+    title: "Clinic signage and wayfinding",
+    slug: "clinic-signage",
+    client: "Private clinic",
+    industry: "Health",
+    location: "Kampala",
+    year: "2023",
+    duration: "3 weeks",
+    art: "signage",
+    galleryArt: ["signage", "cards", "campaign"],
+    services: ["print", "branding"],
+    excerpt: "Outdoor signage, indoor wayfinding and office branding for a new clinic.",
+    challenge:
+      "Patients struggled to find the clinic from the road and then to find departments inside the building.",
+    solution:
+      "We installed an illuminated 3D sign facing the road, directional signs for every department, and frosted-glass branding for consultation rooms.",
+    result:
+      "A clinic that is easy to find day and night, and a calm, professional interior for patients.",
+    deliverables: ["Illuminated 3D sign", "Wayfinding signs", "Frosted-glass branding", "Staff ID cards"],
+    products: ["signage", "office-branding", "business-cards"],
+    testimonial: null,
+  },
+  {
+    title: "Innovation hub social media kit",
+    slug: "innovation-hub-social-kit",
+    client: "Tech innovation hub",
+    industry: "Technology",
+    location: "Kampala",
+    year: "2023",
+    duration: "2 weeks",
+    art: "social",
+    galleryArt: ["social", "event", "web"],
+    services: ["graphic-design"],
+    excerpt: "Reusable social media templates so the hub's team can post on-brand every week.",
+    challenge:
+      "The hub posted almost daily, but every post looked different and the team had no designer to keep it consistent.",
+    solution:
+      "We designed a set of editable templates for events, announcements and success stories, and trained the team to use them.",
+    result:
+      "A consistent feed the team produces in-house in minutes, without waiting for a designer.",
+    deliverables: ["Social media template kit", "Event and announcement posts", "Team training session"],
+    products: ["social-media-design", "presentation-pitch-deck-design"],
+    testimonial: null,
+  },
+];
+
+export const projects: Project[] = sampleProjects.map(({ services: svcs, ...p }, i) => ({
+  ...p,
   _id: `prj-${i}`,
-  title: title as string,
-  slug: slug as string,
-  client: client as string,
-  year: year as string,
+  sample: true,
   cover: null,
-  services: (svcs as string[]).map(svc),
-  excerpt: `A ${(svcs as string[]).map((s) => svc(s).title.toLowerCase()).join(" and ")} project for ${client}.`,
-  challenge:
-    "The client needed a cohesive look that would stand out in a crowded market and work consistently across every touchpoint.",
-  solution:
-    "We ran discovery workshops, developed a visual direction and rolled it out across digital and print with tight quality control.",
-  result:
-    "A confident, consistent presence that customers recognise — delivered on time and on budget.",
+  services: svcs.map(svc),
   gallery: [],
   seo: null,
 }));
@@ -290,11 +478,10 @@ export const posts: Post[] = [
   },
 ];
 
-export const testimonials: Testimonial[] = [
-  { _id: "t1", quote: "Citrix took our brand from forgettable to unmistakable. The new identity and print collateral have transformed how customers see us.", name: "Grace N.", role: "Marketing Lead", company: "Nile Coffee Co." },
-  { _id: "t2", quote: "They managed our 600-guest summit end-to-end — branding, stage, logistics. Flawless execution and a pleasure to work with.", name: "Daniel K.", role: "Operations Director", company: "Kampala Fintech Summit" },
-  { _id: "t3", quote: "Our new website is fast, beautiful and we can update it ourselves. Enquiries doubled in the first quarter.", name: "Sarah A.", role: "Managing Director", company: "Pearl Realty" },
-];
+// Real client quotes only. Testimonial sections stay hidden while this is empty.
+// Ask the client's permission first, e.g.:
+//   { _id: "t1", quote: "…", name: "Grace N.", role: "Marketing Lead", company: "Client company" },
+export const testimonials: Testimonial[] = [];
 
 export const team: TeamMember[] = [
   { _id: "m1", name: "Team Member", role: "Founder & Creative Director", photo: null },

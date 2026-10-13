@@ -33,7 +33,7 @@ export const serviceQuery = groq`*[_type == "service" && slug.current == $slug][
 }`;
 
 const projectSummary = groq`
-  _id, title, "slug": slug.current, client, year,
+  _id, title, "slug": slug.current, client, year, industry,
   "cover": ${image("cover")},
   "services": coalesce(services[]->{ title, "slug": slug.current }, [])`;
 
@@ -47,7 +47,10 @@ export const projectsQuery = groq`{
 export const featuredProjectsQuery = groq`*[_type == "project"] | order(featured desc, year desc)[0...6]{ ${projectSummary} }`;
 
 export const projectQuery = groq`*[_type == "project" && slug.current == $slug][0]{
-  ${projectSummary}, excerpt, challenge, solution, result,
+  ${projectSummary}, excerpt, location, duration, challenge, solution, result,
+  "deliverables": coalesce(deliverables, []),
+  "products": coalesce(products, []),
+  "testimonial": select(defined(testimonial.quote) => testimonial{ quote, name, role }, null),
   "gallery": coalesce(gallery[]{
     "url": asset->url, alt,
     "lqip": asset->metadata.lqip,

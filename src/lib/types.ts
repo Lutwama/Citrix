@@ -71,22 +71,34 @@ export type Product = {
   faqs: Faq[];
 };
 
+// Illustration drawn when a project has no photo; see src/components/portfolio/project-art.tsx.
+export type ProjectArtKind = "cards" | "packaging" | "web" | "event" | "stand" | "signage" | "social" | "campaign";
+
 export type ProjectSummary = {
   _id: string;
   title: string;
   slug: string;
   client?: string;
   year?: string;
+  industry?: string;
   cover: SanityImage;
+  art?: ProjectArtKind;
+  sample?: boolean; // placeholder content, labelled on the site until replaced
   services: { title: string; slug: string }[];
 };
 
 export type Project = ProjectSummary & {
   excerpt?: string;
+  location?: string;
+  duration?: string;
   challenge?: string;
   solution?: string;
   result?: string;
+  deliverables: string[];
+  products: string[]; // product slugs from src/content/products.ts
+  testimonial?: { quote: string; name: string; role?: string } | null;
   gallery: NonNullable<SanityImage>[];
+  galleryArt?: ProjectArtKind[];
   seo: Seo;
 };
 
