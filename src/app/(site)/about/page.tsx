@@ -100,8 +100,8 @@ export default async function AboutPage() {
             <SectionHeading eyebrow="Our story" title="Integrated solutions for modern brand growth." />
             <Stack gap={5} color="fg.muted" fontSize="lg" lineHeight="1.8">
               <Text>
-                Citrix Solutions started with a simple observation: growing businesses were juggling a printer, a designer, a web
-                developer and an events company — and their brand was getting lost in between.
+                Citrix Solutions was founded in Kampala in 2025 with a simple observation: growing businesses were juggling a
+                printer, a designer, a web developer and an events company — and their brand was getting lost in between.
               </Text>
               <Text>
                 So we brought it all under one roof. Today our team of designers, print specialists, developers and event planners

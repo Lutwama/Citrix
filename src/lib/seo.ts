@@ -57,6 +57,7 @@ export function organizationJsonLd(s: SiteSettings) {
     "@id": `${siteUrl}/#organization`,
     name: s.name,
     slogan: s.tagline,
+    foundingDate: "2025",
     description: s.description,
     url: siteUrl,
     logo: `${siteUrl}/icon.svg`,
