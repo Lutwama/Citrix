@@ -55,6 +55,22 @@ export type Service = ServiceSummary & {
   seo: Seo;
 };
 
+export type Product = {
+  slug: string;
+  service: string; // parent service slug
+  title: string;
+  summary: string;
+  description: string;
+  priceFrom: number | null; // UGX; null shows "Price on request"
+  priceUnit: string; // e.g. "per 100 cards"
+  turnaround: string;
+  minOrder?: string;
+  includes: string[];
+  options: { label: string; values: string[] }[];
+  idealFor: string[];
+  faqs: Faq[];
+};
+
 export type ProjectSummary = {
   _id: string;
   title: string;

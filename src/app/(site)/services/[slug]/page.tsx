@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { FaWhatsapp } from "react-icons/fa6";
 import { RichText } from "@/components/blog/rich-text";
 import { ProjectCard } from "@/components/portfolio/project-card";
+import { ProductGrid } from "@/components/products/product-card";
+import { getProductsByService } from "@/content/products";
 import { CtaBand, PageHero, ProcessSteps } from "@/components/sections/misc-sections";
 import { FaqList } from "@/components/ui/faq-list";
 import { Section, SectionHeading } from "@/components/ui/primitives";
@@ -38,6 +40,7 @@ export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
   const [service, settings, projects] = await Promise.all([getService(slug), getSettings(), getProjectsByService(slug)]);
   if (!service) notFound();
+  const products = getProductsByService(slug);
 
   return (
     <>
@@ -93,6 +96,17 @@ export default async function ServicePage({ params }: Props) {
           </List.Root>
         </Grid>
       </Section>
+
+      {products.length > 0 && (
+        <Section tone="mist" id="products">
+          <SectionHeading
+            eyebrow="Products"
+            title={`${service.title} products & prices`}
+            description="Choose a product to see options, turnaround and starting prices, or ask us for a custom quote."
+          />
+          <ProductGrid products={products} />
+        </Section>
+      )}
 
       {service.process.length > 0 && (
         <Section tone="teal">

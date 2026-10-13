@@ -24,6 +24,7 @@ import { useState } from "react";
 import type { z } from "zod";
 import { FaWhatsapp } from "react-icons/fa6";
 import { ServiceIcon } from "@/components/ui/service-icon";
+import { products } from "@/content/products";
 import { BUDGETS, QUOTE_STEPS, quoteFields, TIMELINES, type QuoteInput } from "@/lib/quote-schema";
 import type { ServiceSummary } from "@/lib/types";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -45,6 +46,8 @@ function zodCheck(schema: z.ZodType) {
 
 export function QuoteForm({ services, whatsapp }: { services: ServiceSummary[]; whatsapp: string }) {
   const [preselected] = useQueryState("service", parseAsString.withDefault(""));
+  const [productSlug] = useQueryState("product", parseAsString.withDefault(""));
+  const product = products.find((p) => p.service === preselected && p.slug === productSlug);
   const [step, setStep] = useState(0);
 
   const mutation = useMutation({
@@ -63,7 +66,7 @@ export function QuoteForm({ services, whatsapp }: { services: ServiceSummary[]; 
   const form = useForm({
     defaultValues: {
       services: services.some((s) => s.slug === preselected) ? [preselected] : [],
-      description: "",
+      description: product ? `I'd like a quote for ${product.title}. Quantity: \nSize / options: \n` : "",
       budget: "",
       timeline: "",
       name: "",
