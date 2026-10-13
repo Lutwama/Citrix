@@ -406,9 +406,7 @@ export { categories, posts } from "./posts";
 //   { _id: "t1", quote: "…", name: "Grace N.", role: "Marketing Lead", company: "Client company" },
 export const testimonials: Testimonial[] = [];
 
-export const team: TeamMember[] = [
-  { _id: "m1", name: "Team Member", role: "Founder & Creative Director", photo: null },
-  { _id: "m2", name: "Team Member", role: "Head of Print Production", photo: null },
-  { _id: "m3", name: "Team Member", role: "Lead Web Developer", photo: null },
-  { _id: "m4", name: "Team Member", role: "Events Manager", photo: null },
-];
+// Team section on the About page; hidden while this is empty. Add real people,
+// with a photo in public/team/ if you have one, e.g.:
+//   { _id: "m1", name: "Full name", role: "Founder & Creative Director", photo: { url: "/team/name.jpg" } },
+export const team: TeamMember[] = [];

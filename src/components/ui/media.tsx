@@ -44,7 +44,7 @@ export function Media({
     <Box position="relative" overflow="hidden" bg="brand.ice" {...rest}>
       {image?.url ? (
         <Image
-          src={`${image.url}?auto=format&fit=max&w=1600`}
+          src={image.url.startsWith("/") ? image.url : `${image.url}?auto=format&fit=max&w=1600`}
           alt={image.alt ?? alt}
           fill
           sizes={sizes}
