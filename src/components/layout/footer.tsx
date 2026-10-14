@@ -2,7 +2,7 @@ import { Box, Container, Flex, Grid, HStack, Link, Stack, Text } from "@chakra-u
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import NextLink from "next/link";
 import { Logo } from "@/components/ui/logo";
-import { SwirlPattern } from "@/components/ui/primitives";
+import { BillboardSplash } from "@/components/ui/primitives";
 import { SocialIcon } from "@/components/ui/social-icon";
 import { NAV } from "@/lib/nav";
 import type { ServiceSummary, SiteSettings } from "@/lib/types";
@@ -21,7 +21,7 @@ export function Footer({ settings, services }: { settings: SiteSettings; service
 
   return (
     <Box as="footer" position="relative" overflow="hidden" bg="brand.ink" color="white" pt={{ base: 16, md: 20 }} pb={8}>
-      <SwirlPattern opacity={0.04} />
+      <BillboardSplash opacity={0.2} />
       <Container maxW="7xl" position="relative">
         <Grid templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1.4fr 1fr 1fr 1.3fr" }} gap={{ base: 10, lg: 12 }}>
           <Stack gap={5}>

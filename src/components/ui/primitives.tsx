@@ -1,19 +1,16 @@
 import { Box, Container, Heading, Stack, Text, type BoxProps } from "@chakra-ui/react";
 import type { ReactNode } from "react";
 
-/** Repeating swirl motif from the brand guide, used on dark sections. */
-export function SwirlPattern({ opacity = 0.08, ...rest }: { opacity?: number } & BoxProps) {
+/**
+ * Billboard-style artwork (paint strokes, splatters, halftone dots, crop marks
+ * and the service names) for hero banners. A left-hand shade keeps text readable.
+ */
+export function BillboardSplash(props: BoxProps) {
   return (
-    <Box
-      aria-hidden
-      position="absolute"
-      inset="0"
-      pointerEvents="none"
-      backgroundImage="url(/brand/swirl-pattern.svg)"
-      backgroundSize="160px"
-      opacity={opacity}
-      {...rest}
-    />
+    <Box aria-hidden position="absolute" inset="0" pointerEvents="none" {...props}>
+      <Box position="absolute" inset="0" backgroundImage="url(/brand/billboard-splash.svg)" backgroundSize="cover" backgroundPosition="center" />
+      <Box position="absolute" inset="0" bgImage="linear-gradient(90deg, rgba(0,59,120,0.85) 0%, rgba(0,59,120,0.45) 45%, rgba(0,59,120,0) 75%)" />
+    </Box>
   );
 }
 
@@ -32,7 +29,8 @@ export function Section({
   const dark = tone === "blue" || tone === "teal";
   return (
     <Box as="section" position="relative" overflow="hidden" bg={bg} color={dark ? "white" : "fg"} py={{ base: 16, md: 24 }} {...rest}>
-      {dark && <SwirlPattern />}
+      {/* full splash on blue; a lighter layer on teal so the section keeps its colour */}
+      {dark && <BillboardSplash opacity={tone === "blue" ? 1 : 0.3} />}
       <Container maxW="7xl" position="relative">
         {children}
       </Container>

@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#003B78"/>
+      <stop offset="0.5" stop-color="#004E9B"/>
+      <stop offset="1" stop-color="#0083AC"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0091B9" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#0091B9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stroke1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0091B9" stop-opacity="0"/>
+      <stop offset="0.35" stop-color="#0091B9" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#BAE4F0" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="stroke2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#115B70" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#115B70" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#0091B9" stop-opacity="0.6"/>
+    </linearGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="7" r="2.2" fill="#BAE4F0"/>
+    </pattern>
+    <radialGradient id="fadeR" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="dotsMask">
+      <circle cx="1280" cy="190" r="260" fill="url(#fadeR)"/>
+      <circle cx="260" cy="640" r="200" fill="url(#fadeR)"/>
+    </mask>
+  </defs>
+
+  <!-- base -->
+  <rect width="1600" height="700" fill="url(#bg)"/>
+  <circle cx="1300" cy="120" r="520" fill="url(#glow)"/>
+  <circle cx="120" cy="720" r="380" fill="url(#glow)" opacity="0.6"/>
+
+  <!-- halftone print dots -->
+  <rect width="1600" height="700" fill="url(#dots)" mask="url(#dotsMask)" opacity="0.35"/>
+
+  <!-- giant billboard words, outlined -->
+  <g transform="rotate(-9 800 350)" fill="none" stroke="#FFFFFF" stroke-opacity="0.11" stroke-width="2" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="150" letter-spacing="6">
+    <text x="520" y="150">PRINT · DESIGN</text>
+    <text x="300" y="330">BRANDING · WEB</text>
+    <text x="640" y="510">EVENTS · CITRIX</text>
+    <text x="180" y="690">PRINT · BRAND</text>
+  </g>
+
+  <!-- brush swooshes -->
+  <path d="M-40 560 C 300 470, 640 640, 980 520 S 1480 300, 1680 360 L 1680 430 C 1460 380, 1240 560, 960 610 S 360 560, -40 640 Z" fill="url(#stroke2)"/>
+  <path d="M520 -20 C 760 120, 980 40, 1180 150 S 1520 250, 1680 160 L 1680 220 C 1500 320, 1300 260, 1150 210 S 760 190, 480 30 Z" fill="url(#stroke1)" opacity="0.8"/>
+  <path d="M760 700 C 980 600, 1160 660, 1340 560 S 1560 470, 1680 500 L 1680 540 C 1560 520, 1420 620, 1300 650 S 1000 690, 840 720 Z" fill="#BAE4F0" opacity="0.28"/>
+
+  <!-- paint splatters -->
+  <g fill="#BAE4F0">
+    <circle cx="1180" cy="300" r="46" opacity="0.32"/>
+    <circle cx="1240" cy="262" r="16" opacity="0.4"/>
+    <circle cx="1128" cy="252" r="10" opacity="0.4"/>
+    <circle cx="1262" cy="340" r="7" opacity="0.5"/>
+    <circle cx="1100" cy="330" r="5" opacity="0.5"/>
+    <circle cx="1210" cy="372" r="4" opacity="0.5"/>
+    <circle cx="1290" cy="300" r="3" opacity="0.6"/>
+    <path d="M1170 340 q6 40 0 70 q-4 10 -9 0 q-5 -30 1 -70 z" opacity="0.3"/>
+    <path d="M1208 336 q4 26 0 44 q-3 7 -6 0 q-3 -20 1 -44 z" opacity="0.3"/>
+  </g>
+  <g fill="#FFFFFF">
+    <circle cx="1450" cy="560" r="34" opacity="0.14"/>
+    <circle cx="1500" cy="520" r="11" opacity="0.22"/>
+    <circle cx="1404" cy="610" r="7" opacity="0.25"/>
+    <circle cx="1530" cy="590" r="5" opacity="0.3"/>
+    <circle cx="960" cy="110" r="22" opacity="0.12"/>
+    <circle cx="1000" cy="80" r="6" opacity="0.25"/>
+    <circle cx="930" cy="150" r="4" opacity="0.25"/>
+  </g>
+  <g fill="#0091B9">
+    <circle cx="1060" cy="470" r="28" opacity="0.55"/>
+    <circle cx="1020" cy="440" r="8" opacity="0.6"/>
+    <circle cx="1100" cy="500" r="5" opacity="0.7"/>
+  </g>
+
+  <!-- outlined Citrix swirl -->
+  <g transform="translate(1290 330) scale(2.6)" fill="none" stroke="#BAE4F0" stroke-opacity="0.22" stroke-width="1.2">
+    <path d="M50 4 A46 46 0 0 0 50 96 A23 23 0 0 1 50 50 A23 23 0 0 0 50 4 Z"/>
+    <path d="M50 96 A46 46 0 0 0 50 4 A23 23 0 0 1 50 50 A23 23 0 0 0 50 96 Z"/>
+  </g>
+
+  <!-- printer's crop marks -->
+  <g stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="2" fill="none">
+    <path d="M40 70 H90 M70 40 V90"/>
+    <path d="M1560 70 H1510 M1530 40 V90"/>
+    <path d="M1560 630 H1510 M1530 660 V610"/>
+    <path d="M40 630 H90 M70 660 V610"/>
+  </g>
+
+  <!-- registration mark -->
+  <g stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="2" fill="none">
+    <circle cx="1480" cy="150" r="18"/>
+    <circle cx="1480" cy="150" r="8"/>
+    <path d="M1452 150 H1508 M1480 122 V178"/>
+  </g>
+
+  <!-- colour bar, like a print proof -->
+  <g opacity="0.75">
+    <rect x="1330" y="640" width="28" height="18" fill="#004E9B" stroke="#FFFFFF" stroke-opacity="0.4"/>
+    <rect x="1362" y="640" width="28" height="18" fill="#0091B9"/>
+    <rect x="1394" y="640" width="28" height="18" fill="#115B70"/>
+    <rect x="1426" y="640" width="28" height="18" fill="#BAE4F0"/>
+    <rect x="1458" y="640" width="28" height="18" fill="#FFFFFF"/>
+  </g>
+</svg>
