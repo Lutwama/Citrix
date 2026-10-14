@@ -20,8 +20,9 @@ import type {
 
 export const PAGE_SIZE = 6;
 
-// Single entry point for content. Each getter reads Sanity when it's
-// configured and otherwise serves the placeholder content.
+// Single entry point for content. Each getter reads Sanity once that document
+// type has published content and otherwise serves the placeholder content, so
+// a new or partly filled dataset never blanks the site.
 
 function page<T>(all: T[], offset: number, limit: number): Paged<T> {
   const items = all.slice(offset, offset + limit);
@@ -37,6 +38,11 @@ function toPaged<T>(
   return { ...res, nextOffset: next < res.total ? next : null };
 }
 
+const fromSanity = cache(async (type: string): Promise<boolean> => {
+  if (!isSanityConfigured) return false;
+  return sanityFetch<boolean>(q.hasContentQuery, { type }, [type]);
+});
+
 const summarizeProject = ({ _id, title, slug, client, year, industry, cover, art, sample, services }: Project): ProjectSummary => ({
   _id, title, slug, client, year, industry, cover, art, sample, services,
 });
@@ -51,12 +57,12 @@ export const getSettings = cache(async (): Promise<SiteSettings> => {
 });
 
 export const getServices = cache(async (): Promise<ServiceSummary[]> => {
-  if (!isSanityConfigured) return fallback.services;
+  if (!(await fromSanity("service"))) return fallback.services;
   return sanityFetch(q.servicesQuery, {}, ["service"]);
 });
 
 export const getService = cache(async (slug: string): Promise<Service | null> => {
-  if (!isSanityConfigured) return fallback.services.find((s) => s.slug === slug) ?? null;
+  if (!(await fromSanity("service"))) return fallback.services.find((s) => s.slug === slug) ?? null;
   return sanityFetch(q.serviceQuery, { slug }, ["service"]);
 });
 
@@ -65,7 +71,7 @@ export async function getProjects({
   offset = 0,
   limit = PAGE_SIZE,
 }: { service?: string; offset?: number; limit?: number } = {}): Promise<Paged<ProjectSummary>> {
-  if (!isSanityConfigured) {
+  if (!(await fromSanity("project"))) {
     const all = fallback.projects
       .filter((p) => !service || p.services.some((s) => s.slug === service))
       .map(summarizeProject);
@@ -80,12 +86,12 @@ export async function getProjects({
 }
 
 export const getFeaturedProjects = cache(async (): Promise<ProjectSummary[]> => {
-  if (!isSanityConfigured) return fallback.projects.slice(0, 6).map(summarizeProject);
+  if (!(await fromSanity("project"))) return fallback.projects.slice(0, 6).map(summarizeProject);
   return sanityFetch(q.featuredProjectsQuery, {}, ["project"]);
 });
 
 export const getProjectsByService = cache(async (service: string): Promise<ProjectSummary[]> => {
-  if (!isSanityConfigured)
+  if (!(await fromSanity("project")))
     return fallback.projects
       .filter((p) => p.services.some((s) => s.slug === service))
       .slice(0, 3)
@@ -94,7 +100,7 @@ export const getProjectsByService = cache(async (service: string): Promise<Proje
 });
 
 export const getProject = cache(async (slug: string): Promise<Project | null> => {
-  if (!isSanityConfigured) return fallback.projects.find((p) => p.slug === slug) ?? null;
+  if (!(await fromSanity("project"))) return fallback.projects.find((p) => p.slug === slug) ?? null;
   return sanityFetch(q.projectQuery, { slug }, ["project"]);
 });
 
@@ -103,7 +109,7 @@ export async function getPosts({
   offset = 0,
   limit = PAGE_SIZE,
 }: { category?: string; offset?: number; limit?: number } = {}): Promise<Paged<PostSummary>> {
-  if (!isSanityConfigured) {
+  if (!(await fromSanity("post"))) {
     const all = fallback.posts
       .filter((p) => !category || p.category?.slug === category)
       .map(summarizePost);
@@ -118,33 +124,38 @@ export async function getPosts({
 }
 
 export const getPost = cache(async (slug: string): Promise<Post | null> => {
-  if (!isSanityConfigured) return fallback.posts.find((p) => p.slug === slug) ?? null;
+  if (!(await fromSanity("post"))) return fallback.posts.find((p) => p.slug === slug) ?? null;
   return sanityFetch(q.postQuery, { slug }, ["post"]);
 });
 
 export const getCategories = cache(async (): Promise<Category[]> => {
-  if (!isSanityConfigured) return fallback.categories;
+  if (!(await fromSanity("category"))) return fallback.categories;
   return sanityFetch(q.categoriesQuery, {}, ["category"]);
 });
 
 export const getTestimonials = cache(async (): Promise<Testimonial[]> => {
-  if (!isSanityConfigured) return fallback.testimonials;
+  if (!(await fromSanity("testimonial"))) return fallback.testimonials;
   return sanityFetch(q.testimonialsQuery, {}, ["testimonial"]);
 });
 
 export const getTeam = cache(async (): Promise<TeamMember[]> => {
-  if (!isSanityConfigured) return fallback.team;
+  if (!(await fromSanity("teamMember"))) return fallback.team;
   return sanityFetch(q.teamQuery, {}, ["teamMember"]);
 });
 
 export const getAllSlugs = cache(
   async (): Promise<{ services: string[]; projects: string[]; posts: string[] }> => {
-    if (!isSanityConfigured)
-      return {
-        services: fallback.services.map((s) => s.slug),
-        projects: fallback.projects.map((p) => p.slug),
-        posts: fallback.posts.map((p) => p.slug),
-      };
-    return sanityFetch(q.slugsQuery, {}, ["service", "project", "post"]);
+    const [services, projects, posts] = await Promise.all(["service", "project", "post"].map(fromSanity));
+    const remote =
+      services || projects || posts
+        ? await sanityFetch<{ services: string[]; projects: string[]; posts: string[] }>(
+            q.slugsQuery, {}, ["service", "project", "post"],
+          )
+        : null;
+    return {
+      services: services ? remote!.services : fallback.services.map((s) => s.slug),
+      projects: projects ? remote!.projects : fallback.projects.map((p) => p.slug),
+      posts: posts ? remote!.posts : fallback.posts.map((p) => p.slug),
+    };
   },
 );

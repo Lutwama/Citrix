@@ -1,5 +1,9 @@
 import { groq } from "next-sanity";
 
+// True once a document type has published content; until then the site serves
+// the placeholder content for that type.
+export const hasContentQuery = groq`count(*[_type == $type && !(_id in path("drafts.**"))]) > 0`;
+
 // Projections mirror the types in src/lib/types.ts.
 const image = (field: string) => groq`
   ${field}{
