@@ -29,7 +29,7 @@ const client = createClient({
 // Sanity needs a unique _key on every object in an array.
 const keyed = <T extends object>(items: T[]) => items.map((item, i) => ({ _key: `k${i}`, ...item }));
 
-const docs = [
+const docs: { _id: string; _type: string; [field: string]: unknown }[] = [
   {
     _id: "siteSettings",
     _type: "siteSettings",
