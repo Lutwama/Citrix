@@ -202,6 +202,361 @@ const drafts: Draft[] = [
     ],
   },
   {
+    title: "Product labels and packaging in Uganda: what to print and what UNBS expects",
+    slug: "product-labels-packaging-uganda",
+    excerpt:
+      "The information your label must carry, choosing label and box materials, and how to plan print runs for a growing product.",
+    publishedAt: "2026-10-13",
+    category: "print",
+    art: "packaging",
+    products: ["stickers-labels", "packaging-boxes", "brand-identity-package"],
+    content: [
+      {
+        type: "p",
+        text: "Your label is your product's salesperson on the shelf, and in Uganda it's also a legal document. A good label helps buyers choose you over the next brand and gives supermarkets and regulators the information they need. Here's what to put on it, what to print it on and how to order sensibly.",
+      },
+      { type: "h2", text: "What the label must say" },
+      {
+        type: "p",
+        text: "Uganda's labelling standards (US EAS 38 for pre-packaged food and US 1028 for other pre-packaged goods) set out the basics. Requirements change and some products have extra rules, so always confirm the current version with UNBS before you print.",
+      },
+      {
+        type: "checklist",
+        title: "Typical label information for packaged food",
+        items: [
+          "Product name",
+          "Ingredients, in order of weight",
+          "Net contents (g, kg, ml or l)",
+          "Manufacturer or distributor name and address",
+          "Country of origin",
+          "Batch or lot number",
+          "Date marking, such as best before or expiry",
+          "Storage and usage instructions",
+          "Text in English (other official languages can be added)",
+        ],
+      },
+      { type: "h2", text: "The UNBS mark" },
+      {
+        type: "p",
+        text: "Products covered by compulsory standards, including food and cosmetics, must be certified by UNBS before sale, and certified products carry the UNBS Distinctive Mark. Only licensed businesses may print the mark, so add it to your artwork once your certification is approved, not before.",
+      },
+      {
+        type: "tip",
+        title: "Leave space in the design",
+        text: "Plan an area for batch numbers and dates that change with every production run. They can be added with a stamp, a small printer or a sticker, so you don't need to reprint the whole label.",
+      },
+      { type: "h2", text: "Choosing label materials" },
+      {
+        type: "list",
+        items: [
+          "Paper labels: affordable and good for dry products like flour, tea and coffee.",
+          "Vinyl or synthetic labels: waterproof and oil-resistant, so the right choice for drinks, juices, cosmetics and anything kept in a fridge.",
+          "Clear labels: give a 'no label' look on glass and clear bottles.",
+          "Finishes: matt or gloss lamination protects the print, and foil or spot UV adds a premium touch.",
+        ],
+      },
+      {
+        type: "figure",
+        art: "packaging",
+        caption: "A bottle label, product box and shipping carton designed as one family.",
+      },
+      { type: "h2", text: "Boxes and outer packaging" },
+      {
+        type: "p",
+        text: "Printed boxes protect the product and make it look ready for supermarket shelves and gift shops. Agree the exact size by testing with a real sample of your product, and ask for a plain or printed prototype before the full run.",
+      },
+      { type: "h2", text: "Plan your print runs" },
+      {
+        type: "p",
+        text: "Digital printing suits small runs and new products, because you can test the market and fix mistakes cheaply. Once your label is settled and volumes grow, larger runs cost less per label. Keep the design consistent across sizes and flavours so your range is recognisable on the shelf.",
+      },
+      {
+        type: "tip",
+        title: "Get one design for the whole range",
+        text: "Design a label system once, with a fixed layout and a colour for each flavour or size. Adding a new product then only means changing the text and colour, not starting again.",
+      },
+    ],
+  },
+  {
+    title: "How a brand identity project works, and what to ask before you hire",
+    slug: "brand-identity-process",
+    excerpt:
+      "The steps from first meeting to final files, how long each takes, and the questions that protect you when choosing a designer.",
+    publishedAt: "2026-10-12",
+    category: "branding",
+    art: "cards",
+    products: ["brand-identity-package", "logo-design", "brand-guidelines", "rebranding"],
+    content: [
+      {
+        type: "p",
+        text: "A new brand is one of the biggest marketing investments a business makes, and it will be on every sign, invoice and post for years. Knowing how the process works helps you plan the time, give useful feedback and avoid paying twice.",
+      },
+      { type: "h2", text: "Step 1: The brief" },
+      {
+        type: "p",
+        text: "Good branding starts with questions, not sketches. Expect to talk about what you sell, who buys it, why they choose you, who your competitors are and where the brand will appear, from WhatsApp profile pictures to shop signs.",
+      },
+      { type: "h2", text: "Step 2: Research and direction" },
+      {
+        type: "p",
+        text: "The designer looks at your market and competitors and proposes a direction: the personality, colours and style that will set you apart. Agreeing this first saves time, because concepts are judged against a shared goal rather than personal taste.",
+      },
+      { type: "h2", text: "Step 3: Concepts and revisions" },
+      {
+        type: "p",
+        text: "You'll usually see two or three logo concepts shown on real items such as a business card, a sign and a social post. Choose one direction, then refine it over a set number of revision rounds.",
+      },
+      {
+        type: "tip",
+        title: "Give feedback that helps",
+        text: "Instead of 'I don't like it', explain what isn't working: 'it feels too playful for a law firm' or 'it's hard to read on a small sign'. Gather the decision-makers' views first so the designer gets one clear set of comments.",
+      },
+      { type: "h2", text: "Step 4: Final files and guidelines" },
+      {
+        type: "list",
+        items: [
+          "Logo versions: full colour, one colour, white and an icon",
+          "File formats for print, signs and the web (AI, SVG, PDF and PNG)",
+          "Colour codes for print and screens",
+          "Fonts and typography rules",
+          "Brand guidelines that show how to use it all",
+        ],
+      },
+      {
+        type: "figure",
+        art: "cards",
+        caption: "Final identity shown across stationery, so you can see it working before it's printed.",
+      },
+      { type: "h2", text: "Step 5: Roll-out" },
+      {
+        type: "p",
+        text: "A brand only works once people see it. Plan the roll-out across business cards, signage, vehicles, uniforms, packaging and your website so the change happens at once rather than piece by piece.",
+      },
+      {
+        type: "checklist",
+        title: "Ask before you hire",
+        items: [
+          "Can I see logo and identity work, not only printing?",
+          "How many concepts and revision rounds are included?",
+          "Are brand guidelines part of the price?",
+          "Will I own the final files and all rights?",
+          "Which file formats will I receive?",
+          "How long will it take, and what do you need from me?",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Social media design for Ugandan businesses: sizes, packages and a monthly plan",
+    slug: "social-media-design-guide",
+    excerpt:
+      "The right image sizes for each platform, what a monthly design package should include, and how to plan a month of posts.",
+    publishedAt: "2026-10-11",
+    category: "design",
+    art: "social",
+    products: ["social-media-design", "poster-flyer-design", "presentation-pitch-deck-design"],
+    content: [
+      {
+        type: "p",
+        text: "Your customers see your posts on Facebook, Instagram, TikTok, LinkedIn and WhatsApp status long before they visit your office. Consistent, well-designed posts make a small business look established. Here's how to set it up so it doesn't eat your week.",
+      },
+      { type: "h2", text: "Get the sizes right" },
+      {
+        type: "list",
+        items: [
+          "Square post (1080 × 1080px): works on every feed",
+          "Portrait post (1080 × 1350px): takes up more of the screen on Instagram and Facebook",
+          "Story, status and reel cover (1080 × 1920px): Instagram and Facebook stories, TikTok and WhatsApp status",
+          "LinkedIn and X images (1200 × 627px): link previews and announcements",
+          "Facebook cover (1640 × 624px): keep text away from the edges, which are cropped on phones",
+        ],
+      },
+      {
+        type: "tip",
+        title: "Design once, resize for each platform",
+        text: "Ask your designer to supply each post in square, portrait and story sizes. The same message then looks right everywhere, including WhatsApp status, which many Ugandan customers check daily.",
+      },
+      { type: "h2", text: "What a monthly package should include" },
+      {
+        type: "p",
+        text: "Most businesses do best with a regular monthly package rather than one-off posts. A typical package covers 12 to 16 posts a month, captions, and a content calendar, with resized versions for stories. Video editing and animation are usually priced separately, so check what's included.",
+      },
+      {
+        type: "figure",
+        art: "social",
+        caption: "A month of posts built from one template, so the feed looks consistent.",
+      },
+      { type: "h2", text: "Plan a month of posts" },
+      {
+        type: "list",
+        items: [
+          "Products and services: what you sell, prices and offers",
+          "Proof: customer photos, reviews and finished projects",
+          "Tips: short, useful advice that shows your expertise",
+          "Behind the scenes: your team, workshop or office",
+          "Dates: public holidays, school terms and seasonal sales",
+        ],
+      },
+      { type: "h2", text: "Keep it on brand" },
+      {
+        type: "p",
+        text: "Use the same fonts, colours and logo position on every post. A set of templates makes your feed recognisable at a glance and lets your team add quick posts without breaking the look.",
+      },
+      {
+        type: "checklist",
+        title: "Every post should have",
+        items: [
+          "Your logo, small and in the same place",
+          "One clear message",
+          "Text large enough to read on a phone",
+          "A call to action: call, WhatsApp, visit or order",
+          "Your phone number or WhatsApp in the caption",
+        ],
+      },
+    ],
+  },
+  {
+    title: "Taking payments on your website: mobile money, cards and what to set up",
+    slug: "website-payments-mobile-money",
+    excerpt:
+      "How Ugandan customers prefer to pay online, the options for accepting MTN MoMo, Airtel Money and cards, and what to check before you sign up.",
+    publishedAt: "2026-10-10",
+    category: "web",
+    art: "web",
+    products: ["ecommerce-website", "business-website", "hosting-domain-email"],
+    content: [
+      {
+        type: "p",
+        text: "Customers who can pay on your website are far more likely to buy there and then. In Uganda that mostly means mobile money, so a checkout built only for cards will lose sales. Here's how to set it up properly.",
+      },
+      { type: "h2", text: "Mobile money comes first" },
+      {
+        type: "p",
+        text: "MTN MoMo and Airtel Money are how most Ugandans pay online, from school fees to online shopping. Cards (Visa and Mastercard) are useful for corporate buyers, diaspora customers and visitors, but they should sit alongside mobile money, not replace it.",
+      },
+      { type: "h2", text: "Your options" },
+      {
+        type: "list",
+        items: [
+          "Payment gateway: a provider such as Pesapal or Flutterwave connects your website to MTN, Airtel and cards through one integration. This is the right choice for most online shops.",
+          "Merchant pay codes: customers pay a till number and send proof, and you confirm the order manually. Cheap to start, but slow once orders grow.",
+          "Order on WhatsApp: the website lists products and sends the order to WhatsApp, where you agree payment. A good first step for small catalogues.",
+        ],
+      },
+      {
+        type: "figure",
+        art: "web",
+        caption: "A mobile checkout with MTN MoMo and Airtel Money shown first, and cards as an option.",
+      },
+      { type: "h2", text: "What to check before you sign up" },
+      {
+        type: "checklist",
+        title: "Questions for any payment provider",
+        items: [
+          "Is the provider licensed by the Bank of Uganda?",
+          "Which methods are supported: MTN, Airtel, cards, bank?",
+          "What is the fee per transaction?",
+          "How quickly does money reach your account?",
+          "How are refunds and failed payments handled?",
+          "Does it work smoothly on a phone?",
+        ],
+      },
+      { type: "h2", text: "Design a checkout that converts" },
+      {
+        type: "p",
+        text: "Keep the checkout short: phone number, delivery details and payment. Show the mobile money options first, confirm the total including delivery before payment, and send an SMS or WhatsApp confirmation once payment is received.",
+      },
+      { type: "h2", text: "Domain, security and trust" },
+      {
+        type: "p",
+        text: "A website that takes payments needs an SSL certificate (the padlock in the browser), and a professional domain such as .ug, .co.ug or .com builds trust. Show your phone number, physical address and returns policy clearly, because buyers check these before paying a business they don't know.",
+      },
+      {
+        type: "tip",
+        title: "Start simple, then grow",
+        text: "If you're just starting, WhatsApp ordering with a clear product catalogue can prove demand. Move to a full checkout with a payment gateway once orders are coming in regularly.",
+      },
+    ],
+  },
+  {
+    title: "Planning a corporate conference in Kampala: a timeline that works",
+    slug: "corporate-conference-planning-timeline",
+    excerpt:
+      "A week-by-week plan for conferences, AGMs and workshops, from budget and venue to badges, branding and the day itself.",
+    publishedAt: "2026-10-09",
+    category: "events",
+    art: "event",
+    products: ["corporate-events-conferences", "conference-kits", "event-branding-backdrops", "pull-up-banners"],
+    content: [
+      {
+        type: "p",
+        text: "Conferences, AGMs and stakeholder workshops are where organisations meet their partners, staff and the public in person. Most problems on the day, such as late branding, microphones that don't work and missing badges, come from planning too late. For corporate events, two to four months of preparation is usually enough.",
+      },
+      { type: "h2", text: "Three months before" },
+      {
+        type: "list",
+        items: [
+          "Agree the goal, audience and number of guests",
+          "Set the budget, with about 10% kept back for surprises",
+          "Book the venue and confirm capacity, parking and power backup",
+          "Choose a theme and start the event branding",
+        ],
+      },
+      { type: "h2", text: "Two months before" },
+      {
+        type: "list",
+        items: [
+          "Confirm speakers and the programme",
+          "Book sound, stage, lighting and LED screens",
+          "Open registration and collect delegate names",
+          "Agree catering, including dietary needs",
+        ],
+      },
+      { type: "h2", text: "One month before" },
+      {
+        type: "list",
+        items: [
+          "Approve the backdrop, banners and stage designs",
+          "Order conference kits: badges, lanyards, notebooks and pens",
+          "Prepare the run sheet: a minute-by-minute programme for every supplier",
+          "Brief the photographer and anyone posting on social media",
+        ],
+      },
+      {
+        type: "figure",
+        art: "event",
+        caption: "Stage backdrop, side banners and screen designed together so the event looks like one brand.",
+      },
+      { type: "h2", text: "The week of the event" },
+      {
+        type: "checklist",
+        title: "Final checks",
+        items: [
+          "Print badges from the final registration list",
+          "Set up stage, backdrop and banners the day before",
+          "Test sound, microphones, screens and presentations",
+          "Prepare the registration desk and signage",
+          "Share the run sheet and contacts with every supplier",
+        ],
+      },
+      { type: "h2", text: "Choosing an event partner" },
+      {
+        type: "p",
+        text: "One partner who coordinates the venue, technical suppliers, branding and on-site management saves you from chasing ten different vendors. Ask for examples of similar events, confirm the company is registered, and get a written quote that lists everything included.",
+      },
+      { type: "h2", text: "After the event" },
+      {
+        type: "p",
+        text: "Send thank-you messages, share photos and a short summary on social media within 48 hours, and gather feedback while it's fresh. Keep reusable items such as pull-up banners and stands for your next event.",
+      },
+      {
+        type: "tip",
+        title: "Brand once, reuse often",
+        text: "A modular backdrop and a set of pull-up banners in your corporate design can be reused at AGMs, trainings and launches, which lowers the cost of every event after the first.",
+      },
+    ],
+  },
+  {
     title: "Business cards in Kampala: a buyer's guide",
     slug: "business-cards-buyers-guide",
     excerpt:
