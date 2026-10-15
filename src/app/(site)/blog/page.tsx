@@ -2,6 +2,7 @@ import { Box, Grid, Heading, HStack, LinkBox, LinkOverlay, SimpleGrid, Stack, Te
 import {
   ArrowRight,
   CalendarCheck,
+  Hammer,
   MonitorSmartphone,
   PenTool,
   Printer,
@@ -22,7 +23,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Insights",
   description:
-    "Practical guides on printing, branding, design, websites and events from the Citrix Solutions team in Kampala.",
+    "Practical guides on printing, branding, design, fabrication, websites and events from the Citrix Solutions team in Kampala.",
   path: "/blog",
 });
 
@@ -30,6 +31,7 @@ const TOPICS: Record<string, { icon: LucideIcon; text: string }> = {
   print: { icon: Printer, text: "Paper, finishes, file preparation and choosing the right print." },
   branding: { icon: Sparkles, text: "Logos, identity systems and keeping your brand consistent." },
   design: { icon: PenTool, text: "Company profiles, social media and design that sells." },
+  fabrication: { icon: Hammer, text: "Shop signs, light boxes, pylons and the materials behind them." },
   web: { icon: MonitorSmartphone, text: "Fast websites, domains, email and selling online." },
   events: { icon: CalendarCheck, text: "Launches, conferences and exhibition stands that work." },
 };
@@ -46,7 +48,7 @@ export default async function BlogPage() {
       <PageHero
         eyebrow="Insights"
         title="Practical guides for growing brands."
-        description="Straight answers on printing, branding, design, websites and events from our team in Kampala."
+        description="Straight answers on printing, branding, design, fabrication, websites and events from our team in Kampala."
       />
 
       {featured && (
@@ -122,7 +124,7 @@ export default async function BlogPage() {
 
       <Section tone="mist" pt={{ base: 12, md: 16 }}>
         <SectionHeading eyebrow="Browse by topic" title="Guides for every part of your brand" />
-        <SimpleGrid columns={{ base: 1, sm: 2, lg: 5 }} gap={4}>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3, xl: 6 }} gap={4}>
           {categories.map((c, i) => {
             const topic = TOPICS[c.slug];
             const Icon = topic?.icon ?? Sparkles;
