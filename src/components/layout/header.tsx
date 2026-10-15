@@ -56,7 +56,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
         <Flex h={{ base: 16, md: 20 }} align="center" justify="space-between" gap={6}>
           <Link asChild _hover={{ textDecoration: "none" }} aria-label="Citrix Solutions — home">
             <NextLink href="/">
-              <Logo height={{ base: "48px", md: "60px" }} />
+              <Logo variant="plain" height={{ base: "44px", md: "56px" }} />
             </NextLink>
           </Link>
 
@@ -82,7 +82,14 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
           </HStack>
 
           <HStack gap={2}>
-            <IconButton asChild aria-label="Call us" variant="ghost" color="brand.blue" display={{ base: "inline-flex", lg: "none" }} rounded="full">
+            <IconButton
+              asChild
+              aria-label="Call us"
+              variant="ghost"
+              color="brand.blue"
+              display={{ base: "inline-flex", lg: "none" }}
+              rounded="full"
+            >
               <a href={telLink(phone)}>
                 <Phone />
               </a>
@@ -95,7 +102,13 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
 
             <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)} placement="end" size="sm">
               <Drawer.Trigger asChild>
-                <IconButton aria-label="Open menu" variant="ghost" color="brand.blue" display={{ base: "inline-flex", lg: "none" }} rounded="full">
+                <IconButton
+                  aria-label="Open menu"
+                  variant="ghost"
+                  color="brand.blue"
+                  display={{ base: "inline-flex", lg: "none" }}
+                  rounded="full"
+                >
                   <Menu />
                 </IconButton>
               </Drawer.Trigger>
@@ -104,7 +117,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
                 <Drawer.Positioner>
                   <Drawer.Content>
                     <Drawer.Header>
-                      <Logo height="48px" />
+                      <Logo variant="plain" height="44px" />
                     </Drawer.Header>
                     <Drawer.Body>
                       <Stack as="nav" aria-label="Mobile" gap={1}>

@@ -37,26 +37,36 @@ export function LogoMark({ tone = "color", size = 44, ...rest }: { tone?: Tone; 
   );
 }
 
+const LOCKUPS = {
+  // public/brand/citrix-logo.png, 620×196, tagline included
+  tagline: { src: "/brand/citrix-logo.png", ratio: "620 / 196" },
+  // public/brand/citrix-logo-nav.png, 614×189, name only
+  plain: { src: "/brand/citrix-logo-nav.png", ratio: "614 / 189" },
+};
+
 /**
- * Horizontal lockup from the official artwork (public/brand/citrix-logo.png,
- * 620×196, cropped tight, tagline included). `height` takes a responsive
+ * Horizontal lockup from the official artwork, cropped tight. `variant`
+ * picks the version with or without the tagline. `height` takes a responsive
  * value; width follows the aspect ratio. The white tone recolours it with a
  * CSS filter.
  */
 export function Logo({
   tone = "color",
+  variant = "tagline",
   height = "56px",
 }: {
   tone?: Tone;
+  variant?: keyof typeof LOCKUPS;
   height?: BoxProps["h"];
 }) {
+  const lockup = LOCKUPS[variant];
   return (
     <Image
-      src="/brand/citrix-logo.png"
+      src={lockup.src}
       alt="Citrix Solutions Ltd"
       h={height}
       w="auto"
-      aspectRatio="620 / 196"
+      aspectRatio={lockup.ratio}
       objectFit="contain"
       alignSelf="flex-start"
       flexShrink={0}
