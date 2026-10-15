@@ -8,11 +8,11 @@ import { clearSans, exo } from "@/theme/fonts";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Citrix Solutions Ltd | Print, Branding, Web Design & Events in Kampala",
+    default: "Citrix Solutions Ltd | Print, Branding, Fabrication, Web & Events in Kampala",
     template: "%s | Citrix Solutions",
   },
   description:
-    "Citrix Solutions is a Kampala-based creative partner for print, graphic design, branding, web design and event management. Integrated solutions for modern brand growth.",
+    "Citrix Solutions is a Kampala-based creative partner for print, graphic design, branding, fabrication, web design and event management. Integrated solutions for modern brand growth.",
   applicationName: "Citrix Solutions",
   openGraph: { type: "website", locale: "en_UG", siteName: "Citrix Solutions Ltd" },
   twitter: { card: "summary_large_image" },

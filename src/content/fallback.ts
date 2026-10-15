@@ -1,25 +1,18 @@
 // Placeholder content used when Sanity isn't configured (no
 // NEXT_PUBLIC_SANITY_PROJECT_ID). Replace by publishing real content in /studio.
-import type {
-  Project,
-  Service,
-  SiteSettings,
-  TeamMember,
-  Testimonial,
-} from "@/lib/types";
+import type { Project, Service, SiteSettings, TeamMember, Testimonial } from "@/lib/types";
 
 export const settings: SiteSettings = {
   name: "Citrix Solutions Ltd",
   tagline: "Integrated Solutions for Modern Brand Growth",
   description:
-    "Citrix Solutions is a Kampala-based creative partner for print, graphic design, branding, web design and event management.",
+    "Citrix Solutions is a Kampala-based creative partner for print, graphic design, branding, fabrication, web design and event management.",
   phone: "+256 708 985 056",
   whatsapp: "256785615450",
   email: "citrixsolutionsltd2025@gmail.com",
   address: "Blue Heights Building, Level 6, Room J506, Nkrumah Road",
   city: "Kampala, Uganda",
-  mapEmbedUrl:
-    "https://www.google.com/maps?q=Blue%20Heights%20Building%2C%20Nkrumah%20Road%2C%20Kampala&output=embed",
+  mapEmbedUrl: "https://www.google.com/maps?q=Blue%20Heights%20Building%2C%20Nkrumah%20Road%2C%20Kampala&output=embed",
   hours: "Mon – Sat, 8:00am – 6:00pm",
   socials: [
     { platform: "facebook", url: "https://facebook.com/" },
@@ -30,7 +23,7 @@ export const settings: SiteSettings = {
   // Replace with real counts as they grow, e.g. { value: "50+", label: "Brands served" }.
   stats: [
     { value: "2025", label: "Founded in Kampala" },
-    { value: "5", label: "Services under one roof" },
+    { value: "6", label: "Services under one roof" },
     { value: "30+", label: "Products to choose from" },
     { value: "1", label: "Point of contact for everything" },
   ],
@@ -49,8 +42,7 @@ export const services: Service[] = [
     title: "Print",
     slug: "print",
     icon: "printer",
-    summary:
-      "Business cards to billboards — sharp, colour-accurate printing delivered on time.",
+    summary: "Business cards to billboards — sharp, colour-accurate printing delivered on time.",
     headline: "Print that looks as good in hand as it did on screen.",
     intro:
       "From short-run digital to large-format and promotional items, we manage the full print workflow: file prep, proofing, production and delivery across Kampala.",
@@ -64,9 +56,20 @@ export const services: Service[] = [
     ],
     process: defaultProcess,
     faqs: [
-      { question: "What file formats do you accept?", answer: "Print-ready PDF is best, but we also accept AI, PSD, INDD and high-resolution PNG/JPG. Our team will check every file before it goes to press." },
-      { question: "How fast is turnaround?", answer: "Most digital jobs are ready in 24–72 hours. Large-format and bulk orders depend on quantity — we confirm timelines with every quote." },
-      { question: "Do you deliver?", answer: "Yes — we deliver within Kampala and can arrange courier delivery upcountry." },
+      {
+        question: "What file formats do you accept?",
+        answer:
+          "Print-ready PDF is best, but we also accept AI, PSD, INDD and high-resolution PNG/JPG. Our team will check every file before it goes to press.",
+      },
+      {
+        question: "How fast is turnaround?",
+        answer:
+          "Most digital jobs are ready in 24–72 hours. Large-format and bulk orders depend on quantity — we confirm timelines with every quote.",
+      },
+      {
+        question: "Do you deliver?",
+        answer: "Yes — we deliver within Kampala and can arrange courier delivery upcountry.",
+      },
     ],
     heroImage: null,
     seo: null,
@@ -76,8 +79,7 @@ export const services: Service[] = [
     title: "Graphic Design",
     slug: "graphic-design",
     icon: "pen-tool",
-    summary:
-      "Scroll-stopping visuals for social, print and presentations that tell your story.",
+    summary: "Scroll-stopping visuals for social, print and presentations that tell your story.",
     headline: "Design that makes people stop, look and act.",
     intro:
       "Our designers create visuals that are on-brand and built for purpose — whether it's a campaign, a pitch deck or a month of social content.",
@@ -91,8 +93,14 @@ export const services: Service[] = [
     ],
     process: defaultProcess,
     faqs: [
-      { question: "How many revisions are included?", answer: "Every design package includes up to three rounds of revisions so you get exactly what you need." },
-      { question: "Will I receive the source files?", answer: "Yes. On final payment you receive print-ready and editable source files." },
+      {
+        question: "How many revisions are included?",
+        answer: "Every design package includes up to three rounds of revisions so you get exactly what you need.",
+      },
+      {
+        question: "Will I receive the source files?",
+        answer: "Yes. On final payment you receive print-ready and editable source files.",
+      },
     ],
     heroImage: null,
     seo: null,
@@ -102,8 +110,7 @@ export const services: Service[] = [
     title: "Branding",
     slug: "branding",
     icon: "sparkles",
-    summary:
-      "Logos, identity systems and brand guidelines that make you unmistakable.",
+    summary: "Logos, identity systems and brand guidelines that make you unmistakable.",
     headline: "Build a brand people remember — and trust.",
     intro:
       "We craft brand identities from the ground up or refresh existing ones, delivering a complete, consistent system you can use everywhere.",
@@ -117,8 +124,88 @@ export const services: Service[] = [
     ],
     process: defaultProcess,
     faqs: [
-      { question: "How long does a brand identity take?", answer: "A full identity typically takes 3–6 weeks, depending on scope and feedback cycles." },
-      { question: "Can you refresh our existing brand?", answer: "Absolutely. We often evolve existing brands while keeping the equity customers already recognise." },
+      {
+        question: "How long does a brand identity take?",
+        answer: "A full identity typically takes 3–6 weeks, depending on scope and feedback cycles.",
+      },
+      {
+        question: "Can you refresh our existing brand?",
+        answer: "Absolutely. We often evolve existing brands while keeping the equity customers already recognise.",
+      },
+    ],
+    heroImage: null,
+    seo: null,
+  },
+  {
+    _id: "svc-fabrication",
+    title: "Fabrication",
+    slug: "fabrication",
+    icon: "hammer",
+    summary: "3D letters, light boxes, pylons and display builds — designed, fabricated and installed.",
+    headline: "Your brand, built in steel, acrylic and light.",
+    intro:
+      "We turn your brand into physical structures that work day and night: illuminated signs, pylons, shop fronts, plaques, kiosks and display units. One team takes it from site survey and engineering drawings to fabrication, installation and aftercare across Uganda.",
+    deliverables: [
+      "3D & illuminated channel letters",
+      "Light boxes & backlit fabric signs",
+      "Pylons, totems & billboard structures",
+      "Shop fronts & ACP cladding",
+      "Plaques, engraving & wayfinding",
+      "Kiosks, stands & display units",
+    ],
+    process: [
+      {
+        title: "Survey",
+        description:
+          "We visit the site, measure, photograph the wall or ground, and check power, access and permit needs.",
+      },
+      {
+        title: "Design & engineer",
+        description:
+          "A mock-up on a photo of your building, plus shop drawings with materials, fixings and lighting for sign-off.",
+      },
+      {
+        title: "Fabricate",
+        description:
+          "Cutting, welding, bending and finishing, with every LED and driver tested before anything leaves the workshop.",
+      },
+      {
+        title: "Install & care",
+        description:
+          "Safe installation by our crew, a final check with you, and warranty support or a maintenance plan afterwards.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What do you need from me for a quote?",
+        answer:
+          "The rough size, where it will go, a photo of the wall or site, what it's mounted on, your logo files and your deadline. We confirm exact sizes on a site visit.",
+      },
+      {
+        question: "Which materials do you work with?",
+        answer:
+          "Stainless steel, mild steel, aluminium, brass, acrylic, aluminium composite panel (ACP), PVC foam board and backlit fabric. We'll recommend what suits your budget, location and how long it needs to last.",
+      },
+      {
+        question: "Will an illuminated sign survive the rain?",
+        answer:
+          "Yes. Outdoor signs use weatherproof LED modules and sealed IP67-rated power supplies, with drainage and sealed joints so water can't collect inside.",
+      },
+      {
+        question: "Do you handle KCCA and landlord approvals?",
+        answer:
+          "Yes. For large or outdoor signs we prepare the drawings and paperwork for KCCA or your municipal authority and your landlord, and include any fees in your quote.",
+      },
+      {
+        question: "Is there a warranty?",
+        answer:
+          "Yes. Every sign comes with a written warranty on workmanship, LEDs and power supplies, with the period stated in your quote. We also offer maintenance plans for cleaning and LED replacement.",
+      },
+      {
+        question: "How long does fabrication take?",
+        answer:
+          "Smaller jobs like plaques and acrylic signs take a few days. 3D letters and light boxes usually take 1–2 weeks, and pylons or large structures 2–4 weeks, plus any permit time.",
+      },
     ],
     heroImage: null,
     seo: null,
@@ -128,8 +215,7 @@ export const services: Service[] = [
     title: "Web Design",
     slug: "web-design",
     icon: "monitor-smartphone",
-    summary:
-      "Fast, mobile-first websites that turn visitors into customers.",
+    summary: "Fast, mobile-first websites that turn visitors into customers.",
     headline: "Websites built to perform — on every screen.",
     intro:
       "We design and build modern, SEO-friendly websites that load fast on Ugandan mobile networks and are easy for your team to update.",
@@ -143,8 +229,14 @@ export const services: Service[] = [
     ],
     process: defaultProcess,
     faqs: [
-      { question: "Will I be able to update the website myself?", answer: "Yes. We build on a content management system and train your team to edit pages, posts and images." },
-      { question: "Do you handle hosting and domains?", answer: "We can register your .ug or .com domain, set up hosting and configure professional email." },
+      {
+        question: "Will I be able to update the website myself?",
+        answer: "Yes. We build on a content management system and train your team to edit pages, posts and images.",
+      },
+      {
+        question: "Do you handle hosting and domains?",
+        answer: "We can register your .ug or .com domain, set up hosting and configure professional email.",
+      },
     ],
     heroImage: null,
     seo: null,
@@ -154,8 +246,7 @@ export const services: Service[] = [
     title: "Event Management",
     slug: "event-management",
     icon: "calendar-check",
-    summary:
-      "Launches, conferences and corporate events — planned, branded and run end-to-end.",
+    summary: "Launches, conferences and corporate events — planned, branded and run end-to-end.",
     headline: "Events that run smoothly and leave a lasting impression.",
     intro:
       "From concept to clean-up, we handle planning, branding, production and on-the-day coordination so you can focus on your guests.",
@@ -169,8 +260,14 @@ export const services: Service[] = [
     ],
     process: defaultProcess,
     faqs: [
-      { question: "How early should we book?", answer: "For large events, 6–8 weeks ahead is ideal. We can turn around smaller events faster." },
-      { question: "Do you handle event branding too?", answer: "Yes — backdrops, banners, stage design, badges and merchandise are all produced in-house." },
+      {
+        question: "How early should we book?",
+        answer: "For large events, 6–8 weeks ahead is ideal. We can turn around smaller events faster.",
+      },
+      {
+        question: "Do you handle event branding too?",
+        answer: "Yes — backdrops, banners, stage design, badges and merchandise are all produced in-house.",
+      },
     ],
     heroImage: null,
     seo: null,
@@ -186,7 +283,9 @@ const svc = (slug: string) => {
 // "Sample" on the site. Replace each with a real project (real client, story
 // and photos) and delete the `sample: true` line, or publish real projects in
 // /studio, which replaces this list entirely.
-type SampleProject = Omit<Project, "_id" | "services" | "cover" | "gallery" | "seo" | "sample"> & { services: string[] };
+type SampleProject = Omit<Project, "_id" | "services" | "cover" | "gallery" | "seo" | "sample"> & {
+  services: string[];
+};
 
 const sampleProjects: SampleProject[] = [
   {
@@ -207,7 +306,13 @@ const sampleProjects: SampleProject[] = [
       "We ran a discovery session, built an identity around the coffee's origin, and rolled it out across bags, business cards, stationery and the café sign.",
     result:
       "A premium, consistent look across packaging, print and signage that gave the client the confidence to pitch to retail buyers.",
-    deliverables: ["Logo and identity system", "Brand guidelines", "Coffee bag labels", "Business cards and stationery", "Café signage"],
+    deliverables: [
+      "Logo and identity system",
+      "Brand guidelines",
+      "Coffee bag labels",
+      "Business cards and stationery",
+      "Café signage",
+    ],
     products: ["logo-design", "brand-guidelines", "stickers-labels", "business-cards", "signage"],
     testimonial: null,
   },
@@ -229,8 +334,20 @@ const sampleProjects: SampleProject[] = [
       "We managed venue and vendors, designed the event identity, produced the stage, backdrops and exhibitor booths, and ran registration on the day.",
     result:
       "A professionally run event with consistent branding from the invitations to the stage, and sponsors placed where delegates could see them.",
-    deliverables: ["Event identity", "Stage and backdrop", "Exhibition booths", "Delegate kits and badges", "Social media campaign"],
-    products: ["corporate-events-conferences", "event-branding-backdrops", "exhibition-stands", "conference-kits", "social-media-design"],
+    deliverables: [
+      "Event identity",
+      "Stage and backdrop",
+      "Exhibition booths",
+      "Delegate kits and badges",
+      "Social media campaign",
+    ],
+    products: [
+      "corporate-events-conferences",
+      "event-branding-backdrops",
+      "exhibition-stands",
+      "conference-kits",
+      "social-media-design",
+    ],
     testimonial: null,
   },
   {
@@ -249,9 +366,13 @@ const sampleProjects: SampleProject[] = [
       "Listings were only shared in WhatsApp groups, so the agency had no searchable place to send buyers and no way to look established online.",
     solution:
       "We designed and built a listings website the team can update themselves, with WhatsApp enquiry buttons on every property and a light design that loads fast on mobile data.",
-    result:
-      "A professional online home for the agency's listings that the team updates without a developer.",
-    deliverables: ["Website design and build", "Property listings editor", "WhatsApp enquiry buttons", "Domain, hosting and email"],
+    result: "A professional online home for the agency's listings that the team updates without a developer.",
+    deliverables: [
+      "Website design and build",
+      "Property listings editor",
+      "WhatsApp enquiry buttons",
+      "Domain, hosting and email",
+    ],
     products: ["business-website", "hosting-domain-email", "website-maintenance"],
     testimonial: null,
   },
@@ -271,9 +392,13 @@ const sampleProjects: SampleProject[] = [
       "The old labels peeled when wet and looked inconsistent across bottle sizes, which made the product look cheaper than it was.",
     solution:
       "We redesigned the label system for every bottle size and printed it on waterproof vinyl, with matching cartons and point-of-sale posters.",
-    result:
-      "Labels that stay sharp in the cold chain and a consistent family look across the whole range.",
-    deliverables: ["Label design for 4 bottle sizes", "Waterproof label printing", "Printed cartons", "Point-of-sale posters"],
+    result: "Labels that stay sharp in the cold chain and a consistent family look across the whole range.",
+    deliverables: [
+      "Label design for 4 bottle sizes",
+      "Waterproof label printing",
+      "Printed cartons",
+      "Point-of-sale posters",
+    ],
     products: ["stickers-labels", "packaging-boxes", "poster-flyer-design"],
     testimonial: null,
   },
@@ -295,8 +420,20 @@ const sampleProjects: SampleProject[] = [
       "We created the campaign artwork, adapted it to every format, and printed and delivered branch kits with flyers, pull-ups and posters.",
     result:
       "One consistent campaign across billboards, branches and social media, launched on the same day nationwide.",
-    deliverables: ["Campaign concept and artwork", "Billboard skins", "Branch pull-ups and posters", "Flyers", "Social media adverts"],
-    products: ["poster-flyer-design", "banners-billboards", "pull-up-banners", "flyers-brochures", "social-media-design"],
+    deliverables: [
+      "Campaign concept and artwork",
+      "Billboard skins",
+      "Branch pull-ups and posters",
+      "Flyers",
+      "Social media adverts",
+    ],
+    products: [
+      "poster-flyer-design",
+      "banners-billboards",
+      "pull-up-banners",
+      "flyers-brochures",
+      "social-media-design",
+    ],
     testimonial: null,
   },
   {
@@ -309,15 +446,20 @@ const sampleProjects: SampleProject[] = [
     duration: "2 weeks",
     art: "stand",
     galleryArt: ["stand", "event", "campaign"],
-    services: ["event-management", "print"],
+    services: ["event-management", "fabrication"],
     excerpt: "A custom exhibition stand and giveaways for a regional agricultural show.",
     challenge:
       "The client was exhibiting upcountry for the first time and needed a stand that drew farmers in and could be reused at future shows.",
     solution:
       "We designed a modular stand with a branded counter and product displays, printed the graphics, and transported, built and dismantled it on site.",
-    result:
-      "A reusable stand the client can rebrand for future shows, plus branded giveaways for visitors.",
-    deliverables: ["3D stand design", "Modular stand build", "Printed graphics", "Branded giveaways", "Set-up and dismantling"],
+    result: "A reusable stand the client can rebrand for future shows, plus branded giveaways for visitors.",
+    deliverables: [
+      "3D stand design",
+      "Modular stand build",
+      "Printed graphics",
+      "Branded giveaways",
+      "Set-up and dismantling",
+    ],
     products: ["exhibition-stands", "promotional-items", "pull-up-banners"],
     testimonial: null,
   },
@@ -337,8 +479,7 @@ const sampleProjects: SampleProject[] = [
       "Each lodge had grown its own look, so international visitors couldn't tell they belonged to one group, and the old website didn't work on phones.",
     solution:
       "We brought the lodges under one refreshed identity, updated the signage and printed materials, and built a mobile-friendly website with enquiry forms.",
-    result:
-      "A single, recognisable brand across all lodges and a website that works for travellers on any device.",
+    result: "A single, recognisable brand across all lodges and a website that works for travellers on any device.",
     deliverables: ["Brand refresh", "Lodge signage", "Menus and printed materials", "Website redesign"],
     products: ["rebranding", "signage", "menu-invitation-certificate-design", "website-redesign"],
     testimonial: null,
@@ -353,14 +494,12 @@ const sampleProjects: SampleProject[] = [
     duration: "3 weeks",
     art: "signage",
     galleryArt: ["signage", "cards", "campaign"],
-    services: ["print", "branding"],
+    services: ["fabrication", "branding"],
     excerpt: "Outdoor signage, indoor wayfinding and office branding for a new clinic.",
-    challenge:
-      "Patients struggled to find the clinic from the road and then to find departments inside the building.",
+    challenge: "Patients struggled to find the clinic from the road and then to find departments inside the building.",
     solution:
       "We installed an illuminated 3D sign facing the road, directional signs for every department, and frosted-glass branding for consultation rooms.",
-    result:
-      "A clinic that is easy to find day and night, and a calm, professional interior for patients.",
+    result: "A clinic that is easy to find day and night, and a calm, professional interior for patients.",
     deliverables: ["Illuminated 3D sign", "Wayfinding signs", "Frosted-glass branding", "Staff ID cards"],
     products: ["signage", "office-branding", "business-cards"],
     testimonial: null,
@@ -381,8 +520,7 @@ const sampleProjects: SampleProject[] = [
       "The hub posted almost daily, but every post looked different and the team had no designer to keep it consistent.",
     solution:
       "We designed a set of editable templates for events, announcements and success stories, and trained the team to use them.",
-    result:
-      "A consistent feed the team produces in-house in minutes, without waiting for a designer.",
+    result: "A consistent feed the team produces in-house in minutes, without waiting for a designer.",
     deliverables: ["Social media template kit", "Event and announcement posts", "Team training session"],
     products: ["social-media-design", "presentation-pitch-deck-design"],
     testimonial: null,

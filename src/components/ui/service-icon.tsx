@@ -1,5 +1,6 @@
 import {
   CalendarCheck,
+  Hammer,
   Camera,
   Megaphone,
   MonitorSmartphone,
@@ -18,6 +19,7 @@ const ICONS = {
   sparkles: Sparkles,
   "monitor-smartphone": MonitorSmartphone,
   "calendar-check": CalendarCheck,
+  hammer: Hammer,
   megaphone: Megaphone,
   camera: Camera,
   package: Package,

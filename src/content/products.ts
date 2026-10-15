@@ -19,7 +19,12 @@ export const products: Product[] = [
     priceUnit: "per 100 cards",
     turnaround: "1–2 working days",
     minOrder: "100 cards",
-    includes: ["Free file check and proof", "Full colour, one or both sides", "350gsm card as standard", "Delivery within Kampala"],
+    includes: [
+      "Free file check and proof",
+      "Full colour, one or both sides",
+      "350gsm card as standard",
+      "Delivery within Kampala",
+    ],
     options: [
       { label: "Card stock", values: ["300gsm", "350gsm", "400gsm textured"] },
       { label: "Finish", values: ["Matt lamination", "Gloss lamination", "Soft-touch", "Spot UV"] },
@@ -27,8 +32,14 @@ export const products: Product[] = [
     ],
     idealFor: ["Professionals", "Sales teams", "Small businesses"],
     faqs: [
-      { question: "Can you design my business card?", answer: "Yes. Add design when you request a quote and we'll create options that match your brand." },
-      { question: "Can I order cards for several staff at once?", answer: "Yes. Send us the names and titles and we'll prepare one proof per person." },
+      {
+        question: "Can you design my business card?",
+        answer: "Yes. Add design when you request a quote and we'll create options that match your brand.",
+      },
+      {
+        question: "Can I order cards for several staff at once?",
+        answer: "Yes. Send us the names and titles and we'll prepare one proof per person.",
+      },
     ],
   },
   {
@@ -42,7 +53,12 @@ export const products: Product[] = [
     priceUnit: "per 100 A5 flyers",
     turnaround: "1–3 working days",
     minOrder: "50 copies",
-    includes: ["Free file check and proof", "Full colour, one or both sides", "Bi-fold and tri-fold options", "Delivery within Kampala"],
+    includes: [
+      "Free file check and proof",
+      "Full colour, one or both sides",
+      "Bi-fold and tri-fold options",
+      "Delivery within Kampala",
+    ],
     options: [
       { label: "Size", values: ["A6", "A5", "A4", "DL", "A3"] },
       { label: "Paper", values: ["130gsm gloss", "170gsm gloss", "250gsm matt"] },
@@ -50,7 +66,11 @@ export const products: Product[] = [
     ],
     idealFor: ["Product promotions", "Restaurants", "Events and launches"],
     faqs: [
-      { question: "Is offset or digital printing better?", answer: "Digital is best for under about 1,000 copies and fast turnaround. Offset is cheaper per copy for larger runs. We'll recommend the right one in your quote." },
+      {
+        question: "Is offset or digital printing better?",
+        answer:
+          "Digital is best for under about 1,000 copies and fast turnaround. Offset is cheaper per copy for larger runs. We'll recommend the right one in your quote.",
+      },
     ],
   },
   {
@@ -72,7 +92,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Tenders and proposals", "Corporate clients", "NGOs and annual reports"],
     faqs: [
-      { question: "Can you also write and design the profile?", answer: "Yes. Our graphic design team can design the full profile, and we can help structure the content." },
+      {
+        question: "Can you also write and design the profile?",
+        answer: "Yes. Our graphic design team can design the full profile, and we can help structure the content.",
+      },
     ],
   },
   {
@@ -93,7 +116,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Exhibitions", "Product launches", "Office receptions"],
     faqs: [
-      { question: "Can I reuse the stand with a new print?", answer: "Yes. We can print a replacement graphic for your existing stand at a lower price." },
+      {
+        question: "Can I reuse the stand with a new print?",
+        answer: "Yes. We can print a replacement graphic for your existing stand at a lower price.",
+      },
     ],
   },
   {
@@ -113,7 +139,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Shop fronts", "Outdoor advertising", "Events and fences"],
     faqs: [
-      { question: "Do you install banners and billboards?", answer: "Yes. Our team installs across Kampala and can arrange installation upcountry." },
+      {
+        question: "Do you install banners and billboards?",
+        answer: "Yes. Our team installs across Kampala and can arrange installation upcountry.",
+      },
     ],
   },
   {
@@ -134,7 +163,11 @@ export const products: Product[] = [
     ],
     idealFor: ["Product packaging", "Water and juice bottles", "Window branding"],
     faqs: [
-      { question: "Are your labels waterproof?", answer: "Our vinyl labels are water- and oil-resistant, which is ideal for bottles, cosmetics and food products." },
+      {
+        question: "Are your labels waterproof?",
+        answer:
+          "Our vinyl labels are water- and oil-resistant, which is ideal for bottles, cosmetics and food products.",
+      },
     ],
   },
   {
@@ -155,7 +188,11 @@ export const products: Product[] = [
     ],
     idealFor: ["Staff uniforms", "Campaigns and elections", "Events and fun runs"],
     faqs: [
-      { question: "Which printing method should I choose?", answer: "Screen printing is best value for large quantities, heat transfer suits small runs and full-colour designs, and embroidery gives a premium look on polos and caps." },
+      {
+        question: "Which printing method should I choose?",
+        answer:
+          "Screen printing is best value for large quantities, heat transfer suits small runs and full-colour designs, and embroidery gives a premium look on polos and caps.",
+      },
     ],
   },
   {
@@ -176,7 +213,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Corporate gifts", "End-of-year hampers", "Event giveaways"],
     faqs: [
-      { question: "Can you put together branded gift hampers?", answer: "Yes. We can combine several branded items into packaged hampers for clients and staff." },
+      {
+        question: "Can you put together branded gift hampers?",
+        answer: "Yes. We can combine several branded items into packaged hampers for clients and staff.",
+      },
     ],
   },
   {
@@ -197,7 +237,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Food and beverage brands", "Cosmetics", "Retail shops"],
     faqs: [
-      { question: "Can I get a sample first?", answer: "Yes. We produce a sample so you can check size and finish before the full run." },
+      {
+        question: "Can I get a sample first?",
+        answer: "Yes. We produce a sample so you can check size and finish before the full run.",
+      },
     ],
   },
   {
@@ -217,7 +260,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Delivery fleets", "Company cars", "Campaign vehicles"],
     faqs: [
-      { question: "Will the vinyl damage my paint?", answer: "No. We use quality vinyl that protects the paint and can be removed cleanly." },
+      {
+        question: "Will the vinyl damage my paint?",
+        answer: "No. We use quality vinyl that protects the paint and can be removed cleanly.",
+      },
     ],
   },
 
@@ -239,7 +285,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Small businesses", "Restaurants and shops", "Campaigns"],
     faqs: [
-      { question: "Do you also post the content?", answer: "We focus on design, but can work with your social media manager or recommend a partner." },
+      {
+        question: "Do you also post the content?",
+        answer: "We focus on design, but can work with your social media manager or recommend a partner.",
+      },
     ],
   },
   {
@@ -253,12 +302,13 @@ export const products: Product[] = [
     priceUnit: "per design",
     turnaround: "1–3 working days",
     includes: ["Print-ready and social versions", "Up to 3 rounds of revisions", "Source files"],
-    options: [
-      { label: "Type", values: ["Flyer", "Poster", "Event banner artwork", "Billboard artwork"] },
-    ],
+    options: [{ label: "Type", values: ["Flyer", "Poster", "Event banner artwork", "Billboard artwork"] }],
     idealFor: ["Events", "Product launches", "Promotions"],
     faqs: [
-      { question: "Can you print the design too?", answer: "Yes. We design and print in-house, so you get one quote for both." },
+      {
+        question: "Can you print the design too?",
+        answer: "Yes. We design and print in-house, so you get one quote for both.",
+      },
     ],
   },
   {
@@ -271,14 +321,22 @@ export const products: Product[] = [
     priceFrom: null,
     priceUnit: "per profile (up to 12 pages)",
     turnaround: "5–10 working days",
-    includes: ["Layout and content structuring", "Print and digital PDF", "Up to 3 rounds of revisions", "Source files"],
+    includes: [
+      "Layout and content structuring",
+      "Print and digital PDF",
+      "Up to 3 rounds of revisions",
+      "Source files",
+    ],
     options: [
       { label: "Length", values: ["Up to 8 pages", "Up to 12 pages", "Up to 20 pages"] },
       { label: "Extras", values: ["Copywriting", "Photography", "Printing"] },
     ],
     idealFor: ["Tenders and procurement", "Corporate clients", "NGOs"],
     faqs: [
-      { question: "We don't have our content ready. Can you help?", answer: "Yes. We can interview your team and write the content as part of the project." },
+      {
+        question: "We don't have our content ready. Can you help?",
+        answer: "Yes. We can interview your team and write the content as part of the project.",
+      },
     ],
   },
   {
@@ -298,7 +356,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Investor pitches", "Board reports", "Conference talks"],
     faqs: [
-      { question: "Will I be able to edit the slides?", answer: "Yes. You receive the editable file plus a template your team can reuse." },
+      {
+        question: "Will I be able to edit the slides?",
+        answer: "Yes. You receive the editable file plus a template your team can reuse.",
+      },
     ],
   },
   {
@@ -313,11 +374,17 @@ export const products: Product[] = [
     turnaround: "1–3 working days",
     includes: ["Up to 3 rounds of revisions", "Print-ready file", "Digital version for WhatsApp"],
     options: [
-      { label: "Type", values: ["Restaurant menu", "Invitation card", "Event programme", "Certificate", "Award plaque"] },
+      {
+        label: "Type",
+        values: ["Restaurant menu", "Invitation card", "Event programme", "Certificate", "Award plaque"],
+      },
     ],
     idealFor: ["Restaurants and hotels", "Weddings and introductions", "Schools and awards"],
     faqs: [
-      { question: "Can you add names to each certificate?", answer: "Yes. Send us a list and we'll personalise each certificate." },
+      {
+        question: "Can you add names to each certificate?",
+        answer: "Yes. Send us a list and we'll personalise each certificate.",
+      },
     ],
   },
 
@@ -332,14 +399,22 @@ export const products: Product[] = [
     priceFrom: null,
     priceUnit: "per logo",
     turnaround: "5–7 working days",
-    includes: ["3 initial concepts", "Up to 3 rounds of revisions", "Colour, black and white versions", "All file formats (AI, PDF, PNG, SVG)"],
+    includes: [
+      "3 initial concepts",
+      "Up to 3 rounds of revisions",
+      "Colour, black and white versions",
+      "All file formats (AI, PDF, PNG, SVG)",
+    ],
     options: [
       { label: "Package", values: ["Starter", "Standard", "Premium"] },
       { label: "Extras", values: ["Business card design", "Social media kit", "Mini brand guide"] },
     ],
     idealFor: ["New businesses", "Startups", "Rebrands"],
     faqs: [
-      { question: "Do I own the logo?", answer: "Yes. On final payment, full ownership and all source files are transferred to you." },
+      {
+        question: "Do I own the logo?",
+        answer: "Yes. On final payment, full ownership and all source files are transferred to you.",
+      },
     ],
   },
   {
@@ -352,13 +427,23 @@ export const products: Product[] = [
     priceFrom: null,
     priceUnit: "per package",
     turnaround: "3–6 weeks",
-    includes: ["Brand discovery session", "Logo design", "Colour and typography system", "Stationery designs", "Brand guide"],
+    includes: [
+      "Brand discovery session",
+      "Logo design",
+      "Colour and typography system",
+      "Stationery designs",
+      "Brand guide",
+    ],
     options: [
       { label: "Stationery", values: ["Business card", "Letterhead", "Envelope", "Email signature", "ID card"] },
     ],
     idealFor: ["Growing businesses", "Schools and hospitals", "NGOs"],
     faqs: [
-      { question: "What's the difference between a logo and a brand identity?", answer: "A logo is one mark. A brand identity is the full system (colours, fonts, patterns and rules) that makes everything you produce look like it comes from you." },
+      {
+        question: "What's the difference between a logo and a brand identity?",
+        answer:
+          "A logo is one mark. A brand identity is the full system (colours, fonts, patterns and rules) that makes everything you produce look like it comes from you.",
+      },
     ],
   },
   {
@@ -372,12 +457,13 @@ export const products: Product[] = [
     priceUnit: "per guide",
     turnaround: "1–2 weeks",
     includes: ["Logo usage rules", "Colour codes (CMYK, RGB, HEX)", "Typography", "Do's and don'ts", "PDF guide"],
-    options: [
-      { label: "Scope", values: ["Essentials (10 pages)", "Full guide (25+ pages)"] },
-    ],
+    options: [{ label: "Scope", values: ["Essentials (10 pages)", "Full guide (25+ pages)"] }],
     idealFor: ["Organisations with many branches", "Franchises", "Corporates"],
     faqs: [
-      { question: "Can you make guidelines for a logo you didn't design?", answer: "Yes. We'll build the guidelines around your existing logo and tidy up the files if needed." },
+      {
+        question: "Can you make guidelines for a logo you didn't design?",
+        answer: "Yes. We'll build the guidelines around your existing logo and tidy up the files if needed.",
+      },
     ],
   },
   {
@@ -391,12 +477,13 @@ export const products: Product[] = [
     priceUnit: "per project",
     turnaround: "4–8 weeks",
     includes: ["Brand audit", "Updated identity", "Rollout plan", "Updated templates"],
-    options: [
-      { label: "Scope", values: ["Refresh", "Full rebrand"] },
-    ],
+    options: [{ label: "Scope", values: ["Refresh", "Full rebrand"] }],
     idealFor: ["Established businesses", "Mergers", "Businesses entering new markets"],
     faqs: [
-      { question: "Will our customers still recognise us?", answer: "Yes. We keep the elements customers know, so the change feels like an upgrade, not a stranger." },
+      {
+        question: "Will our customers still recognise us?",
+        answer: "Yes. We keep the elements customers know, so the change feels like an upgrade, not a stranger.",
+      },
     ],
   },
   {
@@ -411,12 +498,18 @@ export const products: Product[] = [
     turnaround: "5–10 working days",
     includes: ["Site visit and measurement", "Design mock-up on your building", "Fabrication", "Installation"],
     options: [
-      { label: "Type", values: ["3D letters", "Illuminated light box", "Shop-front sign", "Office door signs", "Wayfinding signs"] },
+      {
+        label: "Type",
+        values: ["3D letters", "Illuminated light box", "Shop-front sign", "Office door signs", "Wayfinding signs"],
+      },
       { label: "Material", values: ["Acrylic", "Stainless steel", "Aluminium composite", "PVC"] },
     ],
     idealFor: ["Shops and restaurants", "Offices", "Hospitals and schools"],
     faqs: [
-      { question: "Do you handle KCCA signage permits?", answer: "We can advise on the requirements and help prepare what you need for approval." },
+      {
+        question: "Do you handle KCCA signage permits?",
+        answer: "We can advise on the requirements and help prepare what you need for approval.",
+      },
     ],
   },
   {
@@ -435,7 +528,226 @@ export const products: Product[] = [
     ],
     idealFor: ["Corporate offices", "Banks", "Clinics and showrooms"],
     faqs: [
-      { question: "Can the graphics be removed later?", answer: "Yes. Most of our wall and glass graphics are removable without damaging the surface." },
+      {
+        question: "Can the graphics be removed later?",
+        answer: "Yes. Most of our wall and glass graphics are removable without damaging the surface.",
+      },
+    ],
+  },
+
+  // ─── Fabrication ──────────────────────────────────────────────────────────
+  {
+    slug: "3d-channel-letters",
+    service: "fabrication",
+    title: "3D & Channel Letters",
+    summary: "Raised letters and logos, lit or unlit, for shop fronts and receptions.",
+    description:
+      "Individually cut letters and logos that stand off the wall and catch the eye from the street. Choose face-lit, back-lit (halo) or unlit letters in stainless steel, brushed or painted aluminium, brass or acrylic, mounted on the wall, a raceway or a backing panel.",
+    priceFrom: null,
+    priceUnit: "per letter (300mm high)",
+    turnaround: "7–14 working days",
+    minOrder: "1 sign",
+    includes: [
+      "Site visit and measurement",
+      "Mock-up on a photo of your building",
+      "Weatherproof LEDs and IP67 power supply",
+      "Installation and electrical connection",
+    ],
+    options: [
+      { label: "Lighting", values: ["Face-lit", "Back-lit (halo)", "Face and side-lit", "Unlit"] },
+      { label: "Material", values: ["Stainless steel", "Brushed aluminium", "Brass", "Acrylic", "Painted aluminium"] },
+      { label: "Mounting", values: ["Direct to wall", "On raceway", "On backing panel", "Roof-top frame"] },
+    ],
+    idealFor: ["Shop fronts", "Office receptions", "Hotels and restaurants"],
+    faqs: [
+      {
+        question: "What drives the price of 3D letters?",
+        answer:
+          "Letter height, the number of letters, the material, how they are lit and how high they are installed. Above about 4 metres we need scaffolding or a lift, which we include in the quote.",
+      },
+      {
+        question: "Can you switch the sign on and off automatically?",
+        answer:
+          "Yes. We can fit a timer or a dusk-to-dawn sensor so the sign lights up at night without anyone remembering.",
+      },
+    ],
+  },
+  {
+    slug: "light-boxes",
+    service: "fabrication",
+    title: "Light Boxes",
+    summary: "Single or double-sided illuminated boxes, from acrylic to backlit fabric.",
+    description:
+      "Bright, even illumination for your logo or a full graphic, day and night. We build wall-mounted and projecting (blade) light boxes in aluminium frames with acrylic or tension-fabric faces, which make changing the artwork later quick and affordable.",
+    priceFrom: null,
+    priceUnit: "per light box (1m × 0.5m)",
+    turnaround: "7–10 working days",
+    includes: ["Aluminium frame and LED modules", "Printed face", "IP67 power supply", "Installation"],
+    options: [
+      { label: "Face", values: ["Acrylic", "Backlit tension fabric", "Flex face"] },
+      { label: "Shape", values: ["Rectangle", "Circle", "Custom cut to logo"] },
+      { label: "Sides", values: ["Single-sided (wall)", "Double-sided (projecting)"] },
+    ],
+    idealFor: ["Pharmacies and clinics", "Mall shops", "Restaurants and bars"],
+    faqs: [
+      {
+        question: "Can I change the graphic later?",
+        answer:
+          "Yes. Fabric and flex faces can be reprinted and swapped without replacing the box, which suits promotions and rebrands.",
+      },
+    ],
+  },
+  {
+    slug: "pylon-totem-signs",
+    service: "fabrication",
+    title: "Pylon & Totem Signs",
+    summary: "Free-standing branded towers for petrol stations, malls, schools and factories.",
+    description:
+      "Tall, free-standing signs that can be seen from the road and carry several tenants or price boards. We engineer the steel structure and foundation, clad it in aluminium composite panel and add illuminated logo panels or changeable price displays.",
+    priceFrom: null,
+    priceUnit: "per pylon",
+    turnaround: "3–4 weeks",
+    includes: [
+      "Site survey and structural drawings",
+      "Steel frame and concrete foundation",
+      "ACP cladding and illuminated panels",
+      "Permit paperwork and installation",
+    ],
+    options: [
+      { label: "Height", values: ["Up to 3m (totem)", "3–6m", "6m and above"] },
+      { label: "Panels", values: ["Single brand", "Multi-tenant", "With price display"] },
+      { label: "Lighting", values: ["Internally lit", "Spot-lit", "Unlit"] },
+    ],
+    idealFor: ["Petrol stations", "Shopping malls and plazas", "Schools, hospitals and factories"],
+    faqs: [
+      {
+        question: "Do pylons need approval?",
+        answer:
+          "Usually yes. We prepare the structural drawings and application for KCCA or your local authority, and build only once it's approved.",
+      },
+    ],
+  },
+  {
+    slug: "shopfronts-acp-cladding",
+    service: "fabrication",
+    title: "Shop Fronts & ACP Cladding",
+    summary: "Complete branded façades in aluminium composite panel with integrated signs.",
+    description:
+      "Give your building a clean, modern face. We clad façades, canopies and fascias in aluminium composite panel (ACP) in your brand colours, then fit 3D letters or light boxes into the design so everything looks like one piece.",
+    priceFrom: null,
+    priceUnit: "per square metre",
+    turnaround: "2–3 weeks",
+    includes: [
+      "Measured survey",
+      "3D façade visual",
+      "Steel or aluminium sub-frame",
+      "Cladding, signs and installation",
+    ],
+    options: [
+      { label: "Finish", values: ["Gloss", "Matt", "Metallic", "Wood or stone look"] },
+      { label: "Scope", values: ["Fascia only", "Full shop front", "Canopy", "Column wraps"] },
+    ],
+    idealFor: ["Retail chains and branches", "Banks and mobile money agents", "Showrooms"],
+    faqs: [
+      {
+        question: "Can you roll the same look out to all our branches?",
+        answer:
+          "Yes. We create one standard design and adapt it to each site's measurements so every branch looks consistent.",
+      },
+    ],
+  },
+  {
+    slug: "billboard-structures",
+    service: "fabrication",
+    title: "Billboard & Gantry Structures",
+    summary: "Steel billboard frames, roof-top structures and entrance gantries.",
+    description:
+      "Strong, galvanised or painted steel structures built to carry your advertising or welcome visitors at an entrance. We design for wind load, build the foundations and install the frame ready for printed flex or panels.",
+    priceFrom: null,
+    priceUnit: "per structure",
+    turnaround: "3–5 weeks",
+    includes: ["Structural design", "Foundations", "Steel fabrication and painting", "Erection on site"],
+    options: [
+      { label: "Type", values: ["Ground billboard", "Roof-top frame", "Wall-mounted frame", "Entrance gantry"] },
+      { label: "Finish", values: ["Painted", "Galvanised"] },
+    ],
+    idealFor: ["Estates and campuses", "Factories and warehouses", "Advertisers"],
+    faqs: [
+      {
+        question: "Do you print the billboard skin too?",
+        answer:
+          "Yes. We print and fit the flex or panel artwork, so you get the structure and the advert from one team.",
+      },
+    ],
+  },
+  {
+    slug: "plaques-engraving",
+    service: "fabrication",
+    title: "Plaques & Engraving",
+    summary: "Commissioning plaques, door signs and engraved name plates.",
+    description:
+      "Lasting plaques for building openings, donors and milestones, plus door, desk and name plates. Engraved, etched or printed on brass, stainless steel, acrylic or granite, with stand-off fixings or a display base.",
+    priceFrom: null,
+    priceUnit: "per plaque (A4)",
+    turnaround: "3–5 working days",
+    includes: ["Layout proof", "Engraving or etching", "Fixings"],
+    options: [
+      { label: "Material", values: ["Brass", "Stainless steel", "Acrylic", "Granite"] },
+      { label: "Use", values: ["Commissioning plaque", "Door and office signs", "Donor wall", "Desk name plates"] },
+    ],
+    idealFor: ["Government and NGO projects", "Schools and hospitals", "Corporate offices"],
+    faqs: [
+      {
+        question: "Can you deliver a plaque for an official opening on short notice?",
+        answer: "Often, yes. Tell us the date when you ask for a quote and we'll confirm whether we can meet it.",
+      },
+    ],
+  },
+  {
+    slug: "wayfinding-systems",
+    service: "fabrication",
+    title: "Wayfinding & Directory Signs",
+    summary: "Directional, room and directory signs that help people find their way.",
+    description:
+      "A consistent family of signs that guides visitors from the gate to the right room: site directories, directional posts, floor and room signs, and safety signage. We plan the routes with you, then produce and install the full set.",
+    priceFrom: null,
+    priceUnit: "per sign set",
+    turnaround: "2–3 weeks",
+    includes: ["Walk-through and sign schedule", "Design family in your brand", "Production and installation"],
+    options: [
+      { label: "Sign type", values: ["Site directory", "Directional post", "Room and door signs", "Safety signs"] },
+      { label: "Material", values: ["Aluminium", "Acrylic", "ACP", "Stainless steel"] },
+    ],
+    idealFor: ["Hospitals and clinics", "Universities and schools", "Office parks and hotels"],
+    faqs: [
+      {
+        question: "Can we add rooms later?",
+        answer: "Yes. We keep your sign templates on file so new or changed signs match the original set.",
+      },
+    ],
+  },
+  {
+    slug: "kiosks-display-units",
+    service: "fabrication",
+    title: "Kiosks & Display Units",
+    summary: "Branded kiosks, counters, POS stands and acrylic displays.",
+    description:
+      "Branded structures that sell for you: mobile money and product kiosks, promo counters, point-of-sale stands, brochure holders and acrylic display units. Built in steel, aluminium, MDF and acrylic, and finished in your brand colours.",
+    priceFrom: null,
+    priceUnit: "per unit",
+    turnaround: "1–2 weeks",
+    minOrder: "1 unit",
+    includes: ["Design drawing", "Fabrication and branding", "Delivery and assembly"],
+    options: [
+      { label: "Type", values: ["Kiosk", "Promo counter", "POS display stand", "Brochure holder", "Acrylic display"] },
+      { label: "Build", values: ["Steel", "Aluminium", "MDF", "Acrylic"] },
+    ],
+    idealFor: ["Telecom and mobile money agents", "FMCG brands and activations", "Supermarkets and malls"],
+    faqs: [
+      {
+        question: "Can you make many identical units for a roll-out?",
+        answer: "Yes. We build a prototype for your approval, then produce the full batch to the same standard.",
+      },
     ],
   },
 
@@ -450,14 +762,23 @@ export const products: Product[] = [
     priceFrom: null,
     priceUnit: "per website (up to 6 pages)",
     turnaround: "2–4 weeks",
-    includes: ["Mobile-first design", "Up to 6 pages", "WhatsApp and contact forms", "Basic SEO setup", "Training for your team"],
+    includes: [
+      "Mobile-first design",
+      "Up to 6 pages",
+      "WhatsApp and contact forms",
+      "Basic SEO setup",
+      "Training for your team",
+    ],
     options: [
       { label: "Size", values: ["Up to 6 pages", "Up to 12 pages", "Custom"] },
       { label: "Extras", values: ["Blog", "Copywriting", "Photography", "Google Business Profile setup"] },
     ],
     idealFor: ["SMEs", "Schools and clinics", "Professional services"],
     faqs: [
-      { question: "How long does it take to build?", answer: "Most business websites are ready in 2–4 weeks once we have your content." },
+      {
+        question: "How long does it take to build?",
+        answer: "Most business websites are ready in 2–4 weeks once we have your content.",
+      },
     ],
   },
   {
@@ -471,12 +792,13 @@ export const products: Product[] = [
     priceUnit: "per page",
     turnaround: "5–10 working days",
     includes: ["Conversion-focused design", "Enquiry or sign-up form", "Analytics setup"],
-    options: [
-      { label: "Goal", values: ["Lead capture", "Event registration", "Product launch"] },
-    ],
+    options: [{ label: "Goal", values: ["Lead capture", "Event registration", "Product launch"] }],
     idealFor: ["Ad campaigns", "Events", "Product launches"],
     faqs: [
-      { question: "Can it be part of my existing website?", answer: "Yes. We can add it to your current site or host it on its own domain." },
+      {
+        question: "Can it be part of my existing website?",
+        answer: "Yes. We can add it to your current site or host it on its own domain.",
+      },
     ],
   },
   {
@@ -496,7 +818,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Retail shops", "Fashion and beauty brands", "Supermarkets"],
     faqs: [
-      { question: "Which payment methods can I accept?", answer: "MTN Mobile Money, Airtel Money and Visa/Mastercard, through a local payment provider." },
+      {
+        question: "Which payment methods can I accept?",
+        answer: "MTN Mobile Money, Airtel Money and Visa/Mastercard, through a local payment provider.",
+      },
     ],
   },
   {
@@ -510,12 +835,13 @@ export const products: Product[] = [
     priceUnit: "per website",
     turnaround: "2–6 weeks",
     includes: ["Website audit", "New design", "Content migration", "Redirects to protect SEO"],
-    options: [
-      { label: "Scope", values: ["Design refresh", "Full rebuild"] },
-    ],
+    options: [{ label: "Scope", values: ["Design refresh", "Full rebuild"] }],
     idealFor: ["Slow or outdated websites", "Rebrands", "Sites that don't work on mobile"],
     faqs: [
-      { question: "Will we lose our Google rankings?", answer: "No. We set up redirects and keep your important pages so your rankings are protected." },
+      {
+        question: "Will we lose our Google rankings?",
+        answer: "No. We set up redirects and keep your important pages so your rankings are protected.",
+      },
     ],
   },
   {
@@ -535,7 +861,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Any business with a website", "Teams that need professional email"],
     faqs: [
-      { question: "Can you move my existing website and email?", answer: "Yes. We'll migrate everything with minimal downtime." },
+      {
+        question: "Can you move my existing website and email?",
+        answer: "Yes. We'll migrate everything with minimal downtime.",
+      },
     ],
   },
   {
@@ -549,12 +878,13 @@ export const products: Product[] = [
     priceUnit: "per month",
     turnaround: "Ongoing",
     includes: ["Updates and security monitoring", "Monthly backups", "Content changes", "Monthly report"],
-    options: [
-      { label: "Plan", values: ["Basic", "Standard", "Premium"] },
-    ],
+    options: [{ label: "Plan", values: ["Basic", "Standard", "Premium"] }],
     idealFor: ["Busy teams", "E-commerce shops", "Organisations without an IT team"],
     faqs: [
-      { question: "Can you maintain a website you didn't build?", answer: "Yes. We'll review it first and then add it to a care plan." },
+      {
+        question: "Can you maintain a website you didn't build?",
+        answer: "Yes. We'll review it first and then add it to a care plan.",
+      },
     ],
   },
 
@@ -576,7 +906,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Corporates", "NGOs", "Government agencies"],
     faqs: [
-      { question: "Can you work with our chosen venue?", answer: "Yes. We can work at your venue or recommend and book one for you." },
+      {
+        question: "Can you work with our chosen venue?",
+        answer: "Yes. We can work at your venue or recommend and book one for you.",
+      },
     ],
   },
   {
@@ -590,12 +923,13 @@ export const products: Product[] = [
     priceUnit: "per activation",
     turnaround: "Book 3–6 weeks ahead",
     includes: ["Creative concept", "Branding and set-up", "Brand ambassadors", "Activity report with photos"],
-    options: [
-      { label: "Type", values: ["Product launch", "Roadshow", "In-store activation", "Sampling"] },
-    ],
+    options: [{ label: "Type", values: ["Product launch", "Roadshow", "In-store activation", "Sampling"] }],
     idealFor: ["FMCG brands", "Telecoms and banks", "New products"],
     faqs: [
-      { question: "Do you provide brand ambassadors?", answer: "Yes. We recruit, train and supervise ambassadors for your activation." },
+      {
+        question: "Do you provide brand ambassadors?",
+        answer: "Yes. We recruit, train and supervise ambassadors for your activation.",
+      },
     ],
   },
   {
@@ -615,7 +949,10 @@ export const products: Product[] = [
     ],
     idealFor: ["Trade shows", "UMA expo", "Career and agri fairs"],
     faqs: [
-      { question: "Can the stand be reused?", answer: "Yes. We can build modular stands that you can reuse and rebrand for future events." },
+      {
+        question: "Can the stand be reused?",
+        answer: "Yes. We can build modular stands that you can reuse and rebrand for future events.",
+      },
     ],
   },
   {
@@ -630,11 +967,17 @@ export const products: Product[] = [
     turnaround: "2–5 working days",
     includes: ["Design and printing", "Frames and stands", "Set-up at your venue"],
     options: [
-      { label: "Item", values: ["Stage backdrop", "Step-and-repeat wall", "Branded tent", "Teardrop flags", "Tablecloths"] },
+      {
+        label: "Item",
+        values: ["Stage backdrop", "Step-and-repeat wall", "Branded tent", "Teardrop flags", "Tablecloths"],
+      },
     ],
     idealFor: ["Launches and conferences", "Weddings and introductions", "Graduations"],
     faqs: [
-      { question: "Do you set up at the venue?", answer: "Yes. Our team delivers, sets up and collects after the event." },
+      {
+        question: "Do you set up at the venue?",
+        answer: "Yes. Our team delivers, sets up and collects after the event.",
+      },
     ],
   },
   {
@@ -649,12 +992,13 @@ export const products: Product[] = [
     turnaround: "3–7 working days",
     minOrder: "20 kits",
     includes: ["Personalised badges", "Branded items", "Packing and delivery to venue"],
-    options: [
-      { label: "Items", values: ["Name badge", "Lanyard", "Notebook", "Pen", "Folder", "Tote bag"] },
-    ],
+    options: [{ label: "Items", values: ["Name badge", "Lanyard", "Notebook", "Pen", "Folder", "Tote bag"] }],
     idealFor: ["Conferences", "Workshops and trainings", "Summits"],
     faqs: [
-      { question: "Can you print badges from our registration list?", answer: "Yes. Send us the list and we'll print a personalised badge for every delegate." },
+      {
+        question: "Can you print badges from our registration list?",
+        answer: "Yes. Send us the list and we'll print a personalised badge for every delegate.",
+      },
     ],
   },
 ];

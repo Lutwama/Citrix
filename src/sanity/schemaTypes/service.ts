@@ -13,7 +13,17 @@ export const service = defineType({
       name: "icon",
       type: "string",
       options: {
-        list: ["printer", "pen-tool", "sparkles", "monitor-smartphone", "calendar-check", "megaphone", "camera", "package"],
+        list: [
+          "printer",
+          "pen-tool",
+          "sparkles",
+          "hammer",
+          "monitor-smartphone",
+          "calendar-check",
+          "megaphone",
+          "camera",
+          "package",
+        ],
       },
     }),
     defineField({ name: "order", type: "number" }),
