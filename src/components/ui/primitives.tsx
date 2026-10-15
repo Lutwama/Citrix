@@ -8,8 +8,18 @@ import type { ReactNode } from "react";
 export function BillboardSplash(props: BoxProps) {
   return (
     <Box aria-hidden position="absolute" inset="0" pointerEvents="none" {...props}>
-      <Box position="absolute" inset="0" backgroundImage="url(/brand/billboard-splash.svg)" backgroundSize="cover" backgroundPosition="center" />
-      <Box position="absolute" inset="0" bgImage="linear-gradient(90deg, rgba(0,59,120,0.85) 0%, rgba(0,59,120,0.45) 45%, rgba(0,59,120,0) 75%)" />
+      <Box
+        position="absolute"
+        inset="0"
+        backgroundImage="url(/brand/billboard-splash.svg)"
+        backgroundSize="cover"
+        backgroundPosition="center"
+      />
+      <Box
+        position="absolute"
+        inset="0"
+        bgImage="linear-gradient(90deg, rgba(0,59,120,0.85) 0%, rgba(0,59,120,0.45) 45%, rgba(0,59,120,0) 75%)"
+      />
     </Box>
   );
 }
@@ -20,15 +30,23 @@ export function Section({
   ...rest
 }: { children: ReactNode; tone?: "light" | "mist" | "ice" | "blue" | "teal" } & BoxProps) {
   const bg = {
-    light: "white",
-    mist: "brand.mist",
+    light: "bg",
+    mist: "surface.mist",
     ice: "brand.ice",
     blue: "brand.blue",
     teal: "brand.teal",
   }[tone];
   const dark = tone === "blue" || tone === "teal";
   return (
-    <Box as="section" position="relative" overflow="hidden" bg={bg} color={dark ? "white" : "fg"} py={{ base: 16, md: 24 }} {...rest}>
+    <Box
+      as="section"
+      position="relative"
+      overflow="hidden"
+      bg={bg}
+      color={dark ? "white" : "fg"}
+      py={{ base: 16, md: 24 }}
+      {...rest}
+    >
       {/* full splash on blue; a lighter layer on teal so the section keeps its colour */}
       {dark && <BillboardSplash opacity={tone === "blue" ? 1 : 0.3} />}
       <Container maxW="7xl" position="relative">
@@ -52,13 +70,20 @@ export function SectionHeading({
   dark?: boolean;
 }) {
   return (
-    <Stack gap={4} textAlign={align} align={align === "center" ? "center" : "flex-start"} maxW="3xl" mx={align === "center" ? "auto" : undefined} mb={{ base: 10, md: 14 }}>
+    <Stack
+      gap={4}
+      textAlign={align}
+      align={align === "center" ? "center" : "flex-start"}
+      maxW="3xl"
+      mx={align === "center" ? "auto" : undefined}
+      mb={{ base: 10, md: 14 }}
+    >
       {eyebrow && (
         <Text textStyle="eyebrow" color={dark ? "brand.ice" : "brand.cyan"}>
           {eyebrow}
         </Text>
       )}
-      <Heading as="h2" textStyle="h2" color={dark ? "white" : "brand.blue"}>
+      <Heading as="h2" textStyle="h2" color={dark ? "white" : "heading"}>
         {title}
       </Heading>
       {description && (

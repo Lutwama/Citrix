@@ -1,5 +1,13 @@
 import { Box, Grid, Heading, HStack, LinkBox, LinkOverlay, SimpleGrid, Stack, Text } from "@chakra-ui/react";
-import { ArrowRight, CalendarCheck, MonitorSmartphone, PenTool, Printer, Sparkles, type LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarCheck,
+  MonitorSmartphone,
+  PenTool,
+  Printer,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import NextLink from "next/link";
 import { Suspense } from "react";
 import { formatDate } from "@/components/blog/post-card";
@@ -13,7 +21,8 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Insights",
-  description: "Practical guides on printing, branding, design, websites and events from the Citrix Solutions team in Kampala.",
+  description:
+    "Practical guides on printing, branding, design, websites and events from the Citrix Solutions team in Kampala.",
   path: "/blog",
 });
 
@@ -27,7 +36,9 @@ const TOPICS: Record<string, { icon: LucideIcon; text: string }> = {
 
 export default async function BlogPage() {
   const [initial, categories, settings] = await Promise.all([getPosts(), getCategories(), getSettings()]);
-  const counts = await Promise.all(categories.map((c) => getPosts({ category: c.slug, limit: 1 }).then((r) => r.total)));
+  const counts = await Promise.all(
+    categories.map((c) => getPosts({ category: c.slug, limit: 1 }).then((r) => r.total)),
+  );
   const featured = initial.items[0];
 
   return (
@@ -60,7 +71,13 @@ export default async function BlogPage() {
                   <Text textStyle="eyebrow" color="brand.cyan">
                     Latest guide
                   </Text>
-                  <Heading as="h2" textStyle="h2" color="brand.blue" _groupHover={{ color: "brand.cyan" }} transition="color 0.2s">
+                  <Heading
+                    as="h2"
+                    textStyle="h2"
+                    color="heading"
+                    _groupHover={{ color: "brand.cyan" }}
+                    transition="color 0.2s"
+                  >
                     <LinkOverlay asChild>
                       <NextLink href={`/blog/${featured.slug}`}>{featured.title}</NextLink>
                     </LinkOverlay>
@@ -83,7 +100,17 @@ export default async function BlogPage() {
                       </>
                     ) : null}
                   </HStack>
-                  <Text as="span" display="inline-flex" alignItems="center" gap={2} fontWeight="700" fontFamily="heading" color="brand.blue" _groupHover={{ gap: 3 }} transition="gap 0.2s">
+                  <Text
+                    as="span"
+                    display="inline-flex"
+                    alignItems="center"
+                    gap={2}
+                    fontWeight="700"
+                    fontFamily="heading"
+                    color="heading"
+                    _groupHover={{ gap: 3 }}
+                    transition="gap 0.2s"
+                  >
                     Read the guide <ArrowRight size={18} />
                   </Text>
                 </Stack>
@@ -107,16 +134,30 @@ export default async function BlogPage() {
                   h="full"
                   p={5}
                   rounded="card"
-                  bg="white"
+                  bg="surface"
                   borderWidth="1px"
-                  borderColor="blackAlpha.100"
+                  borderColor="line"
                   transition="all 0.25s"
-                  _hover={{ transform: "translateY(-3px)", borderColor: "brand.ice", boxShadow: "0 16px 32px -20px rgba(0,78,155,0.4)" }}
+                  _hover={{
+                    transform: "translateY(-3px)",
+                    borderColor: "brand.ice",
+                    boxShadow: "0 16px 32px -20px rgba(0,78,155,0.4)",
+                  }}
                 >
-                  <Box display="grid" placeItems="center" boxSize={11} rounded="xl" bg="brand.mist" color="brand.blue" mb={4} _groupHover={{ bg: "brand.blue", color: "white" }} transition="all 0.25s">
+                  <Box
+                    display="grid"
+                    placeItems="center"
+                    boxSize={11}
+                    rounded="xl"
+                    bg="surface.mist"
+                    color="heading"
+                    mb={4}
+                    _groupHover={{ bg: "brand.blue", color: "white" }}
+                    transition="all 0.25s"
+                  >
                     <Icon size={20} />
                   </Box>
-                  <Heading as="h3" fontSize="lg" fontFamily="heading" fontWeight="700" color="brand.blue" mb={1}>
+                  <Heading as="h3" fontSize="lg" fontFamily="heading" fontWeight="700" color="heading" mb={1}>
                     <LinkOverlay asChild>
                       <NextLink href={`/blog?category=${c.slug}#articles`}>{c.title}</NextLink>
                     </LinkOverlay>
@@ -124,7 +165,13 @@ export default async function BlogPage() {
                   <Text fontSize="sm" color="fg.muted" mb={3}>
                     {topic?.text}
                   </Text>
-                  <Text fontSize="xs" fontWeight="700" color="brand.cyan" textTransform="uppercase" letterSpacing="0.08em">
+                  <Text
+                    fontSize="xs"
+                    fontWeight="700"
+                    color="brand.cyan"
+                    textTransform="uppercase"
+                    letterSpacing="0.08em"
+                  >
                     {counts[i]} {counts[i] === 1 ? "guide" : "guides"}
                   </Text>
                 </LinkBox>
@@ -141,7 +188,11 @@ export default async function BlogPage() {
         </Suspense>
       </Section>
 
-      <CtaBand whatsapp={settings.whatsapp} title="Have a question we haven't answered?" description="Ask our team on WhatsApp or request a quote. We reply within one business day." />
+      <CtaBand
+        whatsapp={settings.whatsapp}
+        title="Have a question we haven't answered?"
+        description="Ask our team on WhatsApp or request a quote. We reply within one business day."
+      />
     </>
   );
 }

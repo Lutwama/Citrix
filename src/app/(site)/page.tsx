@@ -30,7 +30,7 @@ export default async function HomePage() {
         <SectionHeading
           eyebrow="What we do"
           title="Everything your brand needs, under one roof."
-          description="Five disciplines, one team. We connect strategy, design, production and experience so your brand shows up consistently everywhere."
+          description="Six disciplines, one team. We connect strategy, design, production and experience so your brand shows up consistently everywhere."
         />
         <ServicesGrid services={services} />
       </Section>
@@ -42,7 +42,11 @@ export default async function HomePage() {
           <FeaturedWorkCarousel
             projects={projects}
             header={
-              <SectionHeading eyebrow="Featured work" title="Brands we've helped grow." description="A selection of recent projects across print, identity, digital and events." />
+              <SectionHeading
+                eyebrow="Featured work"
+                title="Brands we've helped grow."
+                description="A selection of recent projects across print, identity, digital and events."
+              />
             }
           />
           <Flex justify="center" mt={12}>

@@ -11,6 +11,8 @@ const config = defineConfig({
       fontFamily: "body",
     },
     "::selection": { bg: "brand.ice", color: "brand.blue" },
+    // Logos show in white on dark backgrounds; the footer already uses its white tone.
+    ".dark [data-logo=color]": { filter: "brightness(0) invert(1)" },
   },
   theme: {
     tokens: {
@@ -46,13 +48,28 @@ const config = defineConfig({
     },
     semanticTokens: {
       colors: {
-        // Nested DEFAULT keys merge with Chakra's own (fg.error, bg.subtle, …)
-        bg: { DEFAULT: { value: "#FFFFFF" } },
-        fg: { DEFAULT: { value: "{colors.brand.ink}" }, muted: { value: "#4A6075" } },
+        // Nested DEFAULT keys merge with Chakra's own (fg.error, bg.subtle, …).
+        // Each pair is { base: light mode, _dark: dark mode }.
+        bg: { DEFAULT: { value: { base: "#FFFFFF", _dark: "#06172A" } } },
+        fg: {
+          DEFAULT: { value: { base: "{colors.brand.ink}", _dark: "#E3EEF6" } },
+          muted: { value: { base: "#4A6075", _dark: "#9DB4C9" } },
+        },
+        // Page building blocks. Use these instead of white / brand.mist /
+        // brand.blue text so every section follows the colour mode.
+        surface: {
+          DEFAULT: { value: { base: "#FFFFFF", _dark: "#0D243C" } }, // cards, panels
+          mist: { value: { base: "{colors.brand.mist}", _dark: "#0A1F35" } }, // tinted sections, chips
+        },
+        heading: { value: { base: "{colors.brand.blue}", _dark: "#7CC8E8" } }, // titles, links, icons
+        ink: { value: { base: "{colors.brand.ink}", _dark: "#E3EEF6" } }, // strong body text
+        accent: { value: { base: "{colors.brand.teal}", _dark: "#8FD0E5" } }, // teal notes, chips, quotes
+        line: { value: { base: "{colors.blackAlpha.100}", _dark: "{colors.whiteAlpha.150}" } }, // borders
+        header: { value: { base: "rgba(255,255,255,0.92)", _dark: "rgba(6,23,42,0.88)" } },
         brand: {
           solid: { value: "{colors.brand.600}" },
           contrast: { value: "white" },
-          fg: { value: "{colors.brand.600}" },
+          fg: { value: { base: "{colors.brand.600}", _dark: "#7CC8E8" } },
           muted: { value: "{colors.brand.100}" },
           subtle: { value: "{colors.brand.50}" },
           emphasized: { value: "{colors.brand.200}" },

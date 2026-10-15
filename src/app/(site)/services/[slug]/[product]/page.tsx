@@ -37,7 +37,9 @@ export default async function ProductPage({ params }: Props) {
   if (!product || !service) notFound();
 
   const path = `/services/${slug}/${productSlug}`;
-  const related = getProductsByService(slug).filter((p) => p.slug !== product.slug).slice(0, 3);
+  const related = getProductsByService(slug)
+    .filter((p) => p.slug !== product.slug)
+    .slice(0, 3);
   const waMessage = `Hello Citrix! I'd like a quote for ${product.title}.`;
 
   return (
@@ -80,7 +82,16 @@ export default async function ProductPage({ params }: Props) {
                 Get a quote <ArrowRight />
               </NextLink>
             </Button>
-            <Button asChild size="lg" rounded="full" variant="outline" color="white" borderColor="whiteAlpha.500" _hover={{ bg: "whiteAlpha.200" }} px={7}>
+            <Button
+              asChild
+              size="lg"
+              rounded="full"
+              variant="outline"
+              color="white"
+              borderColor="whiteAlpha.500"
+              _hover={{ bg: "whiteAlpha.200" }}
+              px={7}
+            >
               <a href={whatsappLink(settings.whatsapp, waMessage)} target="_blank" rel="noopener noreferrer">
                 <FaWhatsapp /> Ask on WhatsApp
               </a>
@@ -100,12 +111,28 @@ export default async function ProductPage({ params }: Props) {
             </Box>
 
             <Box>
-              <Heading as="h2" textStyle="h3" color="brand.blue" mb={5}>
+              <Heading as="h2" textStyle="h3" color="heading" mb={5}>
                 What&apos;s included
               </Heading>
-              <List.Root as="ul" listStyle="none" display="grid" gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }} gap={3}>
+              <List.Root
+                as="ul"
+                listStyle="none"
+                display="grid"
+                gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }}
+                gap={3}
+              >
                 {product.includes.map((item) => (
-                  <List.Item key={item} display="flex" alignItems="center" gap={3} p={4} rounded="xl" bg="brand.mist" fontWeight="600" color="brand.ink">
+                  <List.Item
+                    key={item}
+                    display="flex"
+                    alignItems="center"
+                    gap={3}
+                    p={4}
+                    rounded="xl"
+                    bg="surface.mist"
+                    fontWeight="600"
+                    color="ink"
+                  >
                     <Box color="brand.cyan" flexShrink={0}>
                       <CircleCheck size={20} />
                     </Box>
@@ -117,18 +144,29 @@ export default async function ProductPage({ params }: Props) {
 
             {product.options.length > 0 && (
               <Box>
-                <Heading as="h2" textStyle="h3" color="brand.blue" mb={5}>
+                <Heading as="h2" textStyle="h3" color="heading" mb={5}>
                   Options
                 </Heading>
                 <Stack gap={5}>
                   {product.options.map((o) => (
                     <Box key={o.label}>
-                      <Text fontWeight="700" fontFamily="heading" color="brand.ink" mb={2}>
+                      <Text fontWeight="700" fontFamily="heading" color="ink" mb={2}>
                         {o.label}
                       </Text>
                       <Wrap gap={2}>
                         {o.values.map((v) => (
-                          <Box key={v} as="span" px={3} py={1.5} rounded="full" borderWidth="1px" borderColor="brand.ice" color="brand.teal" fontSize="sm" fontWeight="600">
+                          <Box
+                            key={v}
+                            as="span"
+                            px={3}
+                            py={1.5}
+                            rounded="full"
+                            borderWidth="1px"
+                            borderColor="brand.ice"
+                            color="accent"
+                            fontSize="sm"
+                            fontWeight="600"
+                          >
                             {v}
                           </Box>
                         ))}
@@ -140,7 +178,16 @@ export default async function ProductPage({ params }: Props) {
             )}
           </Stack>
 
-          <Box position={{ lg: "sticky" }} top={{ lg: 28 }} p={{ base: 6, md: 8 }} rounded="card" bg="white" borderWidth="1px" borderColor="blackAlpha.100" boxShadow="0 20px 40px -24px rgba(0,78,155,0.3)">
+          <Box
+            position={{ lg: "sticky" }}
+            top={{ lg: 28 }}
+            p={{ base: 6, md: 8 }}
+            rounded="card"
+            bg="surface"
+            borderWidth="1px"
+            borderColor="line"
+            boxShadow="0 20px 40px -24px rgba(0,78,155,0.3)"
+          >
             <Stack gap={5}>
               <PriceTag product={product} />
               <Stack gap={3} color="fg.muted">
@@ -160,19 +207,30 @@ export default async function ProductPage({ params }: Props) {
                 )}
               </Stack>
               <Box>
-                <Text fontWeight="700" fontFamily="heading" color="brand.ink" mb={2}>
+                <Text fontWeight="700" fontFamily="heading" color="ink" mb={2}>
                   Ideal for
                 </Text>
                 <Wrap gap={2}>
                   {product.idealFor.map((v) => (
-                    <Box key={v} as="span" px={3} py={1} rounded="full" bg="brand.mist" color="brand.blue" fontSize="sm" fontWeight="600">
+                    <Box
+                      key={v}
+                      as="span"
+                      px={3}
+                      py={1}
+                      rounded="full"
+                      bg="surface.mist"
+                      color="heading"
+                      fontSize="sm"
+                      fontWeight="600"
+                    >
                       {v}
                     </Box>
                   ))}
                 </Wrap>
               </Box>
               <Text color="fg.muted" fontSize="sm">
-                Final prices depend on quantity, size and finish. Tell us what you need for an exact quote within one business day.
+                Final prices depend on quantity, size and finish. Tell us what you need for an exact quote within one
+                business day.
               </Text>
               <Stack gap={3}>
                 <Button asChild colorPalette="brand" rounded="full" size="lg">

@@ -72,7 +72,7 @@ export function PagedFeed<T extends { _id: string }>({
 
       {query.isPending ? (
         <Flex justify="center" py={20}>
-          <Spinner color="brand.blue" size="lg" />
+          <Spinner color="heading" size="lg" />
         </Flex>
       ) : query.isError ? (
         <Text color="red.600">Something went wrong loading this list. Please refresh.</Text>
@@ -82,17 +82,30 @@ export function PagedFeed<T extends { _id: string }>({
         </Text>
       ) : (
         <SimpleGrid columns={columns} gap={{ base: 8, md: 10 }}>
-            {items.map((item) => (
-              <motion.div key={item._id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
-                {renderItem(item)}
-              </motion.div>
-            ))}
+          {items.map((item) => (
+            <motion.div
+              key={item._id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              {renderItem(item)}
+            </motion.div>
+          ))}
         </SimpleGrid>
       )}
 
       {query.hasNextPage && (
         <Flex justify="center" mt={14}>
-          <Button onClick={() => query.fetchNextPage()} loading={query.isFetchingNextPage} variant="outline" colorPalette="brand" rounded="full" size="lg" px={10}>
+          <Button
+            onClick={() => query.fetchNextPage()}
+            loading={query.isFetchingNextPage}
+            variant="outline"
+            colorPalette="brand"
+            rounded="full"
+            size="lg"
+            px={10}
+          >
             Load more
           </Button>
         </Flex>

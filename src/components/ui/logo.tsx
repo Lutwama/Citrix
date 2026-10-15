@@ -71,6 +71,7 @@ export function Logo({
       alignSelf="flex-start"
       flexShrink={0}
       display="block"
+      data-logo={tone}
       filter={tone === "white" ? "brightness(0) invert(1)" : undefined}
     />
   );

@@ -14,7 +14,13 @@ export function StatsBand({ stats }: { stats: SiteSettings["stats"] }) {
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.08}>
             <Stack gap={1} textAlign="center">
-              <Text fontFamily="heading" fontWeight="700" fontSize={{ base: "3xl", md: "5xl" }} color="white" lineHeight="1">
+              <Text
+                fontFamily="heading"
+                fontWeight="700"
+                fontSize={{ base: "3xl", md: "5xl" }}
+                color="white"
+                lineHeight="1"
+              >
                 {s.value}
               </Text>
               <Text color="brand.ice">{s.label}</Text>
@@ -31,11 +37,26 @@ export function ProcessSteps({ steps, dark = false }: { steps: ProcessStep[]; da
     <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} gap={6}>
       {steps.map((step, i) => (
         <Reveal key={step.title} delay={i * 0.08}>
-          <Box position="relative" h="full" p={7} rounded="card" bg={dark ? "whiteAlpha.100" : "white"} borderWidth="1px" borderColor={dark ? "whiteAlpha.200" : "blackAlpha.100"}>
-            <Text fontFamily="heading" fontWeight="700" fontSize="5xl" lineHeight="1" color={dark ? "brand.ice" : "brand.cyan"} mb={4}>
+          <Box
+            position="relative"
+            h="full"
+            p={7}
+            rounded="card"
+            bg={dark ? "whiteAlpha.100" : "surface"}
+            borderWidth="1px"
+            borderColor={dark ? "whiteAlpha.200" : "line"}
+          >
+            <Text
+              fontFamily="heading"
+              fontWeight="700"
+              fontSize="5xl"
+              lineHeight="1"
+              color={dark ? "brand.ice" : "brand.cyan"}
+              mb={4}
+            >
               {String(i + 1).padStart(2, "0")}
             </Text>
-            <Heading as="h3" textStyle="h3" color={dark ? "white" : "brand.blue"} mb={2}>
+            <Heading as="h3" textStyle="h3" color={dark ? "white" : "heading"} mb={2}>
               {step.title}
             </Heading>
             <Text color={dark ? "whiteAlpha.800" : "fg.muted"}>{step.description}</Text>
@@ -57,7 +78,12 @@ export function CtaBand({
 }) {
   return (
     <Section tone="blue">
-      <Flex direction={{ base: "column", lg: "row" }} align={{ base: "flex-start", lg: "center" }} justify="space-between" gap={8}>
+      <Flex
+        direction={{ base: "column", lg: "row" }}
+        align={{ base: "flex-start", lg: "center" }}
+        justify="space-between"
+        gap={8}
+      >
         <Box maxW="2xl">
           <SectionHeading dark title={title} description={description} />
         </Box>

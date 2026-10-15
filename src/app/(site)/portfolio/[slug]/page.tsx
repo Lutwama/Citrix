@@ -1,4 +1,17 @@
-import { Box, Button, Container, Grid, Heading, HStack, Link, List, SimpleGrid, Stack, Text, Wrap } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Heading,
+  HStack,
+  Link,
+  List,
+  SimpleGrid,
+  Stack,
+  Text,
+  Wrap,
+} from "@chakra-ui/react";
 import { ArrowLeft, ArrowRight, CircleCheck, Info, Quote } from "lucide-react";
 import type { Metadata } from "next";
 import NextLink from "next/link";
@@ -25,8 +38,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) return {};
-  const meta = pageMetadata({ title: project.title, description: project.excerpt, path: `/portfolio/${slug}`, seo: project.seo });
-  if (project.cover?.url) meta.openGraph = { ...meta.openGraph, images: [`${project.cover.url}?w=1200&h=630&fit=crop`] };
+  const meta = pageMetadata({
+    title: project.title,
+    description: project.excerpt,
+    path: `/portfolio/${slug}`,
+    seo: project.seo,
+  });
+  if (project.cover?.url)
+    meta.openGraph = { ...meta.openGraph, images: [`${project.cover.url}?w=1200&h=630&fit=crop`] };
   return meta;
 }
 
@@ -36,7 +55,9 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   const primaryService = project.services[0]?.slug ?? "";
-  const related = (await getProjects({ service: primaryService, limit: 4 })).items.filter((p) => p.slug !== slug).slice(0, 3);
+  const related = (await getProjects({ service: primaryService, limit: 4 })).items
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
   const productsUsed = project.products.map((s) => catalogue.find((p) => p.slug === s)).filter((p) => p != null);
   const label = project.client ?? project.title;
 
@@ -56,21 +77,42 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Portfolio", path: "/portfolio" }, { name: project.title, path: `/portfolio/${slug}` }])} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Portfolio", path: "/portfolio" },
+          { name: project.title, path: `/portfolio/${slug}` },
+        ])}
+      />
 
-      <Box bg="brand.mist" pt={{ base: 10, md: 16 }}>
+      <Box bg="surface.mist" pt={{ base: 10, md: 16 }}>
         <Container maxW="7xl">
-          <Link asChild color="brand.blue" fontWeight="700" mb={8} display="inline-flex" gap={2}>
+          <Link asChild color="heading" fontWeight="700" mb={8} display="inline-flex" gap={2}>
             <NextLink href="/portfolio">
               <ArrowLeft size={18} /> All projects
             </NextLink>
           </Link>
           {project.sample && (
-            <HStack gap={2} mb={6} px={4} py={3} rounded="xl" bg="white" color="brand.teal" fontSize="sm" borderWidth="1px" borderColor="brand.ice" alignItems="flex-start">
+            <HStack
+              gap={2}
+              mb={6}
+              px={4}
+              py={3}
+              rounded="xl"
+              bg="surface"
+              color="accent"
+              fontSize="sm"
+              borderWidth="1px"
+              borderColor="brand.ice"
+              alignItems="flex-start"
+            >
               <Box flexShrink={0} mt="1px">
                 <Info size={16} />
               </Box>
-              <Text>This is a sample project that shows the kind of work we deliver. Ask us for examples of completed client work.</Text>
+              <Text>
+                This is a sample project that shows the kind of work we deliver. Ask us for examples of completed client
+                work.
+              </Text>
             </HStack>
           )}
           <Stack gap={4} maxW="4xl" mb={{ base: 8, md: 10 }}>
@@ -81,7 +123,7 @@ export default async function ProjectPage({ params }: Props) {
                 </Link>
               ))}
             </HStack>
-            <Heading as="h1" textStyle="h1" color="brand.blue">
+            <Heading as="h1" textStyle="h1" color="heading">
               {project.title}
             </Heading>
             {project.excerpt && (
@@ -91,13 +133,20 @@ export default async function ProjectPage({ params }: Props) {
             )}
           </Stack>
           {facts.length > 0 && (
-            <SimpleGrid columns={{ base: 2, md: facts.length }} gap={6} mb={{ base: 10, md: 14 }} pt={6} borderTopWidth="1px" borderColor="brand.ice">
+            <SimpleGrid
+              columns={{ base: 2, md: facts.length }}
+              gap={6}
+              mb={{ base: 10, md: 14 }}
+              pt={6}
+              borderTopWidth="1px"
+              borderColor="brand.ice"
+            >
               {facts.map(([k, v]) => (
                 <Box key={k}>
                   <Text textStyle="eyebrow" color="fg.muted" mb={1}>
                     {k}
                   </Text>
-                  <Text fontWeight="700" color="brand.ink">
+                  <Text fontWeight="700" color="ink">
                     {v}
                   </Text>
                 </Box>
@@ -127,7 +176,7 @@ export default async function ProjectPage({ params }: Props) {
             {story.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.08}>
                 <Stack gap={3} borderTopWidth="3px" borderColor={i === 2 ? "brand.cyan" : "brand.blue"} pt={6}>
-                  <Heading as="h2" textStyle="h3" color="brand.blue">
+                  <Heading as="h2" textStyle="h3" color="heading">
                     {s.label}
                   </Heading>
                   <Text color="fg.muted" fontSize="lg" lineHeight="1.7">
@@ -143,12 +192,28 @@ export default async function ProjectPage({ params }: Props) {
           <Grid templateColumns={{ base: "1fr", lg: "1.2fr 1fr" }} gap={{ base: 10, lg: 16 }} mb={20}>
             {project.deliverables.length > 0 && (
               <Box>
-                <Heading as="h2" textStyle="h3" color="brand.blue" mb={5}>
+                <Heading as="h2" textStyle="h3" color="heading" mb={5}>
                   What we delivered
                 </Heading>
-                <List.Root as="ul" listStyle="none" display="grid" gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }} gap={3}>
+                <List.Root
+                  as="ul"
+                  listStyle="none"
+                  display="grid"
+                  gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }}
+                  gap={3}
+                >
                   {project.deliverables.map((d) => (
-                    <List.Item key={d} display="flex" alignItems="center" gap={3} p={4} rounded="xl" bg="brand.mist" fontWeight="600" color="brand.ink">
+                    <List.Item
+                      key={d}
+                      display="flex"
+                      alignItems="center"
+                      gap={3}
+                      p={4}
+                      rounded="xl"
+                      bg="surface.mist"
+                      fontWeight="600"
+                      color="ink"
+                    >
                       <Box color="brand.cyan" flexShrink={0}>
                         <CircleCheck size={20} />
                       </Box>
@@ -160,7 +225,7 @@ export default async function ProjectPage({ params }: Props) {
             )}
             {productsUsed.length > 0 && (
               <Box>
-                <Heading as="h2" textStyle="h3" color="brand.blue" mb={2}>
+                <Heading as="h2" textStyle="h3" color="heading" mb={2}>
                   Products in this project
                 </Heading>
                 <Text color="fg.muted" mb={5}>
@@ -186,7 +251,7 @@ export default async function ProjectPage({ params }: Props) {
           project.galleryArt &&
           project.galleryArt.length > 0 && (
             <Box>
-              <Heading as="h2" textStyle="h3" color="brand.blue" mb={6}>
+              <Heading as="h2" textStyle="h3" color="heading" mb={6}>
                 Project visuals
               </Heading>
               <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>

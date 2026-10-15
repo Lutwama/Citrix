@@ -8,9 +8,9 @@ export function FaqList({ faqs }: { faqs: Faq[] }) {
   return (
     <Accordion.Root collapsible variant="plain" display="flex" flexDirection="column" gap={3}>
       {faqs.map((f, i) => (
-        <Accordion.Item key={i} value={String(i)} rounded="xl" bg="white" borderWidth="1px" borderColor="blackAlpha.100" px={6}>
+        <Accordion.Item key={i} value={String(i)} rounded="xl" bg="surface" borderWidth="1px" borderColor="line" px={6}>
           <Accordion.ItemTrigger py={5} cursor="pointer">
-            <Text flex="1" fontFamily="heading" fontWeight="700" fontSize="lg" color="brand.blue">
+            <Text flex="1" fontFamily="heading" fontWeight="700" fontSize="lg" color="heading">
               {f.question}
             </Text>
             <Accordion.ItemIndicator color="brand.cyan">

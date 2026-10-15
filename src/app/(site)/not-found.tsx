@@ -11,7 +11,7 @@ export default function NotFound() {
         <Text textStyle="eyebrow" color="brand.cyan">
           404
         </Text>
-        <Heading as="h1" textStyle="h1" color="brand.blue">
+        <Heading as="h1" textStyle="h1" color="heading">
           This page took a wrong turn.
         </Heading>
         <Text color="fg.muted" maxW="md">

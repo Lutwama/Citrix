@@ -21,16 +21,37 @@ export const metadata = pageMetadata({
 });
 
 const INDUSTRIES = [
-  { icon: Landmark, title: "Banking & corporate", text: "Campaigns, annual reports, branch branding and staff events." },
-  { icon: Building2, title: "NGOs & government", text: "Workshops, conference kits, reports and procurement-ready quotes." },
-  { icon: UtensilsCrossed, title: "Hospitality & food", text: "Menus, packaging, signage and websites for hotels, lodges and restaurants." },
+  {
+    icon: Landmark,
+    title: "Banking & corporate",
+    text: "Campaigns, annual reports, branch branding and staff events.",
+  },
+  {
+    icon: Building2,
+    title: "NGOs & government",
+    text: "Workshops, conference kits, reports and procurement-ready quotes.",
+  },
+  {
+    icon: UtensilsCrossed,
+    title: "Hospitality & food",
+    text: "Menus, packaging, signage and websites for hotels, lodges and restaurants.",
+  },
   { icon: HeartPulse, title: "Health", text: "Clinic signage, wayfinding, patient leaflets and uniforms." },
-  { icon: GraduationCap, title: "Schools & universities", text: "Prospectuses, certificates, graduation events and websites." },
+  {
+    icon: GraduationCap,
+    title: "Schools & universities",
+    text: "Prospectuses, certificates, graduation events and websites.",
+  },
   { icon: ShoppingBag, title: "Retail & FMCG", text: "Labels, packaging, activations and point-of-sale materials." },
 ];
 
 export default async function PortfolioPage() {
-  const [initial, services, settings, testimonials] = await Promise.all([getProjects(), getServices(), getSettings(), getTestimonials()]);
+  const [initial, services, settings, testimonials] = await Promise.all([
+    getProjects(),
+    getServices(),
+    getSettings(),
+    getTestimonials(),
+  ]);
   const filters = services.map((s) => ({ label: s.title, value: s.slug }));
   const featured = initial.items[0] ? await getProject(initial.items[0].slug) : null;
 
@@ -43,7 +64,16 @@ export default async function PortfolioPage() {
       >
         <HStack gap={3} flexWrap="wrap" pt={2}>
           {services.map((s) => (
-            <Button key={s.slug} asChild size="sm" rounded="full" variant="outline" color="white" borderColor="whiteAlpha.500" _hover={{ bg: "whiteAlpha.200" }}>
+            <Button
+              key={s.slug}
+              asChild
+              size="sm"
+              rounded="full"
+              variant="outline"
+              color="white"
+              borderColor="whiteAlpha.500"
+              _hover={{ bg: "whiteAlpha.200" }}
+            >
               <NextLink href={`/portfolio?service=${s.slug}#projects`}>{s.title}</NextLink>
             </Button>
           ))}
@@ -59,7 +89,7 @@ export default async function PortfolioPage() {
                 templateColumns={{ base: "1fr", lg: "1.25fr 1fr" }}
                 rounded="card"
                 overflow="hidden"
-                bg="brand.mist"
+                bg="surface.mist"
                 transition="box-shadow 0.25s"
                 _hover={{ boxShadow: "0 30px 60px -30px rgba(0,78,155,0.45)" }}
               >
@@ -89,7 +119,7 @@ export default async function PortfolioPage() {
                       </Text>
                     ))}
                   </HStack>
-                  <Heading as="h3" textStyle="h2" color="brand.blue">
+                  <Heading as="h3" textStyle="h2" color="heading">
                     <LinkOverlay asChild>
                       <NextLink href={`/portfolio/${featured.slug}`}>{featured.title}</NextLink>
                     </LinkOverlay>
@@ -111,13 +141,23 @@ export default async function PortfolioPage() {
                           <Text textStyle="eyebrow" color="fg.muted" mb={1}>
                             {label}
                           </Text>
-                          <Text fontWeight="700" color="brand.ink">
+                          <Text fontWeight="700" color="ink">
                             {value}
                           </Text>
                         </Box>
                       ))}
                   </SimpleGrid>
-                  <Text as="span" display="inline-flex" alignItems="center" gap={2} fontWeight="700" fontFamily="heading" color="brand.blue" _groupHover={{ gap: 3 }} transition="gap 0.2s">
+                  <Text
+                    as="span"
+                    display="inline-flex"
+                    alignItems="center"
+                    gap={2}
+                    fontWeight="700"
+                    fontFamily="heading"
+                    color="heading"
+                    _groupHover={{ gap: 3 }}
+                    transition="gap 0.2s"
+                  >
                     Read the case study <ArrowRight size={18} />
                   </Text>
                 </Stack>
@@ -128,7 +168,11 @@ export default async function PortfolioPage() {
       )}
 
       <Section tone="mist" id="projects">
-        <SectionHeading eyebrow="All projects" title="Browse by service" description="Filter to see print, branding, design, web and event work." />
+        <SectionHeading
+          eyebrow="All projects"
+          title="Browse by service"
+          description="Filter to see print, branding, design, web and event work."
+        />
         {/* nuqs reads search params on the client, so it needs a Suspense boundary on a static page */}
         <Suspense>
           <ProjectFeed initial={initial} filters={filters} />
@@ -140,9 +184,29 @@ export default async function PortfolioPage() {
           <SectionHeading eyebrow="Our clients" title="Trusted by brands across Uganda" align="center" />
           <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 6 }} gap={6} alignItems="center">
             {clients.map((c) => (
-              <Box key={c.name} display="grid" placeItems="center" h={20} px={4} rounded="xl" bg="white" borderWidth="1px" borderColor="blackAlpha.100">
+              <Box
+                key={c.name}
+                display="grid"
+                placeItems="center"
+                h={20}
+                px={4}
+                rounded="xl"
+                bg="surface"
+                borderWidth="1px"
+                borderColor="line"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.logo} alt={c.name} style={{ maxHeight: 48, maxWidth: "100%", objectFit: "contain", filter: "grayscale(1)", opacity: 0.8 }} />
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  style={{
+                    maxHeight: 48,
+                    maxWidth: "100%",
+                    objectFit: "contain",
+                    filter: "grayscale(1)",
+                    opacity: 0.8,
+                  }}
+                />
               </Box>
             ))}
           </SimpleGrid>
@@ -150,15 +214,19 @@ export default async function PortfolioPage() {
       )}
 
       <Section>
-        <SectionHeading eyebrow="Industries" title="Experience across sectors" description="We tailor print, design, web and events to how each industry buys and communicates." />
+        <SectionHeading
+          eyebrow="Industries"
+          title="Experience across sectors"
+          description="We tailor print, design, web and events to how each industry buys and communicates."
+        />
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={6}>
           {INDUSTRIES.map(({ icon: Icon, title, text }, i) => (
             <Reveal key={title} delay={(i % 3) * 0.06} style={{ height: "100%" }}>
-              <Stack h="full" gap={3} p={6} rounded="card" borderWidth="1px" borderColor="blackAlpha.100">
-                <Box display="grid" placeItems="center" boxSize={12} rounded="xl" bg="brand.mist" color="brand.blue">
+              <Stack h="full" gap={3} p={6} rounded="card" borderWidth="1px" borderColor="line">
+                <Box display="grid" placeItems="center" boxSize={12} rounded="xl" bg="surface.mist" color="heading">
                   <Icon size={22} />
                 </Box>
-                <Heading as="h3" fontSize="lg" fontFamily="heading" fontWeight="700" color="brand.blue">
+                <Heading as="h3" fontSize="lg" fontFamily="heading" fontWeight="700" color="heading">
                   {title}
                 </Heading>
                 <Text color="fg.muted">{text}</Text>

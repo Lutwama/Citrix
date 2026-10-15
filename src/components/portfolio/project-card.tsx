@@ -46,12 +46,20 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
       </Box>
       <HStack gap={2} mb={2} flexWrap="wrap">
         {project.services.map((s) => (
-          <Text key={s.slug} as="span" fontSize="xs" fontWeight="700" textTransform="uppercase" letterSpacing="0.08em" color="brand.cyan">
+          <Text
+            key={s.slug}
+            as="span"
+            fontSize="xs"
+            fontWeight="700"
+            textTransform="uppercase"
+            letterSpacing="0.08em"
+            color="brand.cyan"
+          >
             {s.title}
           </Text>
         ))}
       </HStack>
-      <Heading as="h3" textStyle="h3" color="brand.blue" _groupHover={{ color: "brand.cyan" }} transition="color 0.2s">
+      <Heading as="h3" textStyle="h3" color="heading" _groupHover={{ color: "brand.cyan" }} transition="color 0.2s">
         <LinkOverlay asChild>
           <NextLink href={`/portfolio/${project.slug}`}>{project.title}</NextLink>
         </LinkOverlay>

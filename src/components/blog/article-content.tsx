@@ -13,12 +13,20 @@ export function headingId(text: string) {
 
 export function ArticleContent({ blocks, label }: { blocks: ArticleBlock[]; label: string }) {
   return (
-    <Stack gap={6} color="brand.ink" fontSize="lg" lineHeight="1.8">
+    <Stack gap={6} color="ink" fontSize="lg" lineHeight="1.8">
       {blocks.map((b, i) => {
         switch (b.type) {
           case "h2":
             return (
-              <Heading key={i} as="h2" id={headingId(b.text)} textStyle="h3" color="brand.blue" mt={6} scrollMarginTop="110px">
+              <Heading
+                key={i}
+                as="h2"
+                id={headingId(b.text)}
+                textStyle="h3"
+                color="heading"
+                mt={6}
+                scrollMarginTop="110px"
+              >
                 {b.text}
               </Heading>
             );
@@ -34,9 +42,9 @@ export function ArticleContent({ blocks, label }: { blocks: ArticleBlock[]; labe
             );
           case "checklist":
             return (
-              <Box key={i} p={{ base: 5, md: 7 }} rounded="card" bg="brand.mist">
+              <Box key={i} p={{ base: 5, md: 7 }} rounded="card" bg="surface.mist">
                 {b.title && (
-                  <Text fontFamily="heading" fontWeight="700" color="brand.blue" mb={4}>
+                  <Text fontFamily="heading" fontWeight="700" color="heading" mb={4}>
                     {b.title}
                   </Text>
                 )}
@@ -54,13 +62,23 @@ export function ArticleContent({ blocks, label }: { blocks: ArticleBlock[]; labe
             );
           case "tip":
             return (
-              <Box key={i} display="flex" gap={4} p={{ base: 5, md: 6 }} rounded="card" borderStartWidth="4px" borderColor="brand.cyan" bg="white" boxShadow="0 12px 30px -20px rgba(0,78,155,0.4)">
+              <Box
+                key={i}
+                display="flex"
+                gap={4}
+                p={{ base: 5, md: 6 }}
+                rounded="card"
+                borderStartWidth="4px"
+                borderColor="brand.cyan"
+                bg="surface"
+                boxShadow="0 12px 30px -20px rgba(0,78,155,0.4)"
+              >
                 <Box color="brand.cyan" flexShrink={0} mt={1}>
                   <Lightbulb size={24} />
                 </Box>
                 <Box fontSize="md">
                   {b.title && (
-                    <Text fontFamily="heading" fontWeight="700" color="brand.blue" mb={1}>
+                    <Text fontFamily="heading" fontWeight="700" color="heading" mb={1}>
                       {b.title}
                     </Text>
                   )}
@@ -96,7 +114,13 @@ export function TableOfContents({ blocks }: { blocks: ArticleBlock[] }) {
       <List.Root as="ol" listStyle="none" gap={3} borderStartWidth="2px" borderColor="brand.ice" ps={4}>
         {headings.map((h) => (
           <List.Item key={h.text}>
-            <Link href={`#${headingId(h.text)}`} color="fg.muted" fontSize="sm" lineHeight="1.4" _hover={{ color: "brand.blue" }}>
+            <Link
+              href={`#${headingId(h.text)}`}
+              color="fg.muted"
+              fontSize="sm"
+              lineHeight="1.4"
+              _hover={{ color: "heading" }}
+            >
               {h.text}
             </Link>
           </List.Item>
@@ -112,7 +136,11 @@ export function ShareLinks({ url, title }: { url: string; title: string }) {
   const links = [
     { label: "Share on WhatsApp", href: `https://wa.me/?text=${t}%20${u}`, icon: FaWhatsapp },
     { label: "Share on Facebook", href: `https://www.facebook.com/sharer/sharer.php?u=${u}`, icon: FaFacebookF },
-    { label: "Share on LinkedIn", href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`, icon: FaLinkedinIn },
+    {
+      label: "Share on LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+      icon: FaLinkedinIn,
+    },
     { label: "Share on X", href: `https://x.com/intent/post?url=${u}&text=${t}`, icon: FaXTwitter },
   ];
   return (
@@ -132,8 +160,8 @@ export function ShareLinks({ url, title }: { url: string; title: string }) {
             placeItems="center"
             boxSize={10}
             rounded="full"
-            bg="brand.mist"
-            color="brand.blue"
+            bg="surface.mist"
+            color="heading"
             _hover={{ bg: "brand.blue", color: "white" }}
           >
             <Icon size={16} />

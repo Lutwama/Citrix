@@ -49,7 +49,10 @@ export default async function PostPage({ params }: Props) {
   const related = [...sameCategory.items, ...latest.items]
     .filter((p, i, all) => p.slug !== slug && all.findIndex((x) => x.slug === p.slug) === i)
     .slice(0, 3);
-  const promoted = (post.products ?? []).map((s) => catalogue.find((p) => p.slug === s)).filter((p) => p != null).slice(0, 3);
+  const promoted = (post.products ?? [])
+    .map((s) => catalogue.find((p) => p.slug === s))
+    .filter((p) => p != null)
+    .slice(0, 3);
   const url = `${siteUrl}/blog/${slug}`;
   const blocks = post.content ?? [];
 
@@ -68,12 +71,18 @@ export default async function PostPage({ params }: Props) {
           ...(post.cover?.url ? { image: post.cover.url } : {}),
         }}
       />
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Insights", path: "/blog" }, { name: post.title, path: `/blog/${slug}` }])} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/blog" },
+          { name: post.title, path: `/blog/${slug}` },
+        ])}
+      />
 
       <Box as="article">
-        <Box bg="brand.mist" pt={{ base: 10, md: 16 }} pb={{ base: 28, md: 36 }}>
+        <Box bg="surface.mist" pt={{ base: 10, md: 16 }} pb={{ base: 28, md: 36 }}>
           <Container maxW="4xl">
-            <Link asChild color="brand.blue" fontWeight="700" mb={8} display="inline-flex" gap={2}>
+            <Link asChild color="heading" fontWeight="700" mb={8} display="inline-flex" gap={2}>
               <NextLink href="/blog">
                 <ArrowLeft size={18} /> All insights
               </NextLink>
@@ -94,7 +103,7 @@ export default async function PostPage({ params }: Props) {
                   </>
                 ) : null}
               </HStack>
-              <Heading as="h1" textStyle="h1" color="brand.blue">
+              <Heading as="h1" textStyle="h1" color="heading">
                 {post.title}
               </Heading>
               <Text textStyle="lead" color="fg.muted">
@@ -135,14 +144,14 @@ export default async function PostPage({ params }: Props) {
 
             <Box maxW="3xl" order={{ base: 1, lg: 2 }}>
               {post.body?.length ? (
-                <Box color="brand.ink">
+                <Box color="ink">
                   <RichText value={post.body} />
                 </Box>
               ) : blocks.length ? (
                 <ArticleContent blocks={blocks} label={settings.name} />
               ) : (
                 post.paragraphs?.map((p, i) => (
-                  <Text key={i} mb={5} lineHeight="1.8" fontSize="lg" color="brand.ink">
+                  <Text key={i} mb={5} lineHeight="1.8" fontSize="lg" color="ink">
                     {p}
                   </Text>
                 ))
@@ -156,7 +165,14 @@ export default async function PostPage({ params }: Props) {
                   Our team is happy to advise, with no obligation. Send us a message on WhatsApp.
                 </Text>
                 <Button asChild rounded="full" bg="#25D366" color="white" _hover={{ bg: "#1EBE5A" }}>
-                  <a href={whatsappLink(settings.whatsapp, `Hello Citrix! I just read "${post.title}" and have a question.`)} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={whatsappLink(
+                      settings.whatsapp,
+                      `Hello Citrix! I just read "${post.title}" and have a question.`,
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaWhatsapp /> Chat on WhatsApp
                   </a>
                 </Button>
@@ -168,7 +184,11 @@ export default async function PostPage({ params }: Props) {
 
       {promoted.length > 0 && (
         <Section>
-          <SectionHeading eyebrow="Related products" title="Ready to get started?" description="See options, turnaround times and starting prices." />
+          <SectionHeading
+            eyebrow="Related products"
+            title="Ready to get started?"
+            description="See options, turnaround times and starting prices."
+          />
           <ProductGrid products={promoted} />
         </Section>
       )}

@@ -38,7 +38,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ServicePage({ params }: Props) {
   const { slug } = await params;
-  const [service, settings, projects] = await Promise.all([getService(slug), getSettings(), getProjectsByService(slug)]);
+  const [service, settings, projects] = await Promise.all([
+    getService(slug),
+    getSettings(),
+    getProjectsByService(slug),
+  ]);
   if (!service) notFound();
   const products = getProductsByService(slug);
 
@@ -55,17 +59,40 @@ export default async function ServicePage({ params }: Props) {
           provider: { "@id": `${siteUrl}/#organization` },
         }}
       />
-      <JsonLd data={breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: service.title, path: `/services/${slug}` }])} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+          { name: service.title, path: `/services/${slug}` },
+        ])}
+      />
 
-      <PageHero eyebrow={service.title} title={service.headline ?? service.title} description={service.intro ?? service.summary}>
+      <PageHero
+        eyebrow={service.title}
+        title={service.headline ?? service.title}
+        description={service.intro ?? service.summary}
+      >
         <HStack gap={3} flexWrap="wrap" pt={2}>
           <Button asChild size="lg" rounded="full" bg="white" color="brand.blue" _hover={{ bg: "brand.ice" }} px={7}>
             <NextLink href={`/contact?service=${slug}`}>
               Get a {service.title.toLowerCase()} quote <ArrowRight />
             </NextLink>
           </Button>
-          <Button asChild size="lg" rounded="full" variant="outline" color="white" borderColor="whiteAlpha.500" _hover={{ bg: "whiteAlpha.200" }} px={7}>
-            <a href={whatsappLink(settings.whatsapp, `Hello Citrix! I'm interested in your ${service.title} services.`)} target="_blank" rel="noopener noreferrer">
+          <Button
+            asChild
+            size="lg"
+            rounded="full"
+            variant="outline"
+            color="white"
+            borderColor="whiteAlpha.500"
+            _hover={{ bg: "whiteAlpha.200" }}
+            px={7}
+          >
+            <a
+              href={whatsappLink(settings.whatsapp, `Hello Citrix! I'm interested in your ${service.title} services.`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaWhatsapp /> Ask on WhatsApp
             </a>
           </Button>
@@ -82,10 +109,25 @@ export default async function ServicePage({ params }: Props) {
               </Box>
             )}
           </Box>
-          <List.Root as="ul" listStyle="none" display="grid" gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }} gap={4}>
+          <List.Root
+            as="ul"
+            listStyle="none"
+            display="grid"
+            gridTemplateColumns={{ base: "1fr", sm: "1fr 1fr" }}
+            gap={4}
+          >
             {service.deliverables.map((d, i) => (
               <Reveal key={d} delay={i * 0.05}>
-                <List.Item display="flex" alignItems="center" gap={3} p={5} rounded="xl" bg="brand.mist" fontWeight="600" color="brand.ink">
+                <List.Item
+                  display="flex"
+                  alignItems="center"
+                  gap={3}
+                  p={5}
+                  rounded="xl"
+                  bg="surface.mist"
+                  fontWeight="600"
+                  color="ink"
+                >
                   <Box color="brand.cyan" flexShrink={0}>
                     <CircleCheck size={22} />
                   </Box>
@@ -131,7 +173,14 @@ export default async function ServicePage({ params }: Props) {
           <Grid templateColumns={{ base: "1fr", lg: "1fr 1.6fr" }} gap={{ base: 6, lg: 16 }}>
             <Stack>
               <SectionHeading eyebrow="FAQ" title="Questions, answered" />
-              <Box display={{ base: "none", lg: "grid" }} placeItems="center" boxSize={24} rounded="3xl" bg="brand.blue" color="white">
+              <Box
+                display={{ base: "none", lg: "grid" }}
+                placeItems="center"
+                boxSize={24}
+                rounded="3xl"
+                bg="brand.blue"
+                color="white"
+              >
                 <ServiceIcon name={service.icon} size={44} />
               </Box>
             </Stack>
@@ -139,7 +188,7 @@ export default async function ServicePage({ params }: Props) {
               <FaqList faqs={service.faqs} />
               <Text mt={6} color="fg.muted">
                 Still have questions?{" "}
-                <NextLink href="/contact" style={{ color: "#004E9B", fontWeight: 700 }}>
+                <NextLink href="/contact" style={{ color: "var(--chakra-colors-heading)", fontWeight: 700 }}>
                   Talk to our team
                 </NextLink>
                 .

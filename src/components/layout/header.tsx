@@ -18,6 +18,7 @@ import { ArrowRight, Menu, Phone } from "lucide-react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ColorModeButton } from "@/components/ui/color-mode";
 import { Logo } from "@/components/ui/logo";
 import { NAV } from "@/lib/nav";
 import type { ServiceSummary } from "@/lib/types";
@@ -46,10 +47,10 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
       position="sticky"
       top="0"
       zIndex="sticky"
-      bg={scrolled ? "rgba(255,255,255,0.92)" : "white"}
+      bg={scrolled ? "header" : "bg"}
       backdropFilter={scrolled ? "saturate(180%) blur(12px)" : undefined}
       borderBottomWidth="1px"
-      borderColor={scrolled ? "blackAlpha.100" : "transparent"}
+      borderColor={scrolled ? "line" : "transparent"}
       transition="all 0.2s"
     >
       <Container maxW="7xl">
@@ -70,9 +71,9 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
                 rounded="full"
                 fontWeight="600"
                 fontFamily="heading"
-                color={isActive(item.href) ? "brand.blue" : "fg"}
-                bg={isActive(item.href) ? "brand.mist" : undefined}
-                _hover={{ color: "brand.blue", bg: "brand.mist", textDecoration: "none" }}
+                color={isActive(item.href) ? "heading" : "fg"}
+                bg={isActive(item.href) ? "surface.mist" : undefined}
+                _hover={{ color: "heading", bg: "surface.mist", textDecoration: "none" }}
               >
                 <NextLink href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
                   {item.label}
@@ -82,11 +83,12 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
           </HStack>
 
           <HStack gap={2}>
+            <ColorModeButton />
             <IconButton
               asChild
               aria-label="Call us"
               variant="ghost"
-              color="brand.blue"
+              color="heading"
               display={{ base: "inline-flex", lg: "none" }}
               rounded="full"
             >
@@ -105,7 +107,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
                 <IconButton
                   aria-label="Open menu"
                   variant="ghost"
-                  color="brand.blue"
+                  color="heading"
                   display={{ base: "inline-flex", lg: "none" }}
                   rounded="full"
                 >
@@ -129,7 +131,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
                             fontSize="xl"
                             fontFamily="heading"
                             fontWeight="600"
-                            color={isActive(item.href) ? "brand.cyan" : "brand.blue"}
+                            color={isActive(item.href) ? "brand.cyan" : "heading"}
                           >
                             <NextLink href={item.href}>{item.label}</NextLink>
                           </Link>

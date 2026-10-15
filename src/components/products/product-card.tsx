@@ -9,10 +9,17 @@ export function PriceTag({ product, dark = false }: { product: Product; dark?: b
   const price = formatPrice(product);
   return price ? (
     <Box>
-      <Text as="span" color={dark ? "brand.ice" : "fg.muted"} fontSize="xs" textTransform="uppercase" letterSpacing="wider" fontWeight="700">
+      <Text
+        as="span"
+        color={dark ? "brand.ice" : "fg.muted"}
+        fontSize="xs"
+        textTransform="uppercase"
+        letterSpacing="wider"
+        fontWeight="700"
+      >
         From{" "}
       </Text>
-      <Text as="span" color={dark ? "white" : "brand.blue"} fontFamily="heading" fontWeight="700" fontSize="lg">
+      <Text as="span" color={dark ? "white" : "heading"} fontFamily="heading" fontWeight="700" fontSize="lg">
         {price}
       </Text>
       <Text as="span" color={dark ? "brand.ice" : "fg.muted"} fontSize="sm">
@@ -21,7 +28,7 @@ export function PriceTag({ product, dark = false }: { product: Product; dark?: b
       </Text>
     </Box>
   ) : (
-    <Text fontFamily="heading" fontWeight="700" color={dark ? "white" : "brand.blue"}>
+    <Text fontFamily="heading" fontWeight="700" color={dark ? "white" : "heading"}>
       Price on request
     </Text>
   );
@@ -37,13 +44,17 @@ export function ProductCard({ product }: { product: Product }) {
       h="full"
       p={6}
       rounded="card"
-      bg="white"
+      bg="surface"
       borderWidth="1px"
-      borderColor="blackAlpha.100"
+      borderColor="line"
       transition="all 0.25s"
-      _hover={{ transform: "translateY(-4px)", boxShadow: "0 20px 40px -20px rgba(0,78,155,0.35)", borderColor: "brand.ice" }}
+      _hover={{
+        transform: "translateY(-4px)",
+        boxShadow: "0 20px 40px -20px rgba(0,78,155,0.35)",
+        borderColor: "brand.ice",
+      }}
     >
-      <Heading as="h3" fontSize="xl" fontFamily="heading" fontWeight="700" color="brand.blue" mb={2}>
+      <Heading as="h3" fontSize="xl" fontFamily="heading" fontWeight="700" color="heading" mb={2}>
         <LinkOverlay asChild>
           <NextLink href={`/services/${product.service}/${product.slug}`}>{product.title}</NextLink>
         </LinkOverlay>
@@ -51,13 +62,24 @@ export function ProductCard({ product }: { product: Product }) {
       <Text color="fg.muted" mb={5} flex="1">
         {product.summary}
       </Text>
-      <Box pt={4} borderTopWidth="1px" borderColor="blackAlpha.100">
+      <Box pt={4} borderTopWidth="1px" borderColor="line">
         <PriceTag product={product} />
         <Box display="flex" alignItems="center" justifyContent="space-between" gap={3} mt={2}>
           <Text color="fg.muted" display="inline-flex" alignItems="center" gap={1.5} fontSize="sm">
             <Clock size={14} /> {product.turnaround}
           </Text>
-          <Text as="span" color="brand.cyan" display="inline-flex" alignItems="center" gap={1} fontWeight="700" fontFamily="heading" fontSize="sm" _groupHover={{ gap: 2 }} transition="gap 0.2s">
+          <Text
+            as="span"
+            color="brand.cyan"
+            display="inline-flex"
+            alignItems="center"
+            gap={1}
+            fontWeight="700"
+            fontFamily="heading"
+            fontSize="sm"
+            _groupHover={{ gap: 2 }}
+            transition="gap 0.2s"
+          >
             Details <ArrowUpRight size={16} />
           </Text>
         </Box>
