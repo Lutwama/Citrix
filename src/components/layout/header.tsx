@@ -12,7 +12,6 @@ import {
   Link,
   Portal,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { ArrowRight, Menu, Phone } from "lucide-react";
 import NextLink from "next/link";
@@ -21,10 +20,9 @@ import { useEffect, useState } from "react";
 import { ColorModeButton } from "@/components/ui/color-mode";
 import { Logo } from "@/components/ui/logo";
 import { NAV } from "@/lib/nav";
-import type { ServiceSummary } from "@/lib/types";
 import { telLink } from "@/lib/whatsapp";
 
-export function Header({ phone, services }: { phone: string; services: ServiceSummary[] }) {
+export function Header({ phone }: { phone: string }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -117,7 +115,7 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
               <Portal>
                 <Drawer.Backdrop />
                 <Drawer.Positioner>
-                  <Drawer.Content>
+                  <Drawer.Content bg="bg">
                     <Drawer.Header>
                       <Logo variant="plain" height="44px" />
                     </Drawer.Header>
@@ -134,16 +132,6 @@ export function Header({ phone, services }: { phone: string; services: ServiceSu
                             color={isActive(item.href) ? "brand.cyan" : "heading"}
                           >
                             <NextLink href={item.href}>{item.label}</NextLink>
-                          </Link>
-                        ))}
-                      </Stack>
-                      <Text textStyle="eyebrow" color="fg.muted" mt={8} mb={3}>
-                        Services
-                      </Text>
-                      <Stack gap={2}>
-                        {services.map((s) => (
-                          <Link key={s.slug} asChild color="fg.muted">
-                            <NextLink href={`/services/${s.slug}`}>{s.title}</NextLink>
                           </Link>
                         ))}
                       </Stack>

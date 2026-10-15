@@ -11,7 +11,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   return (
     <>
       <JsonLd data={organizationJsonLd(settings)} />
-      <Header phone={settings.phone} services={services} />
+      <Header phone={settings.phone} />
       <Box as="main" id="main" minH="60vh">
         {children}
       </Box>
