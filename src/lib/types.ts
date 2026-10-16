@@ -72,7 +72,18 @@ export type Product = {
 };
 
 // Illustration drawn when a project has no photo; see src/components/portfolio/project-art.tsx.
-export type ProjectArtKind = "cards" | "packaging" | "web" | "event" | "stand" | "signage" | "social" | "campaign";
+export type ProjectArtKind =
+  | "cards"
+  | "packaging"
+  | "web"
+  | "event"
+  | "stand"
+  | "signage"
+  | "social"
+  | "campaign"
+  | "pylon"
+  | "lightbox"
+  | "plaque";
 
 export type ProjectSummary = {
   _id: string;

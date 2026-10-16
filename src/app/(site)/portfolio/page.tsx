@@ -11,12 +11,14 @@ import { Section, SectionHeading } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/reveal";
 import { clients } from "@/content/clients";
 import { services as fallbackServices } from "@/content/fallback";
+import { getProductsByService } from "@/content/products";
 import { getProject, getProjects, getServices, getSettings, getTestimonials } from "@/lib/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Portfolio",
-  description: "Selected print, branding, design, web and event projects by Citrix Solutions for brands across Uganda.",
+  description:
+    "Selected print, branding, design, fabrication, web and event projects by Citrix Solutions for brands across Uganda.",
   path: "/portfolio",
 });
 
@@ -24,25 +26,29 @@ const INDUSTRIES = [
   {
     icon: Landmark,
     title: "Banking & corporate",
-    text: "Campaigns, annual reports, branch branding and staff events.",
+    text: "Campaigns, annual reports, branch signage and staff events.",
   },
   {
     icon: Building2,
     title: "NGOs & government",
-    text: "Workshops, conference kits, reports and procurement-ready quotes.",
+    text: "Commissioning plaques, workshops, conference kits and procurement-ready quotes.",
   },
   {
     icon: UtensilsCrossed,
     title: "Hospitality & food",
     text: "Menus, packaging, signage and websites for hotels, lodges and restaurants.",
   },
-  { icon: HeartPulse, title: "Health", text: "Clinic signage, wayfinding, patient leaflets and uniforms." },
+  { icon: HeartPulse, title: "Health", text: "Illuminated pharmacy signs, clinic wayfinding, leaflets and uniforms." },
   {
     icon: GraduationCap,
     title: "Schools & universities",
-    text: "Prospectuses, certificates, graduation events and websites.",
+    text: "Entrance gantries, campus wayfinding, prospectuses and graduation events.",
   },
-  { icon: ShoppingBag, title: "Retail & FMCG", text: "Labels, packaging, activations and point-of-sale materials." },
+  {
+    icon: ShoppingBag,
+    title: "Retail & FMCG",
+    text: "Shop fronts, light boxes, kiosks, labels and point-of-sale displays.",
+  },
 ];
 
 export default async function PortfolioPage() {
@@ -54,13 +60,14 @@ export default async function PortfolioPage() {
   ]);
   const filters = services.map((s) => ({ label: s.title, value: s.slug }));
   const featured = initial.items[0] ? await getProject(initial.items[0].slug) : null;
+  const fabrication = getProductsByService("fabrication");
 
   return (
     <>
       <PageHero
         eyebrow="Portfolio"
         title="Work that moves brands forward."
-        description="Identity systems, print campaigns, websites and events — crafted for ambitious businesses across Uganda."
+        description="Identity systems, print campaigns, signs and structures, websites and events — designed and built for ambitious businesses across Uganda."
       >
         <HStack gap={3} flexWrap="wrap" pt={2}>
           {services.map((s) => (
@@ -167,11 +174,65 @@ export default async function PortfolioPage() {
         </Section>
       )}
 
+      <Section tone="teal">
+        <Grid templateColumns={{ base: "1fr", lg: "1fr 1.3fr" }} gap={{ base: 8, lg: 16 }} alignItems="center">
+          <Box>
+            <SectionHeading
+              dark
+              eyebrow="Fabrication"
+              title="We don't just design it. We build it."
+              description="Signs, pylons, plaques, kiosks and display units made and installed by one team, from site survey and permits to switch-on."
+            />
+            <Button
+              asChild
+              size="lg"
+              rounded="full"
+              bg="white"
+              color="brand.blue"
+              _hover={{ bg: "brand.ice" }}
+              px={7}
+              mt={-4}
+            >
+              <NextLink href="/portfolio?service=fabrication#projects">
+                See fabrication projects <ArrowRight />
+              </NextLink>
+            </Button>
+          </Box>
+          <SimpleGrid columns={{ base: 1, sm: 2 }} gap={3}>
+            {fabrication.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 0.04}>
+                <LinkBox
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  gap={3}
+                  px={5}
+                  py={4}
+                  rounded="xl"
+                  bg="whiteAlpha.100"
+                  borderWidth="1px"
+                  borderColor="whiteAlpha.200"
+                  transition="all 0.2s"
+                  _hover={{ bg: "whiteAlpha.200", borderColor: "whiteAlpha.400" }}
+                >
+                  <LinkOverlay asChild fontWeight="700" fontFamily="heading" color="white">
+                    <NextLink href={`/services/fabrication/${p.slug}`}>{p.title}</NextLink>
+                  </LinkOverlay>
+                  <Box color="brand.ice" flexShrink={0}>
+                    <ArrowRight size={18} />
+                  </Box>
+                </LinkBox>
+              </Reveal>
+            ))}
+          </SimpleGrid>
+        </Grid>
+      </Section>
+
       <Section tone="mist" id="projects">
         <SectionHeading
           eyebrow="All projects"
           title="Browse by service"
-          description="Filter to see print, branding, design, web and event work."
+          description="Filter to see print, branding, design, fabrication, web and event work."
         />
         {/* nuqs reads search params on the client, so it needs a Suspense boundary on a static page */}
         <Suspense>
@@ -217,7 +278,7 @@ export default async function PortfolioPage() {
         <SectionHeading
           eyebrow="Industries"
           title="Experience across sectors"
-          description="We tailor print, design, web and events to how each industry buys and communicates."
+          description="We tailor print, design, fabrication, web and events to how each industry buys and communicates."
         />
         <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} gap={6}>
           {INDUSTRIES.map(({ icon: Icon, title, text }, i) => (

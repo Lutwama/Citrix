@@ -289,6 +289,117 @@ type SampleProject = Omit<Project, "_id" | "services" | "cover" | "gallery" | "s
 
 const sampleProjects: SampleProject[] = [
   {
+    title: "Fuel station pylon and forecourt branding",
+    slug: "fuel-station-pylon",
+    client: "Independent fuel station",
+    industry: "Fuel & energy",
+    location: "Mukono",
+    year: "2025",
+    duration: "4 weeks",
+    art: "pylon",
+    galleryArt: ["pylon", "signage", "lightbox"],
+    services: ["fabrication", "branding"],
+    excerpt: "A 6-metre illuminated price pylon, canopy fascia and forecourt signs for a station on a busy highway.",
+    challenge:
+      "Drivers on the highway only saw the station once they were level with it, too late to slow down and turn in. The old painted board was faded and its prices were changed by hand with stickers.",
+    solution:
+      "We surveyed the site, engineered a 6-metre steel pylon on a concrete foundation and clad it in ACP with an internally lit logo panel and changeable price display. We wrapped the canopy fascia in the brand colours, added forecourt directional signs, and prepared the drawings for the municipal permit.",
+    result:
+      "A station that drivers can see from several hundred metres away, day and night, with prices the team updates in minutes.",
+    deliverables: [
+      "Structural drawings and permit paperwork",
+      "6m illuminated pylon with price display",
+      "Canopy fascia cladding",
+      "Forecourt and directional signs",
+      "Installation and electrical connection",
+    ],
+    products: ["pylon-totem-signs", "shopfronts-acp-cladding", "wayfinding-systems"],
+    testimonial: null,
+  },
+  {
+    title: "Pharmacy chain light boxes and shop fronts",
+    slug: "pharmacy-light-boxes",
+    client: "Pharmacy chain",
+    industry: "Health & retail",
+    location: "Kampala and Entebbe",
+    year: "2025",
+    duration: "5 weeks",
+    art: "lightbox",
+    galleryArt: ["lightbox", "signage", "cards"],
+    services: ["fabrication", "branding"],
+    excerpt: "One standard shop front rolled out to five branches, from mall units to roadside shops.",
+    challenge:
+      "Each branch had been signed by a different supplier over the years, so the chain looked like five unrelated pharmacies. Several signs had failed LEDs and went dark at night, when the pharmacies were busiest.",
+    solution:
+      "We designed one shop-front standard: an ACP fascia with halo-lit stainless steel letters, plus a double-sided projecting light box so the green cross is visible along the street. We measured every branch, adapted the design to each frontage, and replaced all lighting with weatherproof LEDs and IP67 power supplies on timers.",
+    result:
+      "Five branches that are instantly recognisable as one chain, lit reliably every evening, with a design ready for the next branch.",
+    deliverables: [
+      "Shop-front design standard",
+      "Halo-lit 3D letters for 5 branches",
+      "Double-sided projecting light boxes",
+      "ACP fascia cladding",
+      "Timers and maintenance plan",
+    ],
+    products: ["light-boxes", "3d-channel-letters", "shopfronts-acp-cladding"],
+    testimonial: null,
+  },
+  {
+    title: "Campus commissioning plaque, gantry and wayfinding",
+    slug: "campus-plaque-wayfinding",
+    client: "Vocational training institute",
+    industry: "Education",
+    location: "Gulu",
+    year: "2025",
+    duration: "6 weeks",
+    art: "plaque",
+    galleryArt: ["plaque", "pylon", "signage"],
+    services: ["fabrication", "event-management"],
+    excerpt: "An entrance gantry, engraved commissioning plaque and campus-wide signs, ready for an official opening.",
+    challenge:
+      "A donor-funded campus was opening on a fixed date with government guests. It needed a proper entrance, a plaque for the ceremony and signs to guide visitors and new students around six buildings.",
+    solution:
+      "We fabricated a painted steel entrance gantry with the institute's name, engraved a granite and brass commissioning plaque with the donors' logos, and produced a full wayfinding set: a site directory at the gate, directional posts and room signs for every building. We also supplied the stage backdrop for the opening.",
+    result:
+      "Everything installed a week before the opening, and a sign system the institute can extend as new buildings are added.",
+    deliverables: [
+      "Steel entrance gantry",
+      "Granite and brass commissioning plaque",
+      "Site directory and directional posts",
+      "Room and door signs",
+      "Opening-day stage backdrop",
+    ],
+    products: ["billboard-structures", "plaques-engraving", "wayfinding-systems", "event-branding-backdrops"],
+    testimonial: null,
+  },
+  {
+    title: "Mobile money kiosk roll-out",
+    slug: "mobile-money-kiosks",
+    client: "Mobile money agent network",
+    industry: "Telecoms & finance",
+    location: "Central and Eastern Uganda",
+    year: "2025",
+    duration: "6 weeks",
+    art: "stand",
+    galleryArt: ["stand", "lightbox", "campaign"],
+    services: ["fabrication", "print"],
+    excerpt: "Twenty identical branded kiosks built, branded and delivered to agents in eight towns.",
+    challenge:
+      "Agents were working from improvised tables and umbrellas, so customers couldn't easily spot an official agent, and there was nowhere secure to keep cash and stock overnight.",
+    solution:
+      "We designed a lockable steel kiosk with a branded roof panel, price and tariff boards and a counter, built a prototype for approval, then produced the full batch of 20 to the same standard and delivered them town by town.",
+    result:
+      "A consistent, secure kiosk that customers recognise in every town, built so new agents can be added quickly.",
+    deliverables: [
+      "Kiosk design and prototype",
+      "20 lockable steel kiosks",
+      "Branded panels and tariff boards",
+      "Delivery to 8 towns",
+    ],
+    products: ["kiosks-display-units", "banners-billboards", "stickers-labels"],
+    testimonial: null,
+  },
+  {
     title: "Coffee roaster brand identity",
     slug: "coffee-roaster-identity",
     client: "Specialty coffee roaster",
@@ -501,7 +612,7 @@ const sampleProjects: SampleProject[] = [
       "We installed an illuminated 3D sign facing the road, directional signs for every department, and frosted-glass branding for consultation rooms.",
     result: "A clinic that is easy to find day and night, and a calm, professional interior for patients.",
     deliverables: ["Illuminated 3D sign", "Wayfinding signs", "Frosted-glass branding", "Staff ID cards"],
-    products: ["signage", "office-branding", "business-cards"],
+    products: ["3d-channel-letters", "wayfinding-systems", "office-branding"],
     testimonial: null,
   },
   {

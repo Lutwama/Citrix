@@ -22,7 +22,14 @@ const BACKGROUNDS: Record<ProjectArtKind, [string, string]> = {
   signage: [C.teal, C.blue],
   social: [C.cyan, C.blue],
   campaign: [C.blue, C.ice],
+  pylon: [C.ink, C.teal],
+  lightbox: [C.ink, C.blue],
+  plaque: [C.teal, C.cyan],
 };
+
+// Brass tones for engraved plaques.
+const BRASS = "#C9A24A";
+const BRASS_DARK = "#8C6A1F";
 
 function Mark({ x, y, r, a = C.blue, b = C.cyan }: { x: number; y: number; r: number; a?: string; b?: string }) {
   // Simplified two-tone swirl, echoing the Citrix mark.
@@ -34,7 +41,23 @@ function Mark({ x, y, r, a = C.blue, b = C.cyan }: { x: number; y: number; r: nu
   );
 }
 
-function Lines({ x, y, w, n, gap = 14, color = C.ice, h = 6 }: { x: number; y: number; w: number; n: number; gap?: number; color?: string; h?: number }) {
+function Lines({
+  x,
+  y,
+  w,
+  n,
+  gap = 14,
+  color = C.ice,
+  h = 6,
+}: {
+  x: number;
+  y: number;
+  w: number;
+  n: number;
+  gap?: number;
+  color?: string;
+  h?: number;
+}) {
   return (
     <g fill={color}>
       {Array.from({ length: n }, (_, i) => (
@@ -53,22 +76,46 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <g transform="rotate(-8 400 300)">
             <rect x="250" y="90" width="300" height="420" rx="8" fill={C.white} opacity="0.95" />
             <Mark x={300} y={140} r={22} />
-            <text x="335" y="148" fontSize="20" fontWeight="700" fill={C.blue}>{label}</text>
+            <text x="335" y="148" fontSize="20" fontWeight="700" fill={C.blue}>
+              {label}
+            </text>
             <Lines x={280} y={210} w={240} n={6} gap={22} />
             <rect x="250" y="470" width="300" height="40" fill={C.blue} />
           </g>
           {/* business cards */}
           <g transform="rotate(10 560 400)">
-            <rect x="430" y="330" width="280" height="165" rx="10" fill={C.ink} opacity="0.25" transform="translate(8 10)" />
+            <rect
+              x="430"
+              y="330"
+              width="280"
+              height="165"
+              rx="10"
+              fill={C.ink}
+              opacity="0.25"
+              transform="translate(8 10)"
+            />
             <rect x="430" y="330" width="280" height="165" rx="10" fill={C.blue} />
             <Mark x={570} y={395} r={34} a={C.white} b={C.ice} />
-            <text x="570" y="465" fontSize="18" fontWeight="700" fill={C.white} textAnchor="middle">{label}</text>
+            <text x="570" y="465" fontSize="18" fontWeight="700" fill={C.white} textAnchor="middle">
+              {label}
+            </text>
           </g>
           <g transform="rotate(-14 230 430)">
-            <rect x="90" y="360" width="280" height="165" rx="10" fill={C.ink} opacity="0.25" transform="translate(8 10)" />
+            <rect
+              x="90"
+              y="360"
+              width="280"
+              height="165"
+              rx="10"
+              fill={C.ink}
+              opacity="0.25"
+              transform="translate(8 10)"
+            />
             <rect x="90" y="360" width="280" height="165" rx="10" fill={C.white} />
             <Mark x={140} y={410} r={24} />
-            <text x="120" y="470" fontSize="17" fontWeight="700" fill={C.blue}>{label}</text>
+            <text x="120" y="470" fontSize="17" fontWeight="700" fill={C.blue}>
+              {label}
+            </text>
             <Lines x={120} y={485} w={150} n={2} gap={14} h={5} />
           </g>
         </g>
@@ -82,14 +129,22 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <polygon points="380,200 520,240 520,520 380,500" fill={C.ice} />
           <polygon points="170,240 380,200 520,240 310,280" fill={C.mist} />
           <Mark x={275} y={340} r={46} />
-          <text x="275" y="430" fontSize="20" fontWeight="700" fill={C.blue} textAnchor="middle">{label}</text>
+          <text x="275" y="430" fontSize="20" fontWeight="700" fill={C.blue} textAnchor="middle">
+            {label}
+          </text>
           <rect x="190" y="455" width="170" height="10" rx="5" fill={C.cyan} />
           {/* bottle */}
           <rect x="590" y="150" width="40" height="50" rx="8" fill={C.blue} />
-          <path d="M575 200 h70 q25 30 25 70 v230 q0 20 -20 20 h-80 q-20 0 -20 -20 v-230 q0 -40 25 -70 z" fill={C.mist} opacity="0.95" />
+          <path
+            d="M575 200 h70 q25 30 25 70 v230 q0 20 -20 20 h-80 q-20 0 -20 -20 v-230 q0 -40 25 -70 z"
+            fill={C.mist}
+            opacity="0.95"
+          />
           <rect x="555" y="300" width="110" height="130" fill={C.blue} />
           <Mark x={610} y={345} r={22} a={C.white} b={C.ice} />
-          <text x="610" y="400" fontSize="13" fontWeight="700" fill={C.white} textAnchor="middle">{label.slice(0, 14)}</text>
+          <text x="610" y="400" fontSize="13" fontWeight="700" fill={C.white} textAnchor="middle">
+            {label.slice(0, 14)}
+          </text>
         </g>
       );
     case "web":
@@ -103,13 +158,23 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <circle cx="168" cy="139" r="5" fill={C.ice} />
           <rect x="136" y="152" width="448" height="120" fill={C.blue} />
           <Mark x={175} y={190} r={16} a={C.white} b={C.ice} />
-          <text x="200" y="197" fontSize="16" fontWeight="700" fill={C.white}>{label}</text>
+          <text x="200" y="197" fontSize="16" fontWeight="700" fill={C.white}>
+            {label}
+          </text>
           <Lines x={160} y={222} w={200} n={2} gap={16} />
           <rect x="160" y="252" width="90" height="12" rx="6" fill={C.cyan} />
           {[0, 1, 2].map((i) => (
             <g key={i}>
               <rect x={160 + i * 140} y={290} width="120" height="90" rx="8" fill={C.mist} />
-              <rect x={172 + i * 140} y={302} width="40" height="40" rx="8" fill={i === 1 ? C.cyan : C.blue} opacity="0.85" />
+              <rect
+                x={172 + i * 140}
+                y={302}
+                width="40"
+                height="40"
+                rx="8"
+                fill={i === 1 ? C.cyan : C.blue}
+                opacity="0.85"
+              />
               <rect x={172 + i * 140} y={352} width="90" height="7" rx="3" fill={C.ice} />
             </g>
           ))}
@@ -119,7 +184,9 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <rect x="570" y="212" width="130" height="266" rx="14" fill={C.white} />
           <rect x="570" y="212" width="130" height="110" rx="14" fill={C.cyan} />
           <Mark x={635} y={255} r={22} a={C.white} b={C.ice} />
-          <text x="635" y="305" fontSize="11" fontWeight="700" fill={C.white} textAnchor="middle">{label.slice(0, 18)}</text>
+          <text x="635" y="305" fontSize="11" fontWeight="700" fill={C.white} textAnchor="middle">
+            {label.slice(0, 18)}
+          </text>
           <Lines x={585} y={340} w={100} n={4} gap={18} h={7} />
           <rect x="585" y="430" width="100" height="26" rx="13" fill={C.blue} />
         </g>
@@ -134,7 +201,9 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <rect x="170" y="110" width="460" height="260" rx="6" fill={C.blue} />
           <rect x="170" y="110" width="460" height="260" rx="6" fill="url(#swirlDots)" opacity="0.25" />
           <Mark x={400} y={200} r={48} a={C.white} b={C.ice} />
-          <text x="400" y="295" fontSize="30" fontWeight="700" fill={C.white} textAnchor="middle">{label}</text>
+          <text x="400" y="295" fontSize="30" fontWeight="700" fill={C.white} textAnchor="middle">
+            {label}
+          </text>
           <rect x="320" y="315" width="160" height="8" rx="4" fill={C.cyan} />
           {/* stage */}
           <rect x="90" y="370" width="620" height="40" fill={C.teal} />
@@ -163,7 +232,9 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           {/* back wall */}
           <rect x="180" y="90" width="460" height="330" fill={C.white} />
           <rect x="180" y="90" width="460" height="60" fill={C.blue} />
-          <text x="410" y="130" fontSize="26" fontWeight="700" fill={C.white} textAnchor="middle">{label}</text>
+          <text x="410" y="130" fontSize="26" fontWeight="700" fill={C.white} textAnchor="middle">
+            {label}
+          </text>
           <Mark x={300} y={260} r={60} />
           <rect x="400" y="190" width="200" height="120" rx="6" fill={C.ink} />
           <rect x="410" y="200" width="180" height="100" rx="3" fill={C.cyan} opacity="0.85" />
@@ -188,9 +259,21 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <rect x="90" y="80" width="620" height="40" fill={C.ice} />
           {/* sign fascia */}
           <rect x="120" y="150" width="560" height="110" rx="8" fill={C.ink} />
-          <rect x="120" y="150" width="560" height="110" rx="8" fill="none" stroke={C.cyan} strokeWidth="4" opacity="0.6" />
+          <rect
+            x="120"
+            y="150"
+            width="560"
+            height="110"
+            rx="8"
+            fill="none"
+            stroke={C.cyan}
+            strokeWidth="4"
+            opacity="0.6"
+          />
           <Mark x={200} y={205} r={36} a={C.cyan} b={C.ice} />
-          <text x="255" y="218" fontSize="36" fontWeight="700" fill={C.white}>{label}</text>
+          <text x="255" y="218" fontSize="36" fontWeight="700" fill={C.white}>
+            {label}
+          </text>
           {/* glow */}
           <rect x="120" y="262" width="560" height="14" fill={C.cyan} opacity="0.25" />
           {/* windows and door */}
@@ -203,13 +286,139 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <rect x="60" y="540" width="680" height="16" fill={C.ink} opacity="0.4" />
         </g>
       );
+    case "pylon":
+      return (
+        <g>
+          {/* road and forecourt */}
+          <rect x="0" y="500" width="800" height="100" fill={C.ink} opacity="0.55" />
+          <g fill={C.ice} opacity="0.5">
+            {[40, 200, 360, 520, 680].map((x) => (
+              <rect key={x} x={x} y="548" width="90" height="8" rx="4" />
+            ))}
+          </g>
+          {/* canopy */}
+          <rect x="40" y="250" width="360" height="56" rx="4" fill={C.white} />
+          <rect x="40" y="250" width="360" height="18" fill={C.cyan} />
+          <Mark x={95} y={287} r={16} />
+          <rect x="125" y="280" width="140" height="12" rx="6" fill={C.blue} />
+          {[90, 330].map((x) => (
+            <rect key={x} x={x} y="306" width="20" height="194" fill={C.ice} opacity="0.9" />
+          ))}
+          <rect x="170" y="400" width="70" height="100" rx="6" fill={C.blue} />
+          <rect x="182" y="414" width="46" height="26" rx="3" fill={C.cyan} />
+          {/* pylon */}
+          <rect x="560" y="70" width="150" height="430" rx="6" fill={C.white} />
+          <rect x="560" y="70" width="150" height="150" rx="6" fill={C.blue} />
+          <Mark x={635} y={128} r={40} a={C.white} b={C.ice} />
+          <text x="635" y="200" fontSize="20" fontWeight="700" fill={C.white} textAnchor="middle">
+            {label.split(" ")[0]}
+          </text>
+          {["Petrol", "Diesel", "Gas"].map((fuel, i) => (
+            <g key={fuel}>
+              <rect x="572" y={238 + i * 62} width="126" height="50" rx="4" fill={C.ink} />
+              <text x="582" y={258 + i * 62} fontSize="13" fontWeight="700" fill={C.ice}>
+                {fuel}
+              </text>
+              <text x="688" y={278 + i * 62} fontSize="24" fontWeight="700" fill={C.cyan} textAnchor="end">
+                {["5,150", "4,890", "9,500"][i]}
+              </text>
+            </g>
+          ))}
+          <rect x="600" y="430" width="70" height="70" fill={C.teal} />
+          {/* glow */}
+          <rect x="548" y="60" width="174" height="170" rx="12" fill={C.cyan} opacity="0.12" />
+        </g>
+      );
+    case "lightbox":
+      return (
+        <g>
+          {/* mall frontage */}
+          <rect x="60" y="90" width="680" height="450" fill={C.mist} />
+          <rect x="60" y="90" width="680" height="30" fill={C.ice} />
+          {/* ACP fascia with halo letters */}
+          <rect x="90" y="140" width="520" height="100" rx="6" fill={C.teal} />
+          <rect x="96" y="232" width="508" height="10" fill={C.cyan} opacity="0.35" />
+          <Mark x={150} y={190} r={32} a={C.white} b={C.ice} />
+          <text x="200" y="204" fontSize="34" fontWeight="700" fill={C.white}>
+            {label}
+          </text>
+          {/* projecting double-sided light box */}
+          <rect x="620" y="170" width="20" height="16" fill={C.ink} />
+          <circle cx="690" cy="200" r="62" fill={C.cyan} opacity="0.2" />
+          <circle cx="690" cy="200" r="48" fill={C.white} stroke={C.cyan} strokeWidth="6" />
+          <rect x="676" y="170" width="28" height="60" rx="4" fill={C.cyan} />
+          <rect x="660" y="186" width="60" height="28" rx="4" fill={C.cyan} />
+          {/* glazing and door */}
+          <rect x="100" y="280" width="230" height="240" fill={C.blue} opacity="0.85" />
+          <rect x="470" y="280" width="230" height="240" fill={C.blue} opacity="0.85" />
+          <rect x="350" y="290" width="100" height="230" fill={C.teal} />
+          <Lines x={120} y={310} w={180} n={3} gap={22} color={C.ice} h={8} />
+          {/* backlit fabric poster inside */}
+          <rect x="500" y="310" width="170" height="180" rx="4" fill={C.white} />
+          <rect x="500" y="310" width="170" height="180" rx="4" fill={C.cyan} opacity="0.25" />
+          <Mark x={585} y={380} r={40} />
+          <rect x="530" y="440" width="110" height="10" rx="5" fill={C.blue} />
+          <rect x="30" y="540" width="740" height="16" fill={C.ink} opacity="0.4" />
+        </g>
+      );
+    case "plaque":
+      return (
+        <g>
+          <rect x="0" y="520" width="800" height="80" fill={C.ink} opacity="0.35" />
+          {/* granite plaque with brass panel */}
+          <rect x="70" y="110" width="400" height="330" rx="10" fill={C.ink} />
+          <rect x="96" y="136" width="348" height="278" rx="6" fill={BRASS} />
+          <rect x="108" y="148" width="324" height="254" rx="4" fill="none" stroke={BRASS_DARK} strokeWidth="3" />
+          <Mark x={270} y={205} r={34} a={BRASS_DARK} b={C.ink} />
+          <text x="270" y="275" fontSize="22" fontWeight="700" fill={C.ink} textAnchor="middle">
+            {label}
+          </text>
+          <Lines x={150} y={300} w={240} n={4} gap={22} color={BRASS_DARK} h={7} />
+          <rect x="150" y="440" width="240" height="80" fill={C.ink} opacity="0.85" />
+          {/* wayfinding post */}
+          <rect x="610" y="140" width="14" height="380" fill={C.ice} />
+          {[
+            ["Library", 170, 1],
+            ["Workshops", 240, -1],
+            ["Admin", 310, 1],
+            ["Hostels", 380, -1],
+          ].map(([text, y, dir]) => {
+            const right = dir === 1;
+            const x = right ? 624 : 474;
+            return (
+              <g key={text as string}>
+                <polygon
+                  points={
+                    right
+                      ? `${x},${y} ${x + 130},${y} ${x + 150},${(y as number) + 24} ${x + 130},${(y as number) + 48} ${x},${(y as number) + 48}`
+                      : `${x + 136},${y} ${x + 6},${y} ${x - 14},${(y as number) + 24} ${x + 6},${(y as number) + 48} ${x + 136},${(y as number) + 48}`
+                  }
+                  fill={right ? C.white : C.blue}
+                />
+                <text
+                  x={right ? x + 16 : x + 124}
+                  y={(y as number) + 31}
+                  fontSize="18"
+                  fontWeight="700"
+                  fill={right ? C.blue : C.white}
+                  textAnchor={right ? "start" : "end"}
+                >
+                  {text}
+                </text>
+              </g>
+            );
+          })}
+        </g>
+      );
     case "social":
       return (
         <g>
           <rect x="250" y="40" width="300" height="540" rx="40" fill={C.ink} />
           <rect x="266" y="60" width="268" height="500" rx="28" fill={C.white} />
           <Mark x={302} y={100} r={18} />
-          <text x="330" y="106" fontSize="16" fontWeight="700" fill={C.blue}>{label.slice(0, 20)}</text>
+          <text x="330" y="106" fontSize="16" fontWeight="700" fill={C.blue}>
+            {label.slice(0, 20)}
+          </text>
           <Lines x={286} y={132} w={228} n={1} color={C.mist} h={8} />
           {Array.from({ length: 9 }, (_, i) => {
             const col = i % 3;
@@ -219,7 +428,9 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
               <g key={i}>
                 <rect x={282 + col * 82} y={160 + row * 82} width="76" height="76" rx="6" fill={fills[(i + row) % 4]} />
                 {i % 4 === 0 && <Mark x={320 + col * 82} y={198 + row * 82} r={18} a={C.white} b={C.ice} />}
-                {i % 4 === 2 && <Lines x={292 + col * 82} y={180 + row * 82} w={56} n={3} gap={14} color={C.white} h={6} />}
+                {i % 4 === 2 && (
+                  <Lines x={292 + col * 82} y={180 + row * 82} w={56} n={3} gap={14} color={C.white} h={6} />
+                )}
               </g>
             );
           })}
@@ -242,7 +453,9 @@ function Scene({ kind, label }: { kind: ProjectArtKind; label: string }) {
           <rect x="100" y="80" width="600" height="280" fill={C.blue} />
           <circle cx="600" cy="220" r="120" fill={C.cyan} opacity="0.55" />
           <Mark x={600} y={220} r={70} a={C.white} b={C.ice} />
-          <text x="130" y="170" fontSize="40" fontWeight="700" fill={C.white}>{label.slice(0, 16)}</text>
+          <text x="130" y="170" fontSize="40" fontWeight="700" fill={C.white}>
+            {label.slice(0, 16)}
+          </text>
           <Lines x={130} y={200} w={300} n={2} gap={22} color={C.ice} h={10} />
           <rect x="130" y="270" width="150" height="40" rx="20" fill={C.cyan} />
           <rect x="140" y="360" width="80" height="10" fill={C.ink} opacity="0.6" />
@@ -262,7 +475,15 @@ export function ProjectArt({ kind, label, seed = "" }: { kind: ProjectArtKind; l
   const [from, to] = BACKGROUNDS[kind];
   const id = `art-${kind}-${seed.replace(/[^a-z0-9-]/gi, "")}`;
   return (
-    <svg viewBox="0 0 800 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label={`${label} — illustration`} style={{ display: "block", fontFamily: "inherit" }}>
+    <svg
+      viewBox="0 0 800 600"
+      width="100%"
+      height="100%"
+      preserveAspectRatio="xMidYMid slice"
+      role="img"
+      aria-label={`${label} — illustration`}
+      style={{ display: "block", fontFamily: "inherit" }}
+    >
       <defs>
         <linearGradient id={`${id}-bg`} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor={from} />
