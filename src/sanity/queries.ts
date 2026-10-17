@@ -17,7 +17,7 @@ const image = (field: string) => groq`
 const seo = groq`"seo": seo{ title, description }`;
 
 export const settingsQuery = groq`*[_type == "siteSettings"][0]{
-  name, tagline, description, phone, phoneAlt, whatsapp, email, address, city,
+  name, tagline, description, phone, phoneAlt, whatsapp, email, address, city, poBox,
   mapEmbedUrl, hours,
   "socials": coalesce(socials[]{ platform, url }, []),
   "stats": coalesce(stats[]{ value, label }, [])

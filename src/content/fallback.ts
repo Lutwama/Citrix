@@ -12,6 +12,7 @@ export const settings: SiteSettings = {
   email: "citrixsolutionsltd2025@gmail.com",
   address: "Blue Heights Building, Level 6, Room J506, Nkrumah Road",
   city: "Kampala, Uganda",
+  poBox: "P.O. Box 181454, Kampala, Uganda",
   mapEmbedUrl: "https://www.google.com/maps?q=Blue%20Heights%20Building%2C%20Nkrumah%20Road%2C%20Kampala&output=embed",
   hours: "Mon – Sat, 8:00am – 6:00pm",
   socials: [

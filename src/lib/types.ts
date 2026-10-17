@@ -27,6 +27,7 @@ export type SiteSettings = {
   email: string;
   address: string;
   city: string;
+  poBox?: string; // postal address, e.g. "P.O. Box 181454, Kampala, Uganda"
   mapEmbedUrl?: string;
   hours?: string;
   socials: { platform: string; url: string }[];

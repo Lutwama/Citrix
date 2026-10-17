@@ -1,5 +1,5 @@
 import { Box, Container, Flex, Grid, HStack, Link, Stack, Text } from "@chakra-ui/react";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, Mailbox, MapPin, Phone } from "lucide-react";
 import NextLink from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { BillboardSplash } from "@/components/ui/primitives";
@@ -20,7 +20,15 @@ export function Footer({ settings, services }: { settings: SiteSettings; service
   const linkProps = { color: "whiteAlpha.800", _hover: { color: "white" } } as const;
 
   return (
-    <Box as="footer" position="relative" overflow="hidden" bg="brand.ink" color="white" pt={{ base: 16, md: 20 }} pb={8}>
+    <Box
+      as="footer"
+      position="relative"
+      overflow="hidden"
+      bg="brand.ink"
+      color="white"
+      pt={{ base: 16, md: 20 }}
+      pb={8}
+    >
       <BillboardSplash opacity={0.2} />
       <Container maxW="7xl" position="relative">
         <Grid templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "1.4fr 1fr 1fr 1.3fr" }} gap={{ base: 10, lg: 12 }}>
@@ -84,6 +92,12 @@ export function Footer({ settings, services }: { settings: SiteSettings; service
                   {settings.city}
                 </Text>
               </Flex>
+              {settings.poBox && (
+                <Flex gap={3} align="center">
+                  <Mailbox size={18} style={{ flexShrink: 0 }} />
+                  <Text>{settings.poBox}</Text>
+                </Flex>
+              )}
               <Flex gap={3} align="center">
                 <Phone size={18} />
                 <Link href={telLink(settings.phone)} {...linkProps}>
@@ -117,7 +131,9 @@ export function Footer({ settings, services }: { settings: SiteSettings; service
           fontSize="sm"
           color="whiteAlpha.700"
         >
-          <Text>© {new Date().getFullYear()} {settings.name}. All rights reserved.</Text>
+          <Text>
+            © {new Date().getFullYear()} {settings.name}. All rights reserved.
+          </Text>
           <Text>{settings.tagline}</Text>
         </Flex>
       </Container>

@@ -22,6 +22,12 @@ export const siteSettings = defineType({
     defineField({ name: "email", type: "string" }),
     defineField({ name: "address", type: "string" }),
     defineField({ name: "city", type: "string", initialValue: "Kampala, Uganda" }),
+    defineField({
+      name: "poBox",
+      title: "P.O. Box",
+      description: "Postal address, e.g. P.O. Box 181454, Kampala, Uganda",
+      type: "string",
+    }),
     defineField({ name: "hours", title: "Opening hours", type: "string" }),
     defineField({ name: "mapEmbedUrl", title: "Google Maps embed URL", type: "url" }),
     defineField({
@@ -49,10 +55,7 @@ export const siteSettings = defineType({
       of: [
         defineArrayMember({
           type: "object",
-          fields: [
-            defineField({ name: "value", type: "string" }),
-            defineField({ name: "label", type: "string" }),
-          ],
+          fields: [defineField({ name: "value", type: "string" }), defineField({ name: "label", type: "string" })],
           preview: { select: { title: "value", subtitle: "label" } },
         }),
       ],
